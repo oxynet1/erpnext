@@ -1,0 +1,85 @@
+{
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2019-05-27 19:29:33.183074",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "zone_name",
+  "city_name",
+  "passed_as",
+  "rate_percent"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Zone Code",
+   "options": ".zone_name.-.city_name.-.passed_as.-.#####"
+  },
+  {
+   "fieldname": "zone_name",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "RTO Zone",
+   "options": "\nZone-A\nZone-B"
+  },
+  {
+   "fieldname": "city_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "City"
+  },
+  {
+   "fieldname": "passed_as",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Passing",
+   "options": "\nPrivate\nCommercial"
+  },
+  {
+   "fieldname": "rate_percent",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Rate (%)"
+  }
+ ],
+ "modified": "2019-05-27 19:33:41.630231",
+ "modified_by": "Administrator",
+ "module": "Assets",
+ "name": "RTO Zone",
+ "name_case": "UPPER CASE",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

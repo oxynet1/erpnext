@@ -1,0 +1,127 @@
+{
+ "creation": "2019-06-11 13:00:17.318194",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "route_location_name",
+  "route_assetloc",
+  "route_lat",
+  "type",
+  "route_qrcode",
+  "column_break_6",
+  "route_assetname",
+  "barcode",
+  "route_assetcap",
+  "route_long",
+  "clean_status",
+  "fawardno",
+  "image_details_section",
+  "route_icon",
+  "column_break_15",
+  "route_binphoto",
+  "route_photo"
+ ],
+ "fields": [
+  {
+   "fieldname": "route_location_name",
+   "fieldtype": "Link",
+   "label": "Route Location Name",
+   "options": "Asset"
+  },
+  {
+   "fieldname": "route_assetloc",
+   "fieldtype": "Data",
+   "label": "Asset Location"
+  },
+  {
+   "fieldname": "route_lat",
+   "fieldtype": "Data",
+   "label": "Route Latitude"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Data",
+   "label": "Type"
+  },
+  {
+   "fieldname": "route_qrcode",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "QR Code",
+   "options": "\nEnable\nDisable",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "route_assetname",
+   "fieldtype": "Data",
+   "label": "Asset Name"
+  },
+  {
+   "fieldname": "barcode",
+   "fieldtype": "Data",
+   "label": "QR Code"
+  },
+  {
+   "fieldname": "route_assetcap",
+   "fieldtype": "Data",
+   "label": "Asset Capacity"
+  },
+  {
+   "fieldname": "route_long",
+   "fieldtype": "Float",
+   "label": "Route Longitude"
+  },
+  {
+   "fieldname": "clean_status",
+   "fieldtype": "Select",
+   "label": "Cleaning Status",
+   "options": "Pending\nClean"
+  },
+  {
+   "fieldname": "fawardno",
+   "fieldtype": "Data",
+   "label": "Ward No"
+  },
+  {
+   "fieldname": "image_details_section",
+   "fieldtype": "Section Break",
+   "label": "Image Details"
+  },
+  {
+   "fieldname": "route_icon",
+   "fieldtype": "Attach Image",
+   "label": "Route Icon"
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "route_binphoto",
+   "fieldtype": "Attach Image",
+   "label": "Bin Image"
+  },
+  {
+   "fieldname": "route_photo",
+   "fieldtype": "Data",
+   "label": "Route Photo",
+   "options": "\nEnable\nDisable"
+  }
+ ],
+ "istable": 1,
+ "modified": "2019-06-11 13:00:29.376314",
+ "modified_by": "Administrator",
+ "module": "Assets",
+ "name": "Route Info",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

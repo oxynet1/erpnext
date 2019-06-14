@@ -208,4 +208,12 @@ def get_data():
 			'standard': 1,
 			"description": "Publish items to other ERPNext users."
 		},
+		{
+			"module_name": "someapp",
+			"color": "#F1C40F",
+			"icon": "octicon octicon-location",
+			"label": _("Traccar"),
+			"type": "page",
+			"link": "traccar"
+    	}
 	]

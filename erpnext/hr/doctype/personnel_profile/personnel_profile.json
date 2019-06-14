@@ -1,0 +1,263 @@
+{
+ "allow_events_in_timeline": 1,
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "psid:",
+ "creation": "2019-05-25 20:53:57.607768",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "psid",
+  "salutation",
+  "first_name",
+  "middle_name",
+  "last_name",
+  "personnel_name",
+  "photograph",
+  "signature",
+  "status",
+  "status_effective_date",
+  "status_reason",
+  "birth_date",
+  "age",
+  "identity_details",
+  "address",
+  "is_handicap",
+  "handicap_type",
+  "handicap_since",
+  "is_disabled",
+  "unique_disability_id",
+  "has_disability_certificate",
+  "disability_certificate",
+  "disability_certificate_num",
+  "disability_certificate_issue_date",
+  "disability_percentage",
+  "disability_certificate_issuing_authority",
+  "disability_type",
+  "is_disability_by_birth",
+  "disability_since",
+  "disability_area",
+  "disability_due_to"
+ ],
+ "fields": [
+  {
+   "fieldname": "salutation",
+   "fieldtype": "Link",
+   "label": "Salutation",
+   "options": "Salutation"
+  },
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "label": "First Name"
+  },
+  {
+   "fieldname": "middle_name",
+   "fieldtype": "Data",
+   "label": "Middle Name"
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "label": "Last Name"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Link",
+   "label": "Status",
+   "options": "Personnel Record Status"
+  },
+  {
+   "fieldname": "psid",
+   "fieldtype": "Data",
+   "label": "Personnel ID"
+  },
+  {
+   "fieldname": "personnel_name",
+   "fieldtype": "Read Only",
+   "label": "Personnel Name"
+  },
+  {
+   "fieldname": "status_effective_date",
+   "fieldtype": "Date",
+   "label": "Status Effective Date"
+  },
+  {
+   "fieldname": "status_reason",
+   "fieldtype": "Text Editor",
+   "label": "Status Reason / Notes"
+  },
+  {
+   "fieldname": "photograph",
+   "fieldtype": "Attach Image",
+   "label": "Photograph"
+  },
+  {
+   "fieldname": "signature",
+   "fieldtype": "Attach Image",
+   "label": "Signature"
+  },
+  {
+   "fieldname": "birth_date",
+   "fieldtype": "Date",
+   "label": "Date of Birth (DOB)"
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Read Only",
+   "label": "Age"
+  },
+  {
+   "fieldname": "is_handicap",
+   "fieldtype": "Check",
+   "label": "Is Handicap ?"
+  },
+  {
+   "fieldname": "handicap_since",
+   "fieldtype": "Date",
+   "label": "Handicap Since"
+  },
+  {
+   "fieldname": "identity_details",
+   "fieldtype": "Table",
+   "label": "Identity Details",
+   "options": "Personnel Identity Details"
+  },
+  {
+   "fieldname": "handicap_type",
+   "fieldtype": "Table",
+   "label": "Type of Handicap",
+   "options": "Personnel Handicap Type"
+  },
+  {
+   "fieldname": "is_disabled",
+   "fieldtype": "Check",
+   "label": "Has Disability ?"
+  },
+  {
+   "fieldname": "unique_disability_id",
+   "fieldtype": "Data",
+   "label": "Unique Disability ID"
+  },
+  {
+   "fieldname": "has_disability_certificate",
+   "fieldtype": "Check",
+   "label": "Has disability certificate"
+  },
+  {
+   "fieldname": "disability_certificate",
+   "fieldtype": "Attach",
+   "label": "Disability Certificate"
+  },
+  {
+   "fieldname": "disability_certificate_num",
+   "fieldtype": "Data",
+   "label": "Sr./Reg. No. of Certificate"
+  },
+  {
+   "fieldname": "disability_certificate_issue_date",
+   "fieldtype": "Date",
+   "label": "Date of Issue"
+  },
+  {
+   "fieldname": "disability_percentage",
+   "fieldtype": "Data",
+   "label": "Disability Percentage"
+  },
+  {
+   "fieldname": "disability_certificate_issuing_authority",
+   "fieldtype": "Select",
+   "label": "Details of Issuing Authority",
+   "options": "\nChief Medical Office\nMedical Authority"
+  },
+  {
+   "fieldname": "disability_type",
+   "fieldtype": "Table MultiSelect",
+   "label": "Disability Type",
+   "options": "Personnel Disability Type"
+  },
+  {
+   "fieldname": "is_disability_by_birth",
+   "fieldtype": "Check",
+   "label": "Disability by Birth"
+  },
+  {
+   "fieldname": "disability_since",
+   "fieldtype": "Date",
+   "label": "Disability Since"
+  },
+  {
+   "fieldname": "disability_area",
+   "fieldtype": "Table MultiSelect",
+   "label": "Disability Area",
+   "options": "Personnel Disability Area"
+  },
+  {
+   "fieldname": "disability_due_to",
+   "fieldtype": "Select",
+   "label": "Disability Due To",
+   "options": "\nAccident\nCongenital\nHereditary"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Table",
+   "label": "Address",
+   "options": "Address"
+  }
+ ],
+ "icon": "fa fa-user",
+ "image_field": "photograph",
+ "modified": "2019-05-25 23:26:47.024694",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Personnel Profile",
+ "name_case": "Title Case",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "set_user_permissions": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "search_fields": "personnel_name",
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "personnel_name",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

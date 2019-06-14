@@ -1,0 +1,13 @@
+{
+ "creation": "2019-05-14 23:07:43.371143",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart Source",
+ "idx": 0,
+ "modified": "2019-05-14 23:07:43.371143",
+ "modified_by": "Administrator",
+ "module": "Assets",
+ "name": "Asset Custom Datasource",
+ "owner": "Administrator",
+ "source_name": "Asset Custom Datasource",
+ "timeseries": 0
+}

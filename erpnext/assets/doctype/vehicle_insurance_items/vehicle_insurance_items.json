@@ -1,0 +1,45 @@
+{
+ "creation": "2019-06-04 12:14:08.853854",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "insurance_items_name",
+  "renewal_year",
+  "variant"
+ ],
+ "fields": [
+  {
+   "fieldname": "insurance_items_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Insurance Items Name",
+   "options": "Item"
+  },
+  {
+   "fieldname": "variant",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Variant (%)"
+  },
+  {
+   "fieldname": "renewal_year",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Renewal Year",
+   "options": "\n1\n2\n3\n4\n5"
+  }
+ ],
+ "istable": 1,
+ "modified": "2019-06-05 13:08:26.789068",
+ "modified_by": "Administrator",
+ "module": "Assets",
+ "name": "Vehicle Insurance Items",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

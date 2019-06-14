@@ -1,0 +1,42 @@
+{
+ "creation": "2019-06-14 15:31:59.898017",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "task_name",
+  "charges",
+  "assigned_to"
+ ],
+ "fields": [
+  {
+   "fieldname": "task_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Task Name"
+  },
+  {
+   "fieldname": "charges",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Charges"
+  },
+  {
+   "fieldname": "assigned_to",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Assigned To",
+   "options": "User"
+  }
+ ],
+ "istable": 1,
+ "modified": "2019-06-14 15:53:56.737296",
+ "modified_by": "Administrator",
+ "module": "Assets",
+ "name": "Maintenance Task Table",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}
