@@ -145,6 +145,10 @@ class StockEntry(StockController):
 				self.precision("transfer_qty", item))
 
 	def update_cost_in_project(self):
+		if (self.work_order and not frappe.db.get_value("Work Order",
+			self.work_order, "update_consumed_material_cost_in_project")):
+			return
+
 		if self.project:
 			amount = frappe.db.sql(""" select ifnull(sum(sed.amount), 0)
 				from
@@ -324,8 +328,10 @@ class StockEntry(StockController):
 			completed_qty = d.completed_qty + (allowance_percentage/100 * d.completed_qty)
 			if total_completed_qty > flt(completed_qty):
 				job_card = frappe.db.get_value('Job Card', {'operation_id': d.name}, 'name')
-				frappe.throw(_("Row #{0}: Operation {1} is not completed for {2} qty of finished goods in Work Order # {3}. Please update operation status via Job Card # {4}")
-					.format(d.idx, d.operation, total_completed_qty, self.work_order, job_card), OperationsNotCompleteError)
+				work_order_link = frappe.utils.get_link_to_form('Work Order', self.work_order)
+				job_card_link = frappe.utils.get_link_to_form('Job Card', job_card)
+				frappe.throw(_("Row #{0}: Operation {1} is not completed for {2} qty of finished goods in Work Order {3}. Please update operation status via Job Card {4}.")
+					.format(d.idx, frappe.bold(d.operation), frappe.bold(total_completed_qty), work_order_link, job_card_link), OperationsNotCompleteError)
 
 	def check_duplicate_entry_for_work_order(self):
 		other_ste = [t[0] for t in frappe.db.get_values("Stock Entry",  {
@@ -357,7 +363,7 @@ class StockEntry(StockController):
 				d.basic_rate = 0.0
 			elif d.t_warehouse and not d.basic_rate:
 				d.basic_rate = get_valuation_rate(d.item_code, d.t_warehouse,
-					self.doctype, d.name, d.allow_zero_valuation_rate,
+					self.doctype, self.name, d.allow_zero_valuation_rate,
 					currency=erpnext.get_company_currency(self.company))
 
 	def set_actual_qty(self):
@@ -376,10 +382,10 @@ class StockEntry(StockController):
 
 			# validate qty during submit
 			if d.docstatus==1 and d.s_warehouse and not allow_negative_stock and flt(d.actual_qty, d.precision("actual_qty")) < flt(d.transfer_qty, d.precision("actual_qty")):
-				frappe.throw(_("Row {0}: Qty not available for {4} in warehouse {1} at posting time of the entry ({2} {3})").format(d.idx,
+				frappe.throw(_("Row {0}: Quantity not available for {4} in warehouse {1} at posting time of the entry ({2} {3})").format(d.idx,
 					frappe.bold(d.s_warehouse), formatdate(self.posting_date),
 					format_time(self.posting_time), frappe.bold(d.item_code))
-					+ '<br><br>' + _("Available qty is {0}, you need {1}").format(frappe.bold(d.actual_qty),
+					+ '<br><br>' + _("Available quantity is {0}, you need {1}").format(frappe.bold(d.actual_qty),
 						frappe.bold(d.transfer_qty)),
 					NegativeStockError, title=_('Insufficient Stock'))
 
@@ -800,13 +806,13 @@ class StockEntry(StockController):
 
 					self.add_to_stock_entry_detail(item_dict)
 
-					if self.purpose != "Send to Subcontractor":
-						scrap_item_dict = self.get_bom_scrap_material(self.fg_completed_qty)
-						for item in itervalues(scrap_item_dict):
-							if self.pro_doc and self.pro_doc.scrap_warehouse:
-								item["to_warehouse"] = self.pro_doc.scrap_warehouse
+				if self.purpose != "Send to Subcontractor" and self.purpose == "Manufacture":
+					scrap_item_dict = self.get_bom_scrap_material(self.fg_completed_qty)
+					for item in itervalues(scrap_item_dict):
+						if self.pro_doc and self.pro_doc.scrap_warehouse:
+							item["to_warehouse"] = self.pro_doc.scrap_warehouse
 
-						self.add_to_stock_entry_detail(scrap_item_dict, bom_no=self.bom_no)
+					self.add_to_stock_entry_detail(scrap_item_dict, bom_no=self.bom_no)
 
 			# fetch the serial_no of the first stock entry for the second stock entry
 			if self.work_order and self.purpose == "Manufacture":

@@ -2,11 +2,16 @@
  "allow_events_in_timeline": 1,
  "allow_import": 1,
  "allow_rename": 1,
+<<<<<<< HEAD
  "autoname": "series",
+=======
+ "autoname": "naming_series:",
+>>>>>>> d8c262fd5c9611c65a33bafac57c2084f3dc8bbb
  "creation": "2013-03-07 09:04:18",
  "doctype": "DocType",
  "document_type": "Setup",
  "editable_grid": 1,
+<<<<<<< HEAD
  "engine": "InnoDB",
  "field_order": [
   "section_break_1",
@@ -17,12 +22,18 @@
   "basic_information",
   "employee",
   "aadhar_no",
+=======
+ "field_order": [
+  "basic_information",
+  "employee",
+>>>>>>> d8c262fd5c9611c65a33bafac57c2084f3dc8bbb
   "naming_series",
   "salutation",
   "first_name",
   "middle_name",
   "last_name",
   "employee_name",
+<<<<<<< HEAD
   "date_of_birth",
   "pf_number",
   "bank_account",
@@ -62,6 +73,21 @@
   "end_date",
   "con_dtils_sec_bk",
   "work_details",
+=======
+  "image",
+  "column_break1",
+  "company",
+  "status",
+  "employee_number",
+  "employment_type",
+  "gender",
+  "date_of_birth",
+  "date_of_joining",
+  "emergency_contact_details",
+  "emergency_phone_number",
+  "person_to_be_contacted",
+  "relation",
+>>>>>>> d8c262fd5c9611c65a33bafac57c2084f3dc8bbb
   "erpnext_user",
   "user_id",
   "create_user",
@@ -81,9 +107,18 @@
   "column_break_31",
   "grade",
   "branch",
+<<<<<<< HEAD
   "organization_profile",
   "leave_policy",
   "holiday_list",
+=======
+  "attendance_and_leave_details",
+  "leave_policy",
+  "attendance_device_id",
+  "column_break_44",
+  "holiday_list",
+  "default_shift",
+>>>>>>> d8c262fd5c9611c65a33bafac57c2084f3dc8bbb
   "salary_information",
   "salary_mode",
   "bank_name",
@@ -123,6 +158,10 @@
   "internal_work_history",
   "exit",
   "resignation_letter_date",
+<<<<<<< HEAD
+=======
+  "relieving_date",
+>>>>>>> d8c262fd5c9611c65a33bafac57c2084f3dc8bbb
   "reason_for_leaving",
   "leave_encashed",
   "encashment_date",
@@ -158,7 +197,10 @@
    "oldfieldname": "naming_series",
    "oldfieldtype": "Select",
    "options": "HR-EMP-",
+<<<<<<< HEAD
    "reqd": 1,
+=======
+>>>>>>> d8c262fd5c9611c65a33bafac57c2084f3dc8bbb
    "set_only_once": 1
   },
   {
@@ -432,6 +474,7 @@
    "options": "Branch"
   },
   {
+<<<<<<< HEAD
    "collapsible": 1,
    "fieldname": "organization_profile",
    "fieldtype": "Section Break",
@@ -439,6 +482,8 @@
    "label": "Leave Details"
   },
   {
+=======
+>>>>>>> d8c262fd5c9611c65a33bafac57c2084f3dc8bbb
    "fieldname": "leave_policy",
    "fieldtype": "Link",
    "label": "Leave Policy",
@@ -456,17 +501,27 @@
   },
   {
    "collapsible": 1,
+<<<<<<< HEAD
    "depends_on": "eval:doc.bank_account == 'Yes'",
    "fieldname": "salary_information",
    "fieldtype": "Section Break",
    "label": "Bank Details",
+=======
+   "fieldname": "salary_information",
+   "fieldtype": "Section Break",
+   "label": "Salary Details",
+>>>>>>> d8c262fd5c9611c65a33bafac57c2084f3dc8bbb
    "oldfieldtype": "Section Break",
    "width": "50%"
   },
   {
    "fieldname": "salary_mode",
    "fieldtype": "Select",
+<<<<<<< HEAD
    "label": "Payment Mode",
+=======
+   "label": "Salary Mode",
+>>>>>>> d8c262fd5c9611c65a33bafac57c2084f3dc8bbb
    "oldfieldname": "salary_mode",
    "oldfieldtype": "Select",
    "options": "\nBank\nCash\nCheque"
@@ -491,7 +546,10 @@
    "collapsible": 1,
    "fieldname": "health_insurance_section",
    "fieldtype": "Section Break",
+<<<<<<< HEAD
    "hidden": 1,
+=======
+>>>>>>> d8c262fd5c9611c65a33bafac57c2084f3dc8bbb
    "label": "Health Insurance"
   },
   {
@@ -582,7 +640,10 @@
    "collapsible": 1,
    "fieldname": "sb53",
    "fieldtype": "Section Break",
+<<<<<<< HEAD
    "hidden": 1,
+=======
+>>>>>>> d8c262fd5c9611c65a33bafac57c2084f3dc8bbb
    "label": "Personal Bio"
   },
   {
@@ -595,7 +656,10 @@
    "collapsible": 1,
    "fieldname": "personal_details",
    "fieldtype": "Section Break",
+<<<<<<< HEAD
    "hidden": 1,
+=======
+>>>>>>> d8c262fd5c9611c65a33bafac57c2084f3dc8bbb
    "label": "Personal Details"
   },
   {
@@ -651,7 +715,10 @@
    "collapsible": 1,
    "fieldname": "educational_qualification",
    "fieldtype": "Section Break",
+<<<<<<< HEAD
    "hidden": 1,
+=======
+>>>>>>> d8c262fd5c9611c65a33bafac57c2084f3dc8bbb
    "label": "Educational Qualification"
   },
   {
@@ -690,7 +757,10 @@
    "collapsible": 1,
    "fieldname": "exit",
    "fieldtype": "Section Break",
+<<<<<<< HEAD
    "hidden": 1,
+=======
+>>>>>>> d8c262fd5c9611c65a33bafac57c2084f3dc8bbb
    "label": "Exit",
    "oldfieldtype": "Section Break"
   },
@@ -702,7 +772,10 @@
    "oldfieldtype": "Date"
   },
   {
+<<<<<<< HEAD
    "depends_on": "eval:doc.status == 'Left'",
+=======
+>>>>>>> d8c262fd5c9611c65a33bafac57c2084f3dc8bbb
    "fieldname": "relieving_date",
    "fieldtype": "Date",
    "label": "Relieving Date",
@@ -790,6 +863,7 @@
    "label": "Old Parent"
   },
   {
+<<<<<<< HEAD
    "fieldname": "aadhar_no",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -968,12 +1042,39 @@
    "fieldtype": "Link",
    "label": "Cnadidate Code",
    "options": "Candidate Details"
+=======
+   "fieldname": "attendance_device_id",
+   "fieldtype": "Data",
+   "label": "Attendance Device ID (Biometric/RF tag ID)",
+   "no_copy": 1,
+   "unique": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "attendance_and_leave_details",
+   "fieldtype": "Section Break",
+   "label": "Attendance and Leave Details"
+  },
+  {
+   "fieldname": "column_break_44",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "default_shift",
+   "fieldtype": "Link",
+   "label": "Default Shift",
+   "options": "Shift Type"
+>>>>>>> d8c262fd5c9611c65a33bafac57c2084f3dc8bbb
   }
  ],
  "icon": "fa fa-user",
  "idx": 24,
  "image_field": "image",
+<<<<<<< HEAD
  "modified": "2019-08-22 11:42:15.434683",
+=======
+ "modified": "2019-06-01 16:05:55.132180",
+>>>>>>> d8c262fd5c9611c65a33bafac57c2084f3dc8bbb
  "modified_by": "Administrator",
  "module": "HR",
  "name": "Employee",
@@ -1012,6 +1113,7 @@
    "role": "HR Manager",
    "set_user_permissions": 1,
    "share": 1,
+<<<<<<< HEAD
    "write": 1
   },
   {
@@ -1036,6 +1138,8 @@
    "report": 1,
    "role": "Manager",
    "share": 1,
+=======
+>>>>>>> d8c262fd5c9611c65a33bafac57c2084f3dc8bbb
    "write": 1
   }
  ],

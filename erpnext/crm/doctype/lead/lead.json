@@ -620,7 +620,17 @@
  "icon": "fa fa-user",
  "idx": 5,
  "image_field": "image",
+<<<<<<< HEAD
  "modified": "2019-08-05 15:47:34.161779",
+=======
+ "image_view": 0,
+ "in_create": 0,
+ "is_submittable": 0,
+ "issingle": 0,
+ "istable": 0,
+ "max_attachments": 0,
+ "modified": "2019-06-18 03:22:57.283628",
+>>>>>>> d8c262fd5c9611c65a33bafac57c2084f3dc8bbb
  "modified_by": "Administrator",
  "module": "CRM",
  "name": "Lead",

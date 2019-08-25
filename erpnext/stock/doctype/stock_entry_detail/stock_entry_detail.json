@@ -78,7 +78,8 @@
   "ste_detail",
   "column_break_51",
   "transferred_qty",
-  "reference_purchase_receipt"
+  "reference_purchase_receipt",
+  "project"
  ],
  "fields": [
   {
@@ -493,6 +494,7 @@
    "read_only": 1
   },
   {
+<<<<<<< HEAD
    "fieldname": "vehicle_details_section",
    "fieldtype": "Section Break",
    "label": "Vehicle Details"
@@ -582,11 +584,22 @@
    "fieldtype": "Link",
    "label": "Variant",
    "options": "Variant Details"
+=======
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project",
+   "read_only": 1
+>>>>>>> d8c262fd5c9611c65a33bafac57c2084f3dc8bbb
   }
  ],
  "idx": 1,
  "istable": 1,
+<<<<<<< HEAD
  "modified": "2019-07-12 11:13:40.961599",
+=======
+ "modified": "2019-07-12 11:34:53.190749",
+>>>>>>> d8c262fd5c9611c65a33bafac57c2084f3dc8bbb
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Stock Entry Detail",

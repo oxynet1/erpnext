@@ -59,12 +59,21 @@
   "customer",
   "customer_name",
   "customer_address",
+<<<<<<< HEAD
+=======
+  "accounting_dimensions_section",
+  "project",
+  "dimension_col_break",
+>>>>>>> d8c262fd5c9611c65a33bafac57c2084f3dc8bbb
   "printing_settings",
   "select_print_heading",
   "letter_head",
   "more_info",
   "is_opening",
+<<<<<<< HEAD
   "project",
+=======
+>>>>>>> d8c262fd5c9611c65a33bafac57c2084f3dc8bbb
   "remarks",
   "col5",
   "per_transferred",
@@ -123,6 +132,10 @@
    "fieldname": "purpose",
    "fieldtype": "Select",
    "hidden": 1,
+<<<<<<< HEAD
+=======
+   "in_list_view": 1,
+>>>>>>> d8c262fd5c9611c65a33bafac57c2084f3dc8bbb
    "label": "Purpose",
    "oldfieldname": "purpose",
    "oldfieldtype": "Select",
@@ -600,12 +613,29 @@
    "hidden": 1,
    "label": "Credit Note",
    "options": "Journal Entry"
+<<<<<<< HEAD
+=======
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "accounting_dimensions_section",
+   "fieldtype": "Section Break",
+   "label": "Accounting Dimensions"
+  },
+  {
+   "fieldname": "dimension_col_break",
+   "fieldtype": "Column Break"
+>>>>>>> d8c262fd5c9611c65a33bafac57c2084f3dc8bbb
   }
  ],
  "icon": "fa fa-file-text",
  "idx": 1,
  "is_submittable": 1,
+<<<<<<< HEAD
  "modified": "2019-08-03 12:37:45.735611",
+=======
+ "modified": "2019-07-14 17:41:39.257508",
+>>>>>>> d8c262fd5c9611c65a33bafac57c2084f3dc8bbb
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Stock Entry",
@@ -675,6 +705,10 @@
  "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
+<<<<<<< HEAD
  "title_field": "posting_date",
+=======
+ "title_field": "title",
+>>>>>>> d8c262fd5c9611c65a33bafac57c2084f3dc8bbb
  "track_changes": 1
 }
