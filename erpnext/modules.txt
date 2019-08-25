@@ -23,8 +23,4 @@ Non Profit
 Hotels
 Hub Node
 Quality Management
-<<<<<<< HEAD
-DWMS
-=======
 Communication
->>>>>>> d8c262fd5c9611c65a33bafac57c2084f3dc8bbb

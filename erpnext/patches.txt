@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 execute:import unidecode # new requirement
 erpnext.patches.v8_0.move_perpetual_inventory_setting
 erpnext.patches.v8_9.set_print_zero_amount_taxes
@@ -629,4 +627,3 @@ erpnext.patches.v12_0.create_accounting_dimensions_in_missing_doctypes
 erpnext.patches.v11_1.set_status_for_material_request_type_manufacture
 erpnext.patches.v12_0.remove_bank_remittance_custom_fields
 erpnext.patches.v12_0.generate_leave_ledger_entries
->>>>>>> d8c262fd5c9611c65a33bafac57c2084f3dc8bbb
