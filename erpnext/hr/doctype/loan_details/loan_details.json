@@ -1,0 +1,83 @@
+{
+ "autoname": "LO.#######",
+ "creation": "2019-07-30 18:20:51.122116",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "loan",
+  "start_date",
+  "loan_tenure",
+  "loan_repayment_amount",
+  "column_break_2",
+  "reference",
+  "end_date",
+  "loan_amount",
+  "remark"
+ ],
+ "fields": [
+  {
+   "fieldname": "loan",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Loan",
+   "options": "Loan Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "reference",
+   "fieldtype": "Data",
+   "label": "Reference",
+   "reqd": 1
+  },
+  {
+   "fieldname": "loan_tenure",
+   "fieldtype": "Data",
+   "label": "Loan Tenure",
+   "reqd": 1
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "End Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "loan_amount",
+   "fieldtype": "Currency",
+   "label": "Loan Amount"
+  },
+  {
+   "fieldname": "loan_repayment_amount",
+   "fieldtype": "Currency",
+   "label": "Loan Repayment Amount"
+  },
+  {
+   "fieldname": "remark",
+   "fieldtype": "Small Text",
+   "label": "Remark"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "istable": 1,
+ "modified": "2019-07-30 18:37:51.362065",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Loan Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

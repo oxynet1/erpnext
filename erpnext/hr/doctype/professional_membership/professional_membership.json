@@ -1,0 +1,77 @@
+{
+ "autoname": "MES.########",
+ "creation": "2019-07-30 09:59:51.504277",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "professional_membership",
+  "start_date",
+  "renewal_fees",
+  "memb_rnwl_piad_by_comp",
+  "column_break_2",
+  "issuing_institute",
+  "end_date",
+  "remark"
+ ],
+ "fields": [
+  {
+   "fieldname": "professional_membership",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Professional Membership",
+   "options": "Membership Details",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "issuing_institute",
+   "fieldtype": "Data",
+   "label": "Issuing Institute"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "renewal_fees",
+   "fieldtype": "Data",
+   "label": "Renewal Fees"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "End Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "memb_rnwl_piad_by_comp",
+   "fieldtype": "Select",
+   "label": "Membership Renewal Paid By Company",
+   "options": "\nYes\nNo\nNot Applicable"
+  },
+  {
+   "fieldname": "remark",
+   "fieldtype": "Small Text",
+   "label": "Remark"
+  }
+ ],
+ "istable": 1,
+ "modified": "2019-08-22 18:57:27.339702",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Professional Membership",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

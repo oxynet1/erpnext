@@ -1,5 +1,5 @@
 {
- "autoname": "hash",
+ "autoname": "field:vin_number",
  "creation": "2013-03-29 18:22:12",
  "doctype": "DocType",
  "document_type": "Other",
@@ -15,7 +15,24 @@
   "item_code",
   "item_group",
   "col_break2",
+  "variant",
   "item_name",
+  "used_in_lead",
+  "vehicle_details_section",
+  "vin_number",
+  "location",
+  "colour",
+  "cbl_bk",
+  "engine_number",
+  "mgf_year",
+  "registration_no",
+  "regidtration_date",
+  "int_colour",
+  "color_sec_bk",
+  "invoice_no",
+  "order_no",
+  "bk_col_bk",
+  "sale_date",
   "section_break_8",
   "description",
   "column_break_10",
@@ -67,6 +84,7 @@
   {
    "fieldname": "barcode",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Barcode"
   },
   {
@@ -119,6 +137,7 @@
   {
    "fieldname": "item_name",
    "fieldtype": "Data",
+   "hidden": 1,
    "in_global_search": 1,
    "label": "Item Name",
    "print_hide": 1,
@@ -472,11 +491,102 @@
    "label": "Reference Purchase Receipt",
    "options": "Purchase Receipt",
    "read_only": 1
+  },
+  {
+   "fieldname": "vehicle_details_section",
+   "fieldtype": "Section Break",
+   "label": "Vehicle Details"
+  },
+  {
+   "fieldname": "vin_number",
+   "fieldtype": "Data",
+   "label": "VIN Number",
+   "unique": 1
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Location",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "sale_date",
+   "fieldtype": "Date",
+   "label": "Invoice Date"
+  },
+  {
+   "fieldname": "cbl_bk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "engine_number",
+   "fieldtype": "Data",
+   "label": "Engine Number"
+  },
+  {
+   "fieldname": "colour",
+   "fieldtype": "Link",
+   "label": "Ext Colour",
+   "options": "Ext Colour"
+  },
+  {
+   "fieldname": "registration_no",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Registration No"
+  },
+  {
+   "fieldname": "regidtration_date",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "label": "Regidtration Date"
+  },
+  {
+   "fieldname": "mgf_year",
+   "fieldtype": "Data",
+   "label": "MGF Year"
+  },
+  {
+   "default": "0",
+   "fieldname": "used_in_lead",
+   "fieldtype": "Check",
+   "label": "Used In Lead",
+   "read_only": 1
+  },
+  {
+   "fieldname": "color_sec_bk",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "int_colour",
+   "fieldtype": "Link",
+   "label": "Int Colour",
+   "options": "Int Colour"
+  },
+  {
+   "fieldname": "invoice_no",
+   "fieldtype": "Data",
+   "label": "Invoice No"
+  },
+  {
+   "fieldname": "order_no",
+   "fieldtype": "Data",
+   "label": "Order No"
+  },
+  {
+   "fieldname": "bk_col_bk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "variant",
+   "fieldtype": "Link",
+   "label": "Variant",
+   "options": "Variant Details"
   }
  ],
  "idx": 1,
  "istable": 1,
- "modified": "2019-06-14 11:58:41.958144",
+ "modified": "2019-07-12 11:13:40.961599",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Stock Entry Detail",

@@ -1,0 +1,42 @@
+{
+ "autoname": "DF.##########",
+ "creation": "2019-07-18 17:10:12.379431",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "df_defect_no",
+  "df_width",
+  "df_length"
+ ],
+ "fields": [
+  {
+   "fieldname": "df_defect_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Defect No"
+  },
+  {
+   "fieldname": "df_width",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Width"
+  },
+  {
+   "fieldname": "df_length",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Length"
+  }
+ ],
+ "istable": 1,
+ "modified": "2019-07-18 17:10:45.904583",
+ "modified_by": "Administrator",
+ "module": "Buying",
+ "name": "Defect Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

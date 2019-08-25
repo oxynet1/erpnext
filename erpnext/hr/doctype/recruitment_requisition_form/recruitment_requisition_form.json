@@ -1,0 +1,326 @@
+{
+ "autoname": "REQU.########",
+ "creation": "2019-07-24 14:36:31.942910",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "desig",
+  "no_of_positions",
+  "test_field",
+  "column_break_2",
+  "position",
+  "due_date",
+  "column_break_3",
+  "dept",
+  "req_status",
+  "approver_details_section",
+  "approver_1",
+  "approver_1_name",
+  "approver_1_email",
+  "column_break_9",
+  "approver_2",
+  "approver_2_name",
+  "approver_2_email",
+  "column_break_11",
+  "approver_3",
+  "approver_3_name",
+  "approver_3_email",
+  "section_break_24",
+  "add_info",
+  "employment_type",
+  "client",
+  "column_break_28",
+  "req_qualification",
+  "priority",
+  "budget",
+  "column_break_32",
+  "requ_exp_range",
+  "recruiters",
+  "section_break_21",
+  "job_description",
+  "required_skills",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "dept",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Department",
+   "options": "Department"
+  },
+  {
+   "fieldname": "approver_1",
+   "fieldtype": "Link",
+   "label": "Reporting Manager",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "approver_2",
+   "fieldtype": "Link",
+   "label": "Controlling Manager",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "label": "Due Date"
+  },
+  {
+   "fieldname": "desig",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Job Title"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "no_of_positions",
+   "fieldtype": "Data",
+   "label": "Required no. of Positions"
+  },
+  {
+   "fieldname": "approver_details_section",
+   "fieldtype": "Section Break",
+   "label": "Approver Details"
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "position",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Position",
+   "options": "Designation"
+  },
+  {
+   "fieldname": "approver_3",
+   "fieldtype": "Link",
+   "label": "HR Manage",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "approver_1_name",
+   "fieldtype": "Data",
+   "label": "Reporting Manager Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approver_1_email",
+   "fieldtype": "Read Only",
+   "label": "Reporting Manager Email"
+  },
+  {
+   "fieldname": "approver_2_name",
+   "fieldtype": "Data",
+   "label": "Controlling Manager Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approver_2_email",
+   "fieldtype": "Read Only",
+   "label": "Controlling Manager Email"
+  },
+  {
+   "fieldname": "approver_3_name",
+   "fieldtype": "Data",
+   "label": "HR Manage Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approver_3_email",
+   "fieldtype": "Read Only",
+   "label": "HR Manage Email"
+  },
+  {
+   "fieldname": "section_break_21",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "job_description",
+   "fieldtype": "Text Editor",
+   "label": "Job Description"
+  },
+  {
+   "fieldname": "required_skills",
+   "fieldtype": "Text Editor",
+   "label": "Required Skills"
+  },
+  {
+   "fieldname": "section_break_24",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "add_info",
+   "fieldtype": "Data",
+   "label": "Additional Information"
+  },
+  {
+   "fieldname": "employment_type",
+   "fieldtype": "Link",
+   "label": "Employment Type",
+   "options": "Employment Type"
+  },
+  {
+   "fieldname": "client",
+   "fieldtype": "Data",
+   "label": "Client"
+  },
+  {
+   "fieldname": "column_break_28",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "req_qualification",
+   "fieldtype": "Data",
+   "label": "Required Qualification"
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "label": "Priority",
+   "options": "\nLow\nMedium\nHigh"
+  },
+  {
+   "fieldname": "budget",
+   "fieldtype": "Currency",
+   "label": "Budget"
+  },
+  {
+   "fieldname": "column_break_32",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "requ_exp_range",
+   "fieldtype": "Data",
+   "label": "Required Experience Range"
+  },
+  {
+   "default": "Initiated",
+   "fieldname": "req_status",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Requisition Status"
+  },
+  {
+   "fieldname": "recruiters",
+   "fieldtype": "Data",
+   "label": "Recruiters"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Recruitment Requisition Form",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "test_field",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Customer Demand"
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2019-08-21 19:20:32.352793",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Recruitment Requisition Form",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Department Head",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Controling Head",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Candidate",
+   "share": 1
+  }
+ ],
+ "quick_entry": 1,
+ "search_fields": "desig,position,dept",
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

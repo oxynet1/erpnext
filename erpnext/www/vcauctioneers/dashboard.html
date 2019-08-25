@@ -1,0 +1,277 @@
+
+
+<html class="no-js" lang="">
+
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    // Catalouge ....
+         $(document).ready(function () {
+           
+               // email = "Guest"
+                $.get("http://kainext.com:8002/api/method/erpnext.stock.doctype.item.item.catalouge_details", function (data, status) {
+                    console.log(data.message[0])
+                    if (status === "success") {
+                       // email = data.message[0]
+			console.log("hello");
+			var eauction = document.getElementById('eauction');
+				var mycurrent_row
+				var mycurrent_cell
+
+		                // creating all cells
+				  for(var j = 0; j < data.message.length; j++) {
+		   		// creates a <tr> element
+		   		  mycurrent_row = document.createElement("tr");
+
+		    		  
+				// creates a <td> element
+				mycurrent_cell = document.createElement("td");
+				// creates a Text Node
+				currenttext = document.createTextNode(data.message[j].customer_name +' '+data.message[j].customer_lot_address);
+				// appends the Text Node we created into the cell <td>
+				mycurrent_cell.appendChild(currenttext);
+				// appends the cell <td> into the row <tr>
+				mycurrent_row.appendChild(mycurrent_cell)
+
+				// creates a <td> element
+				mycurrent_cell = document.createElement("td");
+				// creates a Text Node
+				currenttext = document.createTextNode(data.message[j].material_highlights);
+				// appends the Text Node we created into the cell <td>
+				mycurrent_cell.appendChild(currenttext);
+				// appends the cell <td> into the row <tr>
+				mycurrent_row.appendChild(mycurrent_cell)
+
+// creates a <td> element
+				mycurrent_cell = document.createElement("td");
+				// creates a Text Node
+				currenttext = document.createTextNode('Starts at:' +data.message[j].inspection_start_date+  ' Ends at: ' +data.message[j].inspection_end_date);
+				// appends the Text Node we created into the cell <td>
+				mycurrent_cell.appendChild(currenttext);
+				// appends the cell <td> into the row <tr>
+				mycurrent_row.appendChild(mycurrent_cell)
+
+// creates a <td> element
+				mycurrent_cell = document.createElement("td");
+				// creates a Text Node
+				currenttext = document.createTextNode('Starts at:  '+data.message[j].registration_start_date+'   Ends at: '+data.message[j].registration_end_date);
+				// appends the Text Node we created into the cell <td>
+				mycurrent_cell.appendChild(currenttext);				
+				// appends the cell <td> into the row <tr>
+				mycurrent_row.appendChild(mycurrent_cell)
+
+// creates a <td> element
+				mycurrent_cell = document.createElement("td");
+				// creates a Text Node
+				currenttext = document.createTextNode('Starts at:  '+data.message[j].auction_start_date+'   Ends at: '+data.message[j].auction_end_date);
+				// appends the Text Node we created into the cell <td>
+				mycurrent_cell.appendChild(currenttext);
+				// appends the cell <td> into the row <tr>
+				mycurrent_row.appendChild(mycurrent_cell)
+
+// creates a <td> element
+				mycurrent_cell = document.createElement("td");
+				// creates a Text Node
+				//currenttext = document.createTextNode(data.message[j].catalogue_name);
+				// appends the Text Node we created into the cell <td>
+				mycurrent_cell.innerHTML ='<a href="http://kainext.com:8002/api/method/frappe.utils.print_format.download_pdff?doctype=Catalogue&name='+data.message[j].name+'&format=Catalogue&no_letterhead=0&_lang=en" target= _blank>'
++data.message[j].catalogue_name+'</a>';
+				// appends the cell <td> into the row <tr>
+				mycurrent_row.appendChild(mycurrent_cell)
+
+// creates a <td> element
+				mycurrent_cell = document.createElement("td");
+				// creates a Text Node
+				currenttext = document.createTextNode('');
+				// appends the Text Node we created into the cell <td>
+				mycurrent_cell.appendChild(currenttext);
+				// appends the cell <td> into the row <tr>
+				mycurrent_row.appendChild(mycurrent_cell)
+
+// creates a <td> element
+				mycurrent_cell = document.createElement("td");
+				// creates a Text Node
+				currenttext = document.createTextNode('');
+				// appends the Text Node we created into the cell <td>
+				mycurrent_cell.appendChild(currenttext);
+				// appends the cell <td> into the row <tr>
+				mycurrent_row.appendChild(mycurrent_cell)
+
+
+					eauction.appendChild(mycurrent_row);
+			}
+                	
+                    }
+                
+                // email = "{{ logged_in_user }}"
+                //console.log("email: ", email)
+            }, ); //5 seconds
+
+        });
+
+ // For Tender..
+
+        $(document).ready(function () {
+		 
+               // email = "Guest"
+                $.get("http://kainext.com:8002/api/method/erpnext.stock.doctype.item.item.tender_details", function (data, status) {
+                    console.log(data.message[0])
+                    if (status === "success") {
+                       // email = data.message[0]
+			console.log("hello");
+			var tender = document.getElementById('tender');
+				var mycurrent_row
+				var mycurrent_cell
+
+		                // creating all cells
+				  for(var j = 0; j < data.message.length; j++) {
+		   		// creates a <tr> element
+		   		  mycurrent_row = document.createElement("tr");
+
+		    		  
+				// creates a <td> element
+				mycurrent_cell = document.createElement("td");
+				// creates a Text Node
+				currenttext = document.createTextNode(data.message[j].customer +' '+data.message[j].address);
+				// appends the Text Node we created into the cell <td>
+				mycurrent_cell.appendChild(currenttext);
+				// appends the cell <td> into the row <tr>
+				mycurrent_row.appendChild(mycurrent_cell)
+
+				// creates a <td> element
+				mycurrent_cell = document.createElement("td");
+				// creates a Text Node
+				//currenttext = document.createTextNode(data.message[j].material_highlights);
+				// appends the Text Node we created into the cell <td>
+				mycurrent_cell.innerHTML=data.message[j].material_highlights;
+				// appends the cell <td> into the row <tr>
+				mycurrent_row.appendChild(mycurrent_cell)
+
+// creates a <td> element
+				mycurrent_cell = document.createElement("td");
+				// creates a Text Node
+				currenttext = document.createTextNode('Starts at:  '+data.message[j].inspection_start_date+'   Ends at: '+data.message[j].inspection_end_date);
+				// appends the Text Node we created into the cell <td>
+				mycurrent_cell.appendChild(currenttext);
+				// appends the cell <td> into the row <tr>
+				mycurrent_row.appendChild(mycurrent_cell)
+
+// creates a <td> element
+				mycurrent_cell = document.createElement("td");
+				// creates a Text Node
+				currenttext = document.createTextNode('Starts at:  '+data.message[j].tender_start_date+'   Ends at: '+data.message[j].tender_end_date);
+				// appends the Text Node we created into the cell <td>
+				mycurrent_cell.appendChild(currenttext);
+				// appends the cell <td> into the row <tr>
+				mycurrent_row.appendChild(mycurrent_cell)
+
+// creates a <td> element
+				mycurrent_cell = document.createElement("td");
+				// creates a Text Node
+				//currenttext = document.createTextNode(data.message[j].catalogue_name);
+				// appends the Text Node we created into the cell <td>
+				mycurrent_cell.innerHTML ='<a href="http://kainext.com:8002/api/method/frappe.utils.print_format.download_pdff?doctype=Tenders&name='+data.message[j].name+'&format=Tender_Print&no_letterhead=0&_lang=en" target= _blank>'
++data.message[j].name+'</a>';
+				// appends the cell <td> into the row <tr>
+				mycurrent_row.appendChild(mycurrent_cell)
+
+// creates a <td> element
+				mycurrent_cell = document.createElement("td");
+				// creates a Text Node
+				currenttext = document.createTextNode('');
+				// appends the Text Node we created into the cell <td>
+				mycurrent_cell.appendChild(currenttext);
+				// appends the cell <td> into the row <tr>
+				mycurrent_row.appendChild(mycurrent_cell)
+				
+
+				
+					tender.appendChild(mycurrent_row);
+			}
+                	
+                    }
+                
+                // email = "{{ logged_in_user }}"
+                //console.log("email: ", email)
+            }, ); //5 seconds
+
+        });
+
+</script>
+
+<center><font color="#4a0d1e" ><h1> FORTHCOMING SALES </h1></font></center>
+</head>
+<body>
+
+
+<center><font color="Brown"><h2> TENDER EVENT </h2></font></center>
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+  	font-size:13px
+      }
+
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+     
+
+      tr:nth-child(even) {
+        background-color:  #fdfefe;
+      }
+    </style>
+   
+      <table id="tender">
+     <tbody><tr>
+        <th style="color: white;" bgcolor="#827EBA">Name of Company</th>
+        <th style="color: white;" bgcolor="#827EBA">Material Highlights</th>
+        <th style="color: white;" bgcolor="#827EBA">Inspection Date</th>
+        <th style="color: white;" bgcolor="#827EBA">Tender Submission Date</th>
+        <th style="color: white;" bgcolor="#827EBA">Tender ID.</th>        
+        <th style="color: white;" bgcolor="#827EBA">Extra Document</th>        
+      </tr>
+      </tbody>
+  </table>
+  
+  <br>
+  <br>
+  <center><font color="green"><h2> E-AUCTION EVENT </h2></font></center> 
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        font-size:13px
+      }
+
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }      
+
+       tr:nth-child(even) {
+        background-color:  #fdfefe;
+      }
+    </style>
+         
+      <table id="eauction">
+     <tbody>
+     <tr>
+        <th style="color: white;" bgcolor="#827EBA">Name of Company</th>
+        <th style="color: white;" bgcolor="#827EBA">Material Highlights</th>
+        <th style="color: white;" bgcolor="#827EBA">Inspection Date</th>
+        <th style="color: white;" bgcolor="#827EBA">Online Participation Submission Schedule</th>
+        <th style="color: white;" bgcolor="#827EBA">e-Auction Schedule</th>
+        <th style="color: white;" bgcolor="#827EBA">e-Auction ID.</th>
+        <th style="color: white;" bgcolor="#827EBA">Extra Document</th>
+        <th style="color: white;" bgcolor="#827EBA">Participate</th>
+      </tr></tbody>
+  </table>
+</body>
+</html>

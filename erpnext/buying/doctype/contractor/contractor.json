@@ -1,0 +1,216 @@
+{
+ "autoname": "field:name_of_firm",
+ "creation": "2019-07-03 10:14:30.652769",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "name_of_firm",
+  "person_name",
+  "pf_code",
+  "license_holder",
+  "no_of_employee",
+  "column_break_3",
+  "contact_no",
+  "nature_of_work",
+  "esic_code",
+  "category",
+  "section_break_8",
+  "license_no",
+  "license_to_date",
+  "column_break_12",
+  "license_from_date",
+  "renewal_due_date",
+  "license_doc",
+  "op_details_section",
+  "po_number",
+  "po_from_date",
+  "column_break_19",
+  "po_date",
+  "po_to_date",
+  "po_doc"
+ ],
+ "fields": [
+  {
+   "fieldname": "name_of_firm",
+   "fieldtype": "Data",
+   "label": "Name of Firm",
+   "unique": 1
+  },
+  {
+   "fieldname": "person_name",
+   "fieldtype": "Data",
+   "label": "Concern Person Name"
+  },
+  {
+   "fieldname": "contact_no",
+   "fieldtype": "Data",
+   "label": "Contact No"
+  },
+  {
+   "fieldname": "nature_of_work",
+   "fieldtype": "Data",
+   "label": "Nature of work"
+  },
+  {
+   "fieldname": "pf_code",
+   "fieldtype": "Data",
+   "label": "Establishment PF code"
+  },
+  {
+   "fieldname": "esic_code",
+   "fieldtype": "Data",
+   "label": "ESIC Code"
+  },
+  {
+   "fieldname": "license_holder",
+   "fieldtype": "Select",
+   "label": "License Holder",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "license_no",
+   "fieldtype": "Data",
+   "label": "License No"
+  },
+  {
+   "fieldname": "license_from_date",
+   "fieldtype": "Date",
+   "label": "License Issue Date"
+  },
+  {
+   "fieldname": "license_to_date",
+   "fieldtype": "Date",
+   "label": "Validity Date"
+  },
+  {
+   "fieldname": "po_number",
+   "fieldtype": "Data",
+   "label": "PO Number "
+  },
+  {
+   "fieldname": "po_from_date",
+   "fieldtype": "Date",
+   "label": "PO From Date"
+  },
+  {
+   "fieldname": "po_to_date",
+   "fieldtype": "Date",
+   "label": "PO To Date"
+  },
+  {
+   "fieldname": "renewal_due_date",
+   "fieldtype": "Date",
+   "label": "Renewal Due Date"
+  },
+  {
+   "fieldname": "no_of_employee",
+   "fieldtype": "Data",
+   "label": "No of Employee"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "bold": 1,
+   "depends_on": "eval:doc.license_holder === \"Yes\";",
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break",
+   "label": "License Details"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "op_details_section",
+   "fieldtype": "Section Break",
+   "label": "OP Details"
+  },
+  {
+   "fieldname": "column_break_19",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "po_date",
+   "fieldtype": "Date",
+   "label": "PO Date"
+  },
+  {
+   "fieldname": "license_doc",
+   "fieldtype": "Attach",
+   "label": "License Document Attachment"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "label": "Category",
+   "options": "\nTemporary\nPermanent\nExparty"
+  },
+  {
+   "fieldname": "po_doc",
+   "fieldtype": "Attach",
+   "label": "PO Document Attachment"
+  }
+ ],
+ "modified": "2019-07-04 14:15:58.794894",
+ "modified_by": "Administrator",
+ "module": "Buying",
+ "name": "Contractor",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Operator",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

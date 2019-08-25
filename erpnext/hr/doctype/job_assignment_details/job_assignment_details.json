@@ -1,0 +1,83 @@
+{
+ "autoname": "JA.######",
+ "creation": "2019-07-30 15:34:34.421250",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "assignment_type",
+  "start_date",
+  "duration",
+  "amount",
+  "column_break_5",
+  "assignment",
+  "end_date",
+  "status",
+  "assignment_description"
+ ],
+ "fields": [
+  {
+   "fieldname": "assignment_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Assignment Type",
+   "options": "\nInternal\nExternal",
+   "reqd": 1
+  },
+  {
+   "fieldname": "assignment",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Assignment",
+   "options": "\nInternal Auditor\nSpecial project coordinator",
+   "reqd": 1
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "End Date"
+  },
+  {
+   "fieldname": "assignment_description",
+   "fieldtype": "Small Text",
+   "label": "Assignment Description"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "duration",
+   "fieldtype": "Data",
+   "label": "Duration"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nPending\nComplete"
+  }
+ ],
+ "istable": 1,
+ "modified": "2019-08-02 16:44:26.904662",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Job Assignment Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

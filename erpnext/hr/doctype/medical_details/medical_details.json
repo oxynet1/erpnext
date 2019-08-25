@@ -1,0 +1,107 @@
+{
+ "autoname": "ME.#######",
+ "creation": "2019-07-30 18:43:51.701823",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "illness",
+  "clinic",
+  "receipt_no",
+  "medical_fees",
+  "column_break_4",
+  "illness_type",
+  "date_of_visit",
+  "medical_claim_code",
+  "claimable_amount",
+  "section_break_9",
+  "description",
+  "column_break_11",
+  "remark"
+ ],
+ "fields": [
+  {
+   "fieldname": "illness",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Illness",
+   "reqd": 1
+  },
+  {
+   "fieldname": "illness_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Illness Type",
+   "options": "\nPre-Illness\nFirst Time Diagnosis",
+   "reqd": 1
+  },
+  {
+   "fieldname": "clinic",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Clinic",
+   "options": "Clinic Details",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date_of_visit",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of Visit",
+   "reqd": 1
+  },
+  {
+   "fieldname": "receipt_no",
+   "fieldtype": "Data",
+   "label": "Receipt No",
+   "reqd": 1
+  },
+  {
+   "fieldname": "medical_fees",
+   "fieldtype": "Currency",
+   "label": "Medical Fees "
+  },
+  {
+   "fieldname": "claimable_amount",
+   "fieldtype": "Data",
+   "label": "Claimable Amount"
+  },
+  {
+   "fieldname": "medical_claim_code",
+   "fieldtype": "Data",
+   "label": "Medical Claim Code"
+  },
+  {
+   "fieldname": "section_break_9",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "remark",
+   "fieldtype": "Small Text",
+   "label": "Remark"
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "istable": 1,
+ "modified": "2019-07-30 18:54:48.526826",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Medical Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

@@ -296,3 +296,439 @@ def get_root_company(company):
 	# return the topmost company in the hierarchy
 	ancestors = get_ancestors_of('Company', company, "lft asc")
 	return [ancestors[0]] if ancestors else []
+
+@frappe.whitelist()
+def pendingCount(docnm):
+	a= frappe.db.sql("select count(cptstatus) from `tabComplaints` where  cptstatus like '" + docnm + "';")
+             
+	return a
+
+@frappe.whitelist()
+def pendingCount1(count,dname):
+	  frappe.db.sql("update `tabComplaintsDashboard` set cdpending= '" + count + "' AND name like '" + dname + "';")  
+
+
+@frappe.whitelist()
+def getFavourite(usr):
+	a= frappe.db.sql("select uaarticalid,name  from `tabUserActivity` where uauserid like '"+usr+"' and uaacttype like 'Favourites' and (uaarticalid like 'HWT%' or uaarticalid like 'NW%');")
+              
+	return a
+
+@frappe.whitelist()
+def getRemCount(cptno):
+	a= frappe.db.sql("select count(*) from `tabReminder` where ecomplaintsno like '"+cptno+"';")
+              
+	return a
+
+
+@frappe.whitelist()
+def News_cunt(docnm):
+	a= frappe.db.sql("select likecount,dislikecount from (select count(uaacttype) as likecount,uaarticalid from `tabUserActivity` where  uaarticalid like '"+docnm+"' and uaacttype like 'Like') as z1,(select count(uaacttype) as dislikecount from `tabUserActivity` where  uaarticalid like '"+docnm+"' and uaacttype like 'Dislike') as z2;")
+              
+	return a
+@frappe.whitelist()
+def Newslike_cunt1(docnm,count):
+	  frappe.db.sql("update `tabNews` set nwlike= '" + count + "' where name like '" + docnm + "';")  
+
+@frappe.whitelist()
+def Newsdislike_cunt1(docnm,count):
+	  frappe.db.sql("update `tabNews` set nwdislike= '" + count + "' where name like '" + docnm + "';")
+
+
+
+@frappe.whitelist()
+def Eventslike_cunt(docnm,acttype):
+	a= frappe.db.sql("select count(uaacttype) + 1 from `tabUserActivity` where  uaarticalid like '" + docnm + "' and uaacttype like '" + acttype + "';")
+             
+	return a
+
+@frappe.whitelist()
+def Eventslike_cunt1(docnm,evncount):
+	  frappe.db.sql("update `tabEvents` set evnlike= '" + evncount + "' where name like '" + docnm + "';")  
+
+@frappe.whitelist()
+def Eventsdislike_cunt1(docnm,evncount):
+	  frappe.db.sql("update `tabEvents` set evndislike= '" + evncount + "' where name like '" + docnm + "';")
+
+
+
+
+@frappe.whitelist()
+def HOW_TOslike_cunt():
+     frappe.db.sql("update `tabHOW_TOs` h set htlike = (select count(*) from `tabUserActivity` where h.name=uaarticalid and uaacttype like 'Like'),htdislike = (select count(*) from `tabUserActivity` where h.name=uaarticalid and uaacttype like 'Dislike');")
+
+
+@frappe.whitelist()
+def HOW_TOslike_cunt1(docnm,hwtcount):
+	  frappe.db.sql("update `tabHOW_TOs` set htlike= '" + hwtcount + "' where name like '" + docnm + "';")  
+
+@frappe.whitelist()
+def HOW_TOsdislike_cunt1(docnm,hwtcount):
+	  frappe.db.sql("update `tabHOW_TOs` set htdislike= '" + hwtcount + "' where name like '" + docnm + "';")
+     
+@frappe.whitelist()
+def SurveyCount():
+	  frappe.db.sql("update `tabSurveyActivity` s set sagreat=(select count(*) from `tabSurveyAnsTable` where parent= s.name and surananswer like 'Great'),sagood=(select count(*) from `tabSurveyAnsTable` where parent= s.name and surananswer like 'Good'),sabad=(select count(*) from `tabSurveyAnsTable` where parent= s.name and surananswer like 'Bad'),saokay=(select count(*) from `tabSurveyAnsTable` where parent= s.name and surananswer like 'Okay'),saterrible=(select count(*) from `tabSurveyAnsTable` where parent= s.name and surananswer like 'Terrible'),sanone=(select count(*) from `tabSurveyAnsTable` where parent= s.name and surananswer like 'None');")
+
+
+@frappe.whitelist()
+def pump_names():
+    a= frappe.db.sql(" select distinct pump_name from `tabDaily_Fuel_Rate`;")
+    return a
+
+@frappe.whitelist()
+def vehicle_type():
+    item_details = {}
+    data=[]
+    a= frappe.db.sql("select distinct vehicle_type from `tabAsset` where item_code like 'Vehicle';", as_dict=1)
+    for d in a:
+      item_details[d.vehicle_type] = d
+      data.append(d)
+    return data
+
+@frappe.whitelist()
+def reason():
+    item_details = {}
+    data=[]
+    a= frappe.db.sql("select 'Vehicle Breakdown' as reason_for_breakdown union select 'Maintenance' as reason_for_breakdown union select distinct '' as reason_for_breakdown from `tabAsset`;", as_dict=1)
+    for d in a:
+      item_details[d.da_vehicleno] = d
+      data.append(d)
+    return data
+
+@frappe.whitelist()
+def vehicle_deployed_all(id,vehicle_type,reason):
+    item_details = {}
+    data=[]
+    if vehicle_type=='NA' and reason=='NA' :
+      a= frappe.db.sql("select am.da_vehicleno,am.da_drivername,	am.fawardno,	am.r_name,	wm.supervisor_id,	wm.area_manager_id,	'Deployed' as status,i.vehicle_type,'' as reason_for_breakdown,type as poi	from `tabActivityMaster` am,	`tabWard_Master` wm,`tabAsset` i,`tabDriverActivity` rm  where rm.name=am.da_code and rm.r_status like 'In-Progress' and i.registration_number = am.da_vehicleno and wm.ward_no=am.fawardno 	and date_format(rm.creation,'%Y%m%d') like  date_format(now(),'%Y%m%d') and date_format(am.creation,'%Y%m%d') like  date_format(now(),'%Y%m%d') and (wm.supervisor_id like '"+id+"' or area_manager_id like '"+id+"') group by am.da_vehicleno	UNION	select registration_number,'' as da_drivername,	'' as fawardno,	'' as r_name,	'' as supervisor_id,	'' as area_manager_id,	'Not Deployed' as status,vehicle_type,'' as reason_for_breakdown,'' as poi	from `tabAsset` 	where item_code like 'Vehicle' and registration_number not in (select distinct am.da_vehicleno	from `tabActivityMaster` am,	`tabWard_Master` wm,`tabDriverActivity` da 	where am.da_code=da.name and da.r_status not like 'Complete' and wm.ward_no=am.fawardno 	and date_format(am.creation,'%Y%m%d') like  date_format(now(),'%Y%m%d') and (wm.supervisor_id like '"+id+"' or area_manager_id like '"+id+"'));", as_dict=1)
+    if vehicle_type!='NA' and reason=='NA' :
+      a= frappe.db.sql("select am.da_vehicleno,am.da_drivername,	am.fawardno,	am.r_name,	wm.supervisor_id,	wm.area_manager_id,	'Deployed' as status,i.vehicle_type,'' as reason_for_breakdown,type as poi	from `tabActivityMaster` am,	`tabWard_Master` wm,`tabAsset` i,`tabDriverActivity` rm  where rm.name=am.da_code and rm.r_status like 'In-Progress' and i.registration_number = am.da_vehicleno and wm.ward_no=am.fawardno 	and date_format(rm.creation,'%Y%m%d') like  date_format(now(),'%Y%m%d') and date_format(am.creation,'%Y%m%d') like  date_format(now(),'%Y%m%d') and (wm.supervisor_id like '"+id+"' or area_manager_id like '"+id+"') and i.vehicle_type like '"+vehicle_type+"' group by am.da_vehicleno	UNION	select registration_number,'' as da_drivername,	'' as fawardno,	'' as r_name,	'' as supervisor_id,	'' as area_manager_id,	'Not Deployed' as status,vehicle_type,'' as reason_for_breakdown,'' as poi	from `tabAsset` 	where item_code like 'Vehicle' and registration_number not in (select distinct am.da_vehicleno	from `tabActivityMaster` am,	`tabWard_Master` wm,`tabDriverActivity` da 	where am.da_code=da.name and da.r_status not like 'Complete' and wm.ward_no=am.fawardno 	and date_format(am.creation,'%Y%m%d') like  date_format(now(),'%Y%m%d') and (wm.supervisor_id like '"+id+"' or area_manager_id like '"+id+"')) and vehicle_type like '"+vehicle_type+"';", as_dict=1)
+    if vehicle_type=='NA' and reason!='NA':
+      a= frappe.db.sql("select registration_number as da_vehicleno,'' as da_drivername,	'' as fawardno,	'' as r_name,	'' as supervisor_id,	'' as area_manager_id,	'Not Deployed' as status,vehicle_type,'' as reason_for_breakdown,'' as poi	from `tabAsset` 	where item_code like 'Vehicle' and registration_number not in (select distinct am.da_vehicleno	from `tabActivityMaster` am,	`tabWard_Master` wm,`tabDriverActivity` da 	where am.da_code=da.name and da.r_status not like 'Complete' and wm.ward_no=am.fawardno 	and date_format(am.creation,'%Y%m%d') like  date_format(now(),'%Y%m%d') and (wm.supervisor_id like '"+id+"' or area_manager_id like '"+id+"')) and reason_for_breakdown like '"+reason+"';", as_dict=1)
+    if vehicle_type!='NA' and reason!='NA':
+      a= frappe.db.sql("select registration_number as da_vehicleno,'' as da_drivername,	'' as fawardno,	'' as r_name,	'' as supervisor_id,	'' as area_manager_id,	'Not Deployed' as status,vehicle_type,'' as reason_for_breakdown,'' as poi	from `tabAsset` where item_code like 'Vehicle' and registration_number not in (select distinct am.da_vehicleno	from `tabActivityMaster` am,	`tabWard_Master` wm,`tabDriverActivity` da 	where am.da_code=da.name and da.r_status not like 'Complete' and wm.ward_no=am.fawardno 	and date_format(am.creation,'%Y%m%d') like  date_format(now(),'%Y%m%d') and (wm.supervisor_id like '"+id+"' or area_manager_id like '"+id+"')) and vehicle_type like '"+vehicle_type+"' and reason_for_breakdown like '"+reason+"';", as_dict=1)
+    for d in a:
+      item_details[d.da_vehicleno] = d
+      data.append(d)
+    return data
+    
+@frappe.whitelist()
+def vehicle_not_deployed(id,vehicle_type,reason):
+    item_details = {}
+    data=[]
+    if vehicle_type!='NA' and reason!='NA':
+      a= frappe.db.sql("select registration_number as da_vehicleno,'' as da_drivername,	'' as fawardno,	'' as r_name,	'' as supervisor_id,	'' as area_manager_id,	'Not Deployed' as status,vehicle_type,'' as reason_for_breakdown,'' as poi	from `tabAsset` 	where item_code like 'Vehicle' and registration_number not in (select distinct am.da_vehicleno	from `tabActivityMaster` am,	`tabWard_Master` wm,`tabDriverActivity` da 	where am.da_code=da.name and da.r_status not like 'Complete' and wm.ward_no=am.fawardno 	and date_format(am.creation,'%Y%m%d') like  date_format(now(),'%Y%m%d') and (wm.supervisor_id like '"+id+"' or area_manager_id like '"+id+"')) and vehicle_type like '"+vehicle_type+"';", as_dict=1)
+    if vehicle_type=='NA' and reason=='NA':
+      a= frappe.db.sql("select registration_number as da_vehicleno,'' as da_drivername,vehicle_type ,'' as fawardno,'' as r_name,'' as supervisor_id,'' as area_manager_id ,'Not Deployed' as status,'' as reason_for_breakdown,'' as type from `tabAsset` where item_code like 'Vehicle' and registration_number not in (select distinct am.da_vehicleno	from `tabActivityMaster` am,	`tabWard_Master` wm,`tabDriverActivity` da 	where am.da_code=da.name and da.r_status not like 'Complete' and wm.ward_no=am.fawardno 	and date_format(am.creation,'%Y%m%d') like  date_format(now(),'%Y%m%d') and (wm.supervisor_id like '"+id+"' or area_manager_id like '"+id+"'))", as_dict=1)
+    if vehicle_type=='NA' and reason!='NA':
+      a= frappe.db.sql("select registration_number as da_vehicleno,'' as da_drivername,	'' as fawardno,	'' as r_name,	'' as supervisor_id,	'' as area_manager_id,	'Not Deployed' as status,vehicle_type,'' as reason_for_breakdown,'' as poi	from `tabAsset` 	where item_code like 'Vehicle' and registration_number not in (select distinct am.da_vehicleno	from `tabActivityMaster` am,	`tabWard_Master` wm,`tabDriverActivity` da 	where am.da_code=da.name and da.r_status not like 'Complete' and wm.ward_no=am.fawardno 	and date_format(am.creation,'%Y%m%d') like  date_format(now(),'%Y%m%d') and (wm.supervisor_id like '"+id+"' or area_manager_id like '"+id+"')) ;", as_dict=1) 
+    if vehicle_type!='NA' and reason=='NA':
+      a= frappe.db.sql("select registration_number as da_vehicleno,'' as da_drivername,	'' as fawardno,	'' as r_name,	'' as supervisor_id,	'' as area_manager_id,	'Not Deployed' as status,vehicle_type,'' as reason_for_breakdown,'' as poi	from `tabAsset` 	where vehicle_type like '"+vehicle_type+"' and item_code like 'Vehicle' and registration_number not in (select distinct am.da_vehicleno	from `tabActivityMaster` am,	`tabWard_Master` wm,`tabDriverActivity` da 	where am.da_code=da.name and da.r_status not like 'Complete' and wm.ward_no=am.fawardno 	and date_format(am.creation,'%Y%m%d') like  date_format(now(),'%Y%m%d') and (wm.supervisor_id like '"+id+"' or area_manager_id like '"+id+"'));", as_dict=1)    
+    for d in a:
+      item_details[d.da_vehicleno] = d
+      data.append(d)
+    return data
+
+@frappe.whitelist()
+def vehicle_deployed(id,vehicle_type):
+    item_details = {}
+    data=[]
+    if vehicle_type!='NA':
+       a= frappe.db.sql("select am.da_vehicleno,am.da_drivername,	am.fawardno,	r_name,	wm.supervisor_id,	wm.area_manager_id,	'Deployed' as status,a.item_code as poi,a.vehicle_type	from `tabActivityMaster` am,	`tabWard_Master` wm,`tabAsset` a  	where a.registration_number=am.da_vehicleno and wm.ward_no=am.fawardno 	and date_format(am.creation,'%Y%m%d') like  date_format(now(),'%Y%m%d') and (wm.supervisor_id like '"+id+"' or area_manager_id like '"+id+"') and a.vehicle_type like '"+vehicle_type+"' group by am.da_vehicleno;", as_dict=1)
+    if vehicle_type=='NA':    
+      a= frappe.db.sql("select am.da_vehicleno,am.da_drivername,	am.fawardno,	r_name,	wm.supervisor_id,	wm.area_manager_id,	'Deployed' as status,type as poi,vehicle_type	from `tabActivityMaster` am,	`tabWard_Master` wm ,`tabAsset` i 	where i.registration_number=am.da_vehicleno and wm.ward_no=am.fawardno 	and date_format(am.creation,'%Y%m%d') like  date_format(now(),'%Y%m%d') and (wm.supervisor_id like '"+id+"' or area_manager_id like '"+id+"') and i.registration_number in (select distinct am.da_vehicleno	from `tabActivityMaster` am,	`tabWard_Master` wm,`tabDriverActivity` da 	where am.da_code=da.name and da.r_status not like 'Complete' and wm.ward_no=am.fawardno 	and date_format(am.creation,'%Y%m%d') like  date_format(now(),'%Y%m%d') and (wm.supervisor_id like '"+id+"' or area_manager_id like '"+id+"')) group by am.da_vehicleno;", as_dict=1)
+    for d in a:
+      item_details[d.da_vehicleno] = d
+      data.append(d)
+    return data
+
+
+@frappe.whitelist()
+def vehicle_deployed_count(id):
+    item_details = {}
+    data=[]
+    a= frappe.db.sql("select z2.not_deployed,count(z3.da_vehicleno) as deployed,z2.not_deployed+count(z3.da_vehicleno) as all_deployed from (select count(registration_number) as not_deployed from `tabAsset` where item_code like 'Vehicle' and registration_number not in (select distinct am.da_vehicleno from `tabActivityMaster` am,`tabWard_Master` wm where wm.ward_no=am.fawardno and date_format(am.creation,'%Y%m%d') like date_format(now(),'%Y%m%d') and (wm.supervisor_id like '"+id+"' or area_manager_id like '"+id+"'))) as z2,	(select am.da_vehicleno from `tabActivityMaster` am,`tabWard_Master` wm,`tabDriverActivity` rm  where rm.da_routeid=am.da_routeid and rm.r_status like 'In-Progress' and  wm.ward_no=am.fawardno and date_format(rm.creation,'%Y%m%d') like  date_format(now(),'%Y%m%d') and date_format(am.creation,'%Y%m%d') like  date_format(now(),'%Y%m%d') and (wm.supervisor_id like '"+id+"' or area_manager_id like '"+id+"') group by am.da_vehicleno) as z3;", as_dict=1)
+    for d in a:
+      item_details[d.da_vehicleno] = d
+      data.append(d)
+    return data
+    
+@frappe.whitelist()
+def bin_status(id):
+    item_details = {}
+    data=[]
+    a= frappe.db.sql("select name as item_name,route_info as da_routeid,asset_name ,'Pending' as fastatus,ward_no,capacity,item_code,geo_location,image,address,longitude,latitude, null as modified from `tabAsset`  where ward_no='"+id+"' and route_info is not null and name not in (select distinct route_location_name from `tabActivityMaster` am, `tabDriverActivity` da where am.da_code=da.name and  am.clean_status in ('Scheduled','Clean') and da.r_status like 'In-Progress' and am.creation like concat(date_format(date_sub(now(),interval 0 day),'%Y-%m-%d'),'%')) and item_code not like 'Vehicle' and geo_location is not null union select i.name,am.da_routeid, i.asset_name ,'Scheduled' as fastatus,i.ward_no,i.capacity,i.item_code,i.geo_location,i.image,i.address,i.longitude,i.latitude,am.modified from `tabAsset` i,`tabActivityMaster` am, `tabDriverActivity` da  where i.ward_no='"+id+"' and i.route_info is not null and i.name = route_location_name and am.da_code=da.name and  am.clean_status like 'Scheduled' and da.r_status like 'In-Progress' and am.creation like concat(date_format(date_sub(now(),interval 0 day),'%Y-%m-%d'),'%') and item_code not like 'Vehicle' and geo_location is not null union select i.name, am.da_routeid,i.asset_name ,'Clean' as fastatus,i.ward_no,i.capacity,i.item_code,i.geo_location,i.image,i.address,i.longitude,i.latitude,am.modified from `tabAsset` i,`tabActivityMaster` am, `tabDriverActivity` da  where i.ward_no='"+id+"' and i.route_info is not null and i.name = route_location_name and am.da_code=da.name and  am.clean_status like 'Clean' and da.r_status in ('In-Progress','Complete') and str_to_date(date_format(am.creation,'%Y%m%d%H%i'),'%Y%m%d%H%i') > str_to_date(date_format(date_sub(now(),interval 6 hour),'%Y%m%d%H%i'),'%Y%m%d%H%i') and item_code not like 'Vehicle' and geo_location is not null;", as_dict=1)
+    for d in a:
+      item_details[d.da_vehicleno] = d
+      data.append(d)
+    return data
+    
+@frappe.whitelist()
+def bin_cleared(id):
+    item_details = {}
+    data=[]
+    a= frappe.db.sql("select am.type as asset_type,route_location_name,clean_status,wm.ward_no,route_assetcap from `tabActivityMaster` am,`tabAsset` i,`tabWard_Master` wm  where route_location_name = item_name and am.creation like concat(date_format(date_sub(now(),interval 0 day),'%Y-%m-%d'),'%') and wm.ward_no=am.fawardno and (wm.supervisor_id like '"+id+"' or wm.area_manager_id like '"+id+"') group by route_location_name;", as_dict=1)
+    for d in a:
+      item_details[d.da_vehicleno] = d
+      data.append(d)
+    return data
+    
+@frappe.whitelist()
+def ward_no(id):
+    item_details = {}
+    data=[]
+    a= frappe.db.sql("select distinct ward_no from `tabWard_Master` where area_manager_id like '"+id+"' or supervisor_id like '"+id+"';", as_dict=1)
+    for d in a:
+      item_details[d.da_vehicleno] = d
+      data.append(d)
+    return data
+    
+@frappe.whitelist()
+def route_info(id):
+    item_details = {}
+    data=[]
+    a= frappe.db.sql(" select distinct parent as r_name  from `tabRoute Info` where fawardno like '"+id+"';", as_dict=1)
+    for d in a:
+      item_details[d.da_vehicleno] = d
+      data.append(d)
+    return data
+
+@frappe.whitelist()
+def bin_cleared_filter(id,ward_no,route_no,status,for_date):
+    item_details = {}
+    data=[]
+    if status=='NA' and for_date=='NA':
+        a= frappe.db.sql("select item_name as asset_type,asset_name,'Pending' as fastatus,ward_no,capacity ,image,longitude,latitude,route_info as da_routeid,geo_location,address,item_code  from `tabAsset` where item_code not like 'Vehicle' and name not in (select route_location_name from `tabActivityMaster` where date_format(creation,'%Y,%m,%d')=date_format(now(),'%Y,%m,%d')) and ward_no like '"+ward_no+"' and route_info like '"+route_no+"' union select am.type as asset_type,asset_name as item_name,clean_status as fastatus,wm.ward_no as ward_no,route_assetcap as capacity,i.image,longitude,latitude,am.da_routeid,i.geo_location,i.address,i.item_code from `tabActivityMaster` am,`tabAsset` i,`tabWard_Master` wm  where route_location_name = i.name and am.creation like concat(date_format(date_sub(now(),interval 0 day),'%Y-%m-%d'),'%') and wm.ward_no=am.fawardno and (wm.supervisor_id like '"+id+"' or wm.area_manager_id like '"+id+"') and wm.ward_no like '"+ward_no+"' and am.da_routeid like '"+route_no+"' group by route_location_name;", as_dict=1)
+    if status=='NA' and for_date!='NA':
+          a= frappe.db.sql("select am.type as asset_type,am.da_routeid,i.asset_name as asset_name,clean_status as fastatus,wm.ward_no as ward_no,route_assetcap as capacity,am.modified as for_date,i.image,longitude,latitude,i.route_info,i.geo_location,i.address,i.item_code from `tabActivityMaster` am,`tabAsset` i,`tabWard_Master` wm  where route_location_name = i.name and am.creation like concat('"+for_date+"','%') and wm.ward_no=am.fawardno and (wm.supervisor_id like '"+id+"' or wm.area_manager_id like '"+id+"') and wm.ward_no like '"+ward_no+"' and am.da_routeid like '"+route_no+"' group by route_location_name;", as_dict=1)
+    if status!='NA' and for_date=='NA':
+      if status=='Clean':
+        a= frappe.db.sql("select am.type as asset_type,i.asset_name,clean_status as fastatus,wm.ward_no as ward_no,route_assetcap as capacity,i.image,longitude,latitude,am.da_routeid,i.geo_location,i.address,i.item_code from `tabActivityMaster` am,`tabAsset` i,`tabWard_Master` wm  where route_location_name = i.name and am.creation like concat(date_format(date_sub(now(),interval 0 day),'%Y-%m-%d'),'%') and wm.ward_no=am.fawardno and (wm.supervisor_id like '"+id+"' or wm.area_manager_id like '"+id+"') and wm.ward_no like '"+ward_no+"' and am.da_routeid like '"+route_no+"' and clean_status like '"+status+"' group by route_location_name order by am.modified desc;", as_dict=1)
+      if status=='Pending':
+        a= frappe.db.sql("select asset_name,'Pending' as fastatus,ward_no as ward_no,capacity,item_code,geo_location,route_info,image,address,longitude,latitude,route_info as da_routeid,geo_location,address,item_code from `tabAsset` where item_code not like 'Vehicle' and name not in (select route_location_name from `tabActivityMaster` where date_format(creation,'%Y,%m,%d')=date_format(now(),'%Y,%m,%d') and fawardno like '"+ward_no+"' and da_routeid  is not null) ;", as_dict=1)
+      if status=='Scheduled':
+        a= frappe.db.sql("select am.type as asset_type,i.asset_name,'Scheduled' as fastatus,wm.ward_no as ward_no,route_assetcap as capacity,i.image,longitude,latitude,am.da_routeid,i.geo_location,i.address,i.item_code from `tabActivityMaster` am,`tabAsset` i,`tabWard_Master` wm  where route_location_name = i.name and am.creation like concat(date_format(date_sub(now(),interval 0 day),'%Y-%m-%d'),'%') and wm.ward_no=am.fawardno and (wm.supervisor_id like '"+id+"' or wm.area_manager_id like '"+id+"') and wm.ward_no like '"+ward_no+"' and am.da_routeid  like '"+route_no+"' and clean_status like 'Scheduled' group by route_location_name order by am.modified desc;", as_dict=1)
+    if status!='NA' and for_date!='NA':
+          a= frappe.db.sql("select am.type as asset_type,asset_name,clean_status as fastatus,wm.ward_no,route_assetcap as capacity,am.modified as for_date,i.image,longitude,latitude,am.da_routeid,i.geo_location,i.address,i.item_code from `tabActivityMaster` am,`tabAsset` i,`tabWard_Master` wm  where route_location_name = i.name and am.creation like concat('"+for_date+"','%') and wm.ward_no=am.fawardno and (wm.supervisor_id like '"+id+"' or wm.area_manager_id like '"+id+"') and wm.ward_no like '"+ward_no+"' and am.da_routeid like '"+route_no+"' and clean_status like '"+status+"' group by route_location_name order by am.modified desc;", as_dict=1)    
+    for d in a:
+      item_details[d.da_vehicleno] = d
+      data.append(d)
+    return data
+
+@frappe.whitelist()
+def route_coverage_summary(id):
+    item_details = {}
+    data=[]
+    a= frappe.db.sql("select distinct da_routeid,da_vehicleno,da_drivername,r_status,da.creation,da.modified,vehicle_type,fawardno,da.name from `tabDriverActivity` da,`tabRoute Info` ri  where ri.parent=da.da_routeid and date_format(da.creation,'%Y%m%d') like concat(date_format(now(),'%Y%m%d'),'%') and fawardno in (select distinct ward_no from `tabWard_Master` where supervisor_id like '"+id+"' or area_manager_id like '"+id+"');", as_dict=1)
+    for d in a:
+      item_details[d.da_vehicleno] = d
+      data.append(d)
+    return data
+
+@frappe.whitelist()
+def driver_not_assigned():
+    item_details = {}
+    data=[]
+    a= frappe.db.sql("select employee_name,designation,name,regmobile from `tabEmployee` where employee_name not in (select distinct da_drivername from `tabDriverActivity` where r_status not like 'Complete' and date_format(creation,'%Y%m%d')=date_format(now(),'%Y%m%d')) and designation like 'Driver' and status like 'Active';", as_dict=1)
+    for d in a:
+      item_details[d.da_vehicleno] = d
+      data.append(d)
+    return data
+
+@frappe.whitelist()
+def supervisordetails(id):
+    item_details = {}
+    data=[]
+    a= frappe.db.sql("select name as supervisor_id, employee_name as supervisor_name from `tabEmployee` where name in (select supervisor_id from `tabWard_Master` where parent is not null and ward_no in (select ward_no from `tabAsset` where registration_number='"+id+"'));", as_dict=1)
+    for d in a:
+      item_details[d.da_vehicleno] = d
+      data.append(d)
+    return data
+
+@frappe.whitelist()
+def notification(id):
+    item_details = {}
+    data=[]
+    a= frappe.db.sql("select 'Event' as nftdoctypename,evntitle as nftdesc from `tabEvents` where date_format(creation,'%Y%m%d')=date_format(now(),'%Y%m%d') UNION select 'News' as nftdoctypename,nwtitle as nftdesc from `tabNews` where date_format(creation,'%Y%m%d')=date_format(now(),'%Y%m%d') UNION select concat('Status of your Complaint',' ',name ) as nftdoctypename  ,cptstatus as nftdesc from `tabComplaints` where date_format(modified,'%Y%m%d')=date_format(now(),'%Y%m%d') and cptuserid like '"+id+"';", as_dict=1)
+    for d in a:
+      item_details[d.da_vehicleno] = d
+      data.append(d)
+    return data
+
+@frappe.whitelist()
+def update_route_master():
+    a= frappe.db.sql("update `tabRoute Info` r,`tabAsset` a set route_lat=latitude,route_long=longitude,route_assetcap=capacity,r.barcode=a.barcode where r.route_location_name=a.name and a.geo_location is not null;")
+    return a
+
+@frappe.whitelist()
+def update_route_in_asset_master():
+    a= frappe.db.sql("update `tabRoute Info` r,`tabAsset` a set a.route_info=r.parent,fawardno=ward_no where r.route_location_name=a.name;")
+    return a
+
+@frappe.whitelist()
+def get_deployed_vehicle(fromdt,todt,project):
+    item_details = {}
+    data=[]
+    a= frappe.db.sql("select z1.on_road ,z2.idle,z3.under_maintainance,z4.reserved,z1.on_road +z2.idle+z3.under_maintainance+z4.reserved as total\
+from \
+(select count(distinct (da_vehicleno)) as on_road \
+from `tabActivityMaster` am \
+where \
+str_to_date(date_format(am.creation,'%Y-%m-%d'),'%Y-%m-%d')\
+between str_to_date(date_format('"+fromdt+"','%Y-%m-%d'),'%Y-%m-%d') \
+and str_to_date(date_format('"+todt+"','%Y-%m-%d'),'%Y-%m-%d')\
+) z1,\
+(select count(registration_number) as idle from `tabAsset` where item_name like 'Vehicle' and docstatus =1 and route_info is null) z2,\
+(\
+select count(registration_number) as under_maintainance \
+from `tabAsset` \
+where item_name like 'Vehicle' \
+and docstatus =1 \
+and registration_number in \
+	(select m.registration_number from `tabAsset Maintenance` m ,		`tabAsset Maintenance Log` ml where ml.parent=m.name and 		str_to_date(date_format(ml.completion_date,'%Y-%m-%d'),'%Y-%m-%d')\
+between str_to_date(date_format('"+fromdt+"','%Y-%m-%d'),'%Y-%m-%d') \
+and str_to_date(date_format('"+todt+"','%Y-%m-%d'),'%Y-%m-%d')\
+	)\
+) z3,\
+(select count(registration_number) as reserved \
+from `tabAsset` where item_name like 'Vehicle' and route_info is not null and registration_number not in (select distinct da_vehicleno \
+from `tabActivityMaster` am \
+where \
+str_to_date(date_format(am.creation,'%Y-%m-%d'),'%Y-%m-%d') \
+between str_to_date(date_format('"+fromdt+"','%Y-%m-%d'),'%Y-%m-%d') \
+and str_to_date(date_format('"+todt+"','%Y-%m-%d'),'%Y-%m-%d')\
+group by da_vehicleno)) z4;", as_dict=1)
+    for d in a:
+      item_details[d.da_vehicleno] = d
+      data.append(d)
+    return data
+
+@frappe.whitelist()
+def complaint_dashboard(fromdt,todt,project):
+    item_details = {}
+    data=[]
+    a= frappe.db.sql("select distinct monthname(creation) as mon,\
+(select count(cptstatus) as new from `tabComplaints` where cptstatus like 'New' and str_to_date(date_format(creation,'%Y-%m-%d'),'%Y-%m-%d') \
+between str_to_date(date_format('"+fromdt+"','%Y-%m-%d'),'%Y-%m-%d') \
+and str_to_date(date_format('"+todt+"','%Y-%m-%d'),'%Y-%m-%d') and monthname(creation) = mon) as new, \
+(select count(cptstatus) as pending from `tabComplaints` where cptstatus like 'Pending' and str_to_date(date_format(creation,'%Y-%m-%d'),'%Y-%m-%d') \
+between str_to_date(date_format('"+fromdt+"','%Y-%m-%d'),'%Y-%m-%d') \
+and str_to_date(date_format('"+todt+"','%Y-%m-%d'),'%Y-%m-%d') and monthname(creation) = mon ) as pending,\
+(select count(cptstatus) as wip from `tabComplaints` where cptstatus like 'In-Process' and  str_to_date(date_format(creation,'%Y-%m-%d'),'%Y-%m-%d') \
+between str_to_date(date_format('"+fromdt+"','%Y-%m-%d'),'%Y-%m-%d') \
+and str_to_date(date_format('"+todt+"','%Y-%m-%d'),'%Y-%m-%d') and monthname(creation) = mon ) as wip,\
+(select count(cptstatus) as closed from `tabComplaints` where cptstatus like 'Complete' and  str_to_date(date_format(creation,'%Y-%m-%d'),'%Y-%m-%d') \
+between str_to_date(date_format('"+fromdt+"','%Y-%m-%d'),'%Y-%m-%d') \
+and str_to_date(date_format('"+todt+"','%Y-%m-%d'),'%Y-%m-%d') and monthname(creation) = mon ) as closed \
+ from `tabComplaints` group by mona", as_dict=1)
+    for d in a:
+      item_details[d.da_vehicleno] = d
+      data.append(d)
+    return data
+
+@frappe.whitelist()
+def servicerequest_dashboard(fromdt,todt,project):
+    item_details = {}
+    data=[]
+    a= frappe.db.sql("select new,pending,wip,closed from \
+(select count(cptstatus) as new from `tabComplaints` where cptstatus like 'New' and user_type like 'Corporate' and str_to_date(date_format(creation,'%Y-%m-%d'),'%Y-%m-%d') \
+between str_to_date(date_format('"+fromdt+"','%Y-%m-%d'),'%Y-%m-%d') \
+and str_to_date(date_format('"+todt+"','%Y-%m-%d'),'%Y-%m-%d') ) z1, \
+(select count(cptstatus) as pending from `tabComplaints` where cptstatus like 'Pending' and user_type like 'Corporate' and str_to_date(date_format(creation,'%Y-%m-%d'),'%Y-%m-%d') \
+between str_to_date(date_format('"+fromdt+"','%Y-%m-%d'),'%Y-%m-%d') \
+and str_to_date(date_format('"+todt+"','%Y-%m-%d'),'%Y-%m-%d') ) z2,\
+(select count(cptstatus) as wip from `tabComplaints` where cptstatus like 'In-Process' and user_type like 'Corporate' and  str_to_date(date_format(creation,'%Y-%m-%d'),'%Y-%m-%d') \
+between str_to_date(date_format('"+fromdt+"','%Y-%m-%d'),'%Y-%m-%d') \
+and str_to_date(date_format('"+todt+"','%Y-%m-%d'),'%Y-%m-%d') )z3,\
+(select count(cptstatus) as closed from `tabComplaints` where cptstatus like 'Complete' and user_type like 'Corporate' and  str_to_date(date_format(creation,'%Y-%m-%d'),'%Y-%m-%d') \
+between str_to_date(date_format('"+fromdt+"','%Y-%m-%d'),'%Y-%m-%d') \
+and str_to_date(date_format('"+todt+"','%Y-%m-%d'),'%Y-%m-%d')) z4", as_dict=1)
+    for d in a:
+      item_details[d.da_vehicleno] = d
+      data.append(d)
+    return data
+
+@frappe.whitelist()
+def collections_dashboard(fromdt,todt,project):
+    item_details = {}
+    data=[]
+    a= frappe.db.sql("select newcollections,scheduled,ontime,delay from  (select count(*) as newcollections from `tabAsset` where route_info is null) z1,\
+(select count(*) as scheduled from `tabAsset` where name in (select route_location_name from `tabActivityMaster` where clean_status like 'Scheduled' and str_to_date(date_format(creation,'%Y-%m-%d'),'%Y-%m-%d') \
+between str_to_date(date_format('"+fromdt+"','%Y-%m-%d'),'%Y-%m-%d')\
+and str_to_date(date_format('"+todt+"','%Y-%m-%d'),'%Y-%m-%d'))) z2,\
+(select count(*) as ontime from `tabAsset` where name in (select route_location_name from `tabActivityMaster` where clean_status like 'Clean' and str_to_date(date_format(creation,'%Y-%m-%d'),'%Y-%m-%d') \
+between str_to_date(date_format('"+fromdt+"','%Y-%m-%d'),'%Y-%m-%d')\
+and str_to_date(date_format('"+todt+"','%Y-%m-%d'),'%Y-%m-%d')))z4,\
+(select count(*) as delay from `tabAsset` where name in (select route_location_name from `tabActivityMaster` where clean_status like 'Pending' and str_to_date(date_format(creation,'%Y-%m-%d'),'%Y-%m-%d') \
+between str_to_date(date_format('"+fromdt+"','%Y-%m-%d'),'%Y-%m-%d')\
+and str_to_date(date_format('"+todt+"','%Y-%m-%d'),'%Y-%m-%d') and creation < date_sub(modified,interval 6 hour)))z5 ;", as_dict=1)
+    for d in a:
+      item_details[d.da_vehicleno] = d
+      data.append(d)
+    return data
+
+@frappe.whitelist()
+def assetcount_dashboard(fromdt,todt,project):
+    item_details = {}
+    data=[]
+    a= frappe.db.sql("select  bin,vehicle from (select count(name) as bin from `tabAsset` where item_code like 'BIN' group by item_code) z1,(select count(name) as vehicle from `tabAsset` where item_code like 'Vehicle' group by item_code) z2;", as_dict=1)
+    for d in a:
+      item_details[d.da_vehicleno] = d
+      data.append(d)
+    return data
+
+@frappe.whitelist()
+def assetstatus_dashboard(fromdt,todt,project):
+    item_details = {}
+    data=[]
+    a= frappe.db.sql("select inprogress,clean,pending from  (select count(*) as newcollections from `tabAsset` where route_info is null) z1,\
+(select count(*) as inprogress from `tabAsset` where name in (select route_location_name from `tabActivityMaster` where clean_status like 'Scheduled' and str_to_date(date_format(creation,'%Y-%m-%d'),'%Y-%m-%d') \
+between str_to_date(date_format('"+fromdt+"','%Y-%m-%d'),'%Y-%m-%d')\
+and str_to_date(date_format('"+todt+"','%Y-%m-%d'),'%Y-%m-%d'))) z2,\
+(select count(*) as clean from `tabAsset` where name in (select route_location_name from `tabActivityMaster` where clean_status like 'Clean' and str_to_date(date_format(creation,'%Y-%m-%d'),'%Y-%m-%d') \
+between str_to_date(date_format('"+fromdt+"','%Y-%m-%d'),'%Y-%m-%d')\
+and str_to_date(date_format('"+todt+"','%Y-%m-%d'),'%Y-%m-%d')))z4,\
+(select count(*) as pending from `tabAsset` where name in (select route_location_name from `tabActivityMaster` where clean_status like 'Pending' and str_to_date(date_format(creation,'%Y-%m-%d'),'%Y-%m-%d') \
+between str_to_date(date_format('"+fromdt+"','%Y-%m-%d'),'%Y-%m-%d')\
+and str_to_date(date_format('"+todt+"','%Y-%m-%d'),'%Y-%m-%d') and creation < date_sub(modified,interval 6 hour)))z5 ;", as_dict=1)
+    for d in a:
+      item_details[d.da_vehicleno] = d
+      data.append(d)
+    return data
+
+@frappe.whitelist()
+def assetsclearance_dashboard(fromdt,todt,project):
+    item_details = {}
+    data=[]
+    a= frappe.db.sql("select round((cleanstatus/total)*100,2) as clean_per,round((scheduled/total)*100,2) as scheduled_per,round((newcollections/totalcollections)*100,2) as not_considered \
+from (select count(name) as total from `tabActivityMaster`) z1,\
+(select count(name) as cleanstatus from `tabActivityMaster` where clean_status like 'Clean')z2,\
+(select count(name) as scheduled from `tabActivityMaster` where clean_status like 'Scheduled')z3,\
+(select count(name) as pending from `tabActivityMaster` where clean_status like 'Pending')z4,\
+(select count(*) as newcollections from `tabAsset` where route_info is null and name not in (select route_location_name from `tabActivityMaster`) and item_code not in ('Vehicle') )z5,\
+(select count(*) as totalcollections from `tabAsset` where item_code not in ('Vehicle') )z6;", as_dict=1)
+    for d in a:
+      item_details[d.da_vehicleno] = d
+      data.append(d)
+    return data
+
+@frappe.whitelist()
+def assetstable_dashboard(fromdt,todt,project):
+    item_details = {}
+    data=[]
+    a= frappe.db.sql("select route_location_name,da_routeid,route_assetloc,da_vehicleno,da_drivername,clean_status from `tabActivityMaster` where date_format(creation,'%Y-%m-%d')=date_format(now(),'%Y-%m-%d') order by creation;", as_dict=1)
+    for d in a:
+      item_details[d.da_vehicleno] = d
+      data.append(d)
+    return data
+
+@frappe.whitelist()
+def type_of_vehicle_dashboard(project):
+    item_details = {}
+    data=[]
+    a= frappe.db.sql("Select vehicle_type,count(name) as vehicle_count from `tabAsset` where item_code like 'Vehicle' and company like '"+project+"' group by vehicle_type;", as_dict=1)
+    for d in a:
+      item_details[d.da_vehicleno] = d
+      data.append(d)
+    return data

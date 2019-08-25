@@ -419,3 +419,26 @@ def has_user_permission_for_employee(user_name, employee_name):
 		'allow': 'Employee',
 		'for_value': employee_name
 	})
+
+@frappe.whitelist()
+def get_emp_count(contractor):
+    x = frappe.db.sql("select distinct(e.contractor), count(e.contractor) ,c.no_of_employee from `tabEmployee` e ,`tabContractor` c where c.name=e.contractor and e.contractor like '" + contractor + "' and  e.status like 'Active'  group by e.contractor;")
+    return x
+
+
+@frappe.whitelist()
+def get_role(role):
+    x = frappe.db.sql("SELECT																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																								name FROM `tabEmployee` Where company_email like '"+ role +"';")
+    return x
+
+
+
+@frappe.whitelist()
+def get_role_1(role):
+    item_detls = {}
+    data=[]
+    a= frappe.db.sql("SELECT role FROM `tabHas Role` Where parent like '"+ role +"';", as_dict=1)
+    for d in a:
+      item_detls[d.da_vehclno] = d
+      data.append(d)
+    return data	

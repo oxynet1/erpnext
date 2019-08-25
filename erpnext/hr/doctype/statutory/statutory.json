@@ -1,0 +1,194 @@
+{
+ "autoname": "ST.########",
+ "creation": "2019-07-29 17:54:34.922005",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "marital_status",
+  "depedent_children",
+  "column_break_3",
+  "residence_status",
+  "is_spouse_working",
+  "section_break_7",
+  "income_tax_number",
+  "epf_class",
+  "socso_type",
+  "eis",
+  "tab_haji_no",
+  "hrd_deduction",
+  "column_break_8",
+  "income_tax_branch",
+  "epf_number",
+  "socso_account_number",
+  "abs_ac_no",
+  "ptptn_no",
+  "epf_voluntary_fund_section",
+  "employee_amount",
+  "employer_amount",
+  "manual_adj_epf_socso",
+  "mid_mon_ded_epf",
+  "column_break_20",
+  "employee_percentage",
+  "employer_percentage",
+  "mid_mon_ded_socso"
+ ],
+ "fields": [
+  {
+   "fieldname": "marital_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Marital Status",
+   "options": "\nSingle\nMarried\nDivorced\nWidowed",
+   "reqd": 1
+  },
+  {
+   "fieldname": "residence_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Residence Status",
+   "options": "\nResident",
+   "reqd": 1
+  },
+  {
+   "fieldname": "depedent_children",
+   "fieldtype": "Data",
+   "label": "Depedent Children",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_spouse_working",
+   "fieldtype": "Check",
+   "label": "Is Spouse Working",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "income_tax_number",
+   "fieldtype": "Data",
+   "label": "Income Tax Number"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "income_tax_branch",
+   "fieldtype": "Data",
+   "label": "Income Tax Branch"
+  },
+  {
+   "fieldname": "epf_class",
+   "fieldtype": "Link",
+   "label": "EPF Class (rate)",
+   "options": "EPF Details"
+  },
+  {
+   "fieldname": "epf_number",
+   "fieldtype": "Data",
+   "label": "EPF Number"
+  },
+  {
+   "fieldname": "socso_type",
+   "fieldtype": "Link",
+   "label": "SOCSO Type",
+   "options": "SOCSO Details"
+  },
+  {
+   "fieldname": "socso_account_number",
+   "fieldtype": "Data",
+   "label": "Socso Account Number"
+  },
+  {
+   "fieldname": "eis",
+   "fieldtype": "Data",
+   "label": "EIS"
+  },
+  {
+   "fieldname": "tab_haji_no",
+   "fieldtype": "Data",
+   "label": "Tabung Haji Number"
+  },
+  {
+   "default": "0",
+   "fieldname": "hrd_deduction",
+   "fieldtype": "Check",
+   "label": "HRD Deduction"
+  },
+  {
+   "fieldname": "abs_ac_no",
+   "fieldtype": "Data",
+   "label": "ASB Account Number"
+  },
+  {
+   "fieldname": "ptptn_no",
+   "fieldtype": "Data",
+   "label": "PTPTN Number"
+  },
+  {
+   "fieldname": "epf_voluntary_fund_section",
+   "fieldtype": "Section Break",
+   "label": "EPF Voluntary Fund"
+  },
+  {
+   "fieldname": "column_break_20",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "employee_amount",
+   "fieldtype": "Currency",
+   "label": "Employee Amount"
+  },
+  {
+   "fieldname": "employer_amount",
+   "fieldtype": "Currency",
+   "label": "Employer Amount"
+  },
+  {
+   "fieldname": "employee_percentage",
+   "fieldtype": "Percent",
+   "label": "Employee Percentage"
+  },
+  {
+   "fieldname": "employer_percentage",
+   "fieldtype": "Percent",
+   "label": "Employer Percentage"
+  },
+  {
+   "default": "0",
+   "fieldname": "manual_adj_epf_socso",
+   "fieldtype": "Check",
+   "label": "Manual Adjust for EPF and Socso"
+  },
+  {
+   "default": "0",
+   "fieldname": "mid_mon_ded_epf",
+   "fieldtype": "Check",
+   "label": "Is Mid Month Deduction for Socso"
+  },
+  {
+   "default": "0",
+   "fieldname": "mid_mon_ded_socso",
+   "fieldtype": "Check",
+   "label": "Is Mid Month Deduction for EFP"
+  }
+ ],
+ "istable": 1,
+ "modified": "2019-08-01 17:12:09.980828",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Statutory",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

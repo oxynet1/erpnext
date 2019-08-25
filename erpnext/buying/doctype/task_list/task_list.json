@@ -1,0 +1,84 @@
+{
+ "autoname": "TS.##########",
+ "creation": "2019-07-18 12:37:55.920972",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "ts_ls_title",
+  "ts_ls_summary",
+  "ts_ls_time",
+  "column_break_4",
+  "ts_ls_date",
+  "ts_ls_priority",
+  "ts_ls_status",
+  "ts_ls_location",
+  "ts_ls_note"
+ ],
+ "fields": [
+  {
+   "fieldname": "ts_ls_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title"
+  },
+  {
+   "fieldname": "ts_ls_summary",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Summary"
+  },
+  {
+   "fieldname": "ts_ls_priority",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Priority",
+   "options": "\nLow\nMedum\nHigh"
+  },
+  {
+   "fieldname": "ts_ls_date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Due Date"
+  },
+  {
+   "fieldname": "ts_ls_location",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Location"
+  },
+  {
+   "fieldname": "ts_ls_note",
+   "fieldtype": "Small Text",
+   "hidden": 1,
+   "label": "Notes (Remarks)"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ts_ls_time",
+   "fieldtype": "Time",
+   "label": "Task Time"
+  },
+  {
+   "fieldname": "ts_ls_status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "TO-Do\nIn-Progress\nDone\nOverdue\nCan't Do"
+  }
+ ],
+ "istable": 1,
+ "modified": "2019-07-18 18:37:44.091654",
+ "modified_by": "Administrator",
+ "module": "Buying",
+ "name": "Task List",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

@@ -41,7 +41,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Supplier",
-   "options": "Supplier"
+   "options": "Contractor"
   },
   {
    "fieldname": "column_break_2",
@@ -108,7 +108,7 @@
   }
  ],
  "is_submittable": 1,
- "modified": "2019-05-14 17:12:24.912666",
+ "modified": "2019-07-02 19:07:10.262359",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Payment Order",

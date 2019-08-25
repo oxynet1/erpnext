@@ -1,0 +1,151 @@
+{
+ "allow_import": 1,
+ "autoname": "format:{emp_no}-{from_date}-{to_date}",
+ "creation": "2019-07-04 12:40:10.837482",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "emp_no",
+  "contractor_name",
+  "from_date",
+  "employee_category",
+  "column_break_4",
+  "employee_name",
+  "location",
+  "to_date",
+  "cont_digi_sign",
+  "section_break_8",
+  "in_out_details",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "emp_no",
+   "fieldtype": "Link",
+   "label": "Employee No",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name"
+  },
+  {
+   "fieldname": "contractor_name",
+   "fieldtype": "Data",
+   "label": "Contractor Name"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date"
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "in_out_details",
+   "fieldtype": "Table",
+   "label": "In Out Details",
+   "options": "GatePass Daily Entry",
+   "permlevel": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Gate Pass",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "cont_digi_sign",
+   "fieldtype": "Attach",
+   "label": "Contractor Digital Sign"
+  },
+  {
+   "fieldname": "employee_category",
+   "fieldtype": "Data",
+   "label": "Employee Category"
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2019-07-15 19:00:56.593920",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Gate Pass",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Operator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

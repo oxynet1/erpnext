@@ -1077,3 +1077,82 @@ def update_variants(variants, template, publish_progress=True):
 def on_doctype_update():
 	# since route is a Text column, it needs a length for indexing
 	frappe.db.add_index("Item", ["route(500)"])
+
+
+@frappe.whitelist(allow_guest=True)
+def catalouge_details():
+    item_details = {}
+    data=[]
+    a= frappe.db.sql("select name ,customer_name,customer_lot_address,material_highlights,inspection_start_date,inspection_end_date,registration_start_date,registration_end_date,auction_start_date,auction_end_date,catalogue_name from `tabCatalogue` where registration_end_date >= now();", as_dict=1)
+    for d in a:
+      item_details[d.da_vehicleno] = d
+      data.append(d)
+    return data
+
+@frappe.whitelist(allow_guest=True)
+def tender_details():
+    item_detls = {}
+    data=[]
+    a= frappe.db.sql("select name ,customer,address,material_highlights,inspection_start_date,inspection_end_date,tender_start_date,tender_end_date from `tabTenders` where tender_end_date >= now();", as_dict=1)
+    for d in a:
+      item_detls[d.da_vehclno] = d
+      data.append(d)
+    return data
+
+#***** Top 3 Bid for lot *****
+@frappe.whitelist()
+def top_bid_details(auction_no,lot_code):
+    item_detls = {}
+    data=[]
+    a= frappe.db.sql("select * from `tabBid Activity Details` where auction_no like '" + auction_no + "' and lot_code like '" + lot_code + "' order by bid_amount desc limit 3;", as_dict=1)
+    for d in a:
+      item_detls[d.da_vehclno] = d
+      data.append(d)
+    return data
+
+#***** Admin Screen py code *****
+@frappe.whitelist()
+def admin_screen():
+    item_detls = {}
+    data=[]
+    a= frappe.db.sql("Select s.auction_no as 'action_code',s.auction_start_date as 'action_start_date',s.auction_end_date as 'action_end_date', i.item_code as 'lot_code',i.description as 'lot_desc',i.qty1 as 'lot_qty',i.opening_bid as 'bid_start_amt',max(a.bid_amount) as 'highest_bid_amt',s.contact_display as 'bider_name', s.contact_mobile as 'bider_contact', s.auction_start_date As 'bid_date_time', s.auction_start_date As 'bid_start_time', s.auction_end_date As 'bid_end_time', '' As 'extended_time' From `tabSales Order` s, `tabSales Order Item` i , `tabBid Activity Details` a where s.name=i.parent and s.auction_no=a.auction_no and i.item_code=a.lot_code group by i.item_code ,a.lot_code;", as_dict=1)
+    for d in a:
+      item_detls[d.da_vehclno] = d
+      data.append(d)
+    return data
+
+
+#***** highest bid for lot *****
+@frappe.whitelist()
+def highest_bid_for_lot(auction_no):
+    item_detls = {}
+    data=[]
+    a= frappe.db.sql("select auction_no,lot_code,max(bid_amount) as highest_bid from `tabBid Activity Details` where auction_no like '" + auction_no + "' group by lot_code;", as_dict=1)
+    for d in a:
+      item_detls[d.da_vehclno] = d
+      data.append(d)
+    return data	
+
+#***** my bids for lot *****
+@frappe.whitelist()
+def my_bids_for_lot(auction_no,sales_order_no):
+    item_detls = {}
+    data=[]
+    a= frappe.db.sql("select auction_no,lot_code,bid_amount  from `tabBid Activity Details` where auction_no like '" +auction_no+"' and sales_order_no like '" +sales_order_no+"' order by lot_code,creation;", as_dict=1)
+    for d in a:
+      item_detls[d.da_vehclno] = d
+      data.append(d)
+    return data
+
+
+#***** All bids for lot *****
+@frappe.whitelist()
+def all_bids_for_lot(auction_no,lot_code):
+    item_detls = {}
+    data=[]
+    a= frappe.db.sql("select auction_no,lot_code,bid_amount,creation as date  from `tabBid Activity Details` where auction_no like '" + auction_no + "' and lot_code like '" +lot_code+ "' order by lot_code,creation;", as_dict=1)
+    for d in a:
+      item_detls[d.da_vehclno] = d
+      data.append(d)
+    return data	
+

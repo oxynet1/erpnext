@@ -1,0 +1,142 @@
+
+
+<html class="no-js" lang="">
+
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    
+ // For Job Openings..
+
+        $(document).ready(function () {
+		 
+               // email = "Guest"
+                $.get("http://kainext.com:8001/api/method/erpnext.hr.doctype.recruitment_requisition_form.recruitment_requisition_form.get_job_opening", function (data, status) {
+                    console.log(data.message[0])
+                    if (status === "success") {
+                       // email = data.message[0]
+			console.log("hello");
+			var tender = document.getElementById('tender');
+				var mycurrent_row
+				var mycurrent_cell
+
+		                // creating all cells
+				  for(var j = 0; j < data.message.length; j++) {
+		   		// creates a <tr> element
+		   		  mycurrent_row = document.createElement("tr");
+
+		    		  
+				// creates a <td> element
+				mycurrent_cell = document.createElement("td");
+				// creates a Text Node
+				currenttext = document.createTextNode(data.message[j].name);
+				// appends the Text Node we created into the cell <td>
+				mycurrent_cell.appendChild(currenttext);
+				// appends the cell <td> into the row <tr>
+				mycurrent_row.appendChild(mycurrent_cell)
+
+				// creates a <td> element
+				mycurrent_cell = document.createElement("td");
+				// creates a Text Node
+				//currenttext = document.createTextNode(data.message[j].desig);
+				// appends the Text Node we created into the cell <td>
+				mycurrent_cell.innerHTML=data.message[j].desig;
+				// appends the cell <td> into the row <tr>
+				mycurrent_row.appendChild(mycurrent_cell)
+
+// creates a <td> element
+				mycurrent_cell = document.createElement("td");
+				// creates a Text Node
+				currenttext = document.createTextNode(data.message[j].position);
+				// appends the Text Node we created into the cell <td>
+				mycurrent_cell.appendChild(currenttext);
+				// appends the cell <td> into the row <tr>
+				mycurrent_row.appendChild(mycurrent_cell)
+
+// creates a <td> element
+				mycurrent_cell = document.createElement("td");
+				// creates a Text Node
+				currenttext = document.createTextNode(data.message[j].dept);
+				// appends the Text Node we created into the cell <td>
+				mycurrent_cell.appendChild(currenttext);
+				// appends the cell <td> into the row <tr>
+				mycurrent_row.appendChild(mycurrent_cell)
+
+// creates a <td> element
+				mycurrent_cell = document.createElement("td");
+				// creates a Text Node
+				currenttext = document.createTextNode(data.message[j].no_of_positions);
+				// appends the Text Node we created into the cell <td>	
+                mycurrent_cell.appendChild(currenttext);				
+				// appends the cell <td> into the row <tr>
+				mycurrent_row.appendChild(mycurrent_cell)
+
+// creates a <td> element
+				mycurrent_cell = document.createElement("td");
+				// creates a Text Node
+				currenttext = document.createTextNode(data.message[j].due_date);
+				// appends the Text Node we created into the cell <td>
+				mycurrent_cell.appendChild(currenttext);
+				// appends the cell <td> into the row <tr>
+				mycurrent_row.appendChild(mycurrent_cell)			
+
+				
+					tender.appendChild(mycurrent_row);
+			}
+                	
+                    }
+                
+                // email = "{{ logged_in_user }}"
+                //console.log("email: ", email)
+            }, ); //5 seconds
+
+        });
+
+</script>
+
+<center><font color="#4a0d1e" ><h1> Job Openings </h1></font></center>
+
+<div class="col-md-3 register-left" align="right"> 
+       <a class="bule" href="http://kainext.com:8001/malaysia3/home.html">Login/Sign up</a>&nbsp;&nbsp;&nbsp;&nbsp;
+           </div>
+<div class="col-md-3 register-left" align="right"> &nbsp; </div>
+
+</head>
+<body>
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+  	font-size:13px
+      }
+
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 8px;
+      }
+     
+
+      tr:nth-child(even) {
+        background-color:  #ebf5fb;
+      }
+    </style>
+   <div class="col-md-3 register-left" align="center"> 
+      <table id="tender">
+     <tbody><tr>
+        <th style="color: white;" bgcolor="#696969">Position Code</th>
+        <th style="color: white;" bgcolor="#696969">Job Title</th>
+        <th style="color: white;" bgcolor="#696969">Designation</th>
+        <th style="color: white;" bgcolor="#696969">Department</th>
+        <th style="color: white;" bgcolor="#696969">No of Positions</th>        
+        <th style="color: white;" bgcolor="#696969">Due Date</th>        
+      </tr>
+      </tbody>
+  </table>
+  </div>
+  <br>
+  
+</body>
+</html>

@@ -1,0 +1,82 @@
+{
+ "autoname": "LOC.########",
+ "creation": "2019-07-31 10:45:34.857544",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_4",
+  "locker_code",
+  "location",
+  "locker_issued_date",
+  "release_date",
+  "column_break_7",
+  "locker_description",
+  "locker_key_collection",
+  "remark"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break",
+   "label": "Locker Details"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Locker Location"
+  },
+  {
+   "fieldname": "locker_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Locker Code",
+   "options": "Locker Code Details",
+   "reqd": 1
+  },
+  {
+   "fieldname": "locker_description",
+   "fieldtype": "Data",
+   "label": "Locker Description"
+  },
+  {
+   "fieldname": "locker_issued_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Locker Issued Date"
+  },
+  {
+   "fieldname": "release_date",
+   "fieldtype": "Date",
+   "label": "Locker Release Date",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "locker_key_collection",
+   "fieldtype": "Check",
+   "label": "Locker Key Collection"
+  },
+  {
+   "fieldname": "remark",
+   "fieldtype": "Small Text",
+   "label": "Remark"
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "istable": 1,
+ "modified": "2019-08-01 16:31:19.733882",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Locker",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

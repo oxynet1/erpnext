@@ -1,0 +1,79 @@
+{
+ "autoname": "CO.#######",
+ "creation": "2019-07-30 15:43:58.590670",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "contract",
+  "contract_number",
+  "contract_start_date",
+  "contract_end_date",
+  "column_break_4",
+  "contract_tenure",
+  "contract_amount",
+  "remark"
+ ],
+ "fields": [
+  {
+   "fieldname": "contract_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Contract Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "contract_tenure",
+   "fieldtype": "Data",
+   "label": "Contract Tenure",
+   "reqd": 1
+  },
+  {
+   "fieldname": "contract_start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Contract Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "contract_end_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Contract End Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "contract_amount",
+   "fieldtype": "Currency",
+   "label": "Contract Amount (Drop down list as salary is to be by Monthly / Yearly)",
+   "options": "\nMonthly\nYearly"
+  },
+  {
+   "fieldname": "remark",
+   "fieldtype": "Small Text",
+   "label": "Remark"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contract",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Contract Type",
+   "options": "Contract Type Details",
+   "reqd": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2019-08-22 18:02:35.946198",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Contract Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

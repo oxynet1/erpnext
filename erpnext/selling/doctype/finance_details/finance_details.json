@@ -1,0 +1,101 @@
+{
+ "creation": "2019-07-10 16:43:38.247375",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "financed_by",
+  "start_date",
+  "tot_fince_amt",
+  "emi_amount",
+  "repayment_schedule",
+  "scheme_type",
+  "column_break_4",
+  "bank_name",
+  "end_date",
+  "loan_tenure",
+  "refinancing_details",
+  "attach"
+ ],
+ "fields": [
+  {
+   "fieldname": "emi_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": " EMI Amount"
+  },
+  {
+   "fieldname": "repayment_schedule",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Repayment Schedule"
+  },
+  {
+   "fieldname": "scheme_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Scheme Type",
+   "options": "Scheme Type"
+  },
+  {
+   "fieldname": "bank_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Bank Name"
+  },
+  {
+   "fieldname": "loan_tenure",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Loan Tenure"
+  },
+  {
+   "fieldname": "refinancing_details",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Refinancing details (If any)"
+  },
+  {
+   "fieldname": "attach",
+   "fieldtype": "Attach",
+   "label": " Finance related document"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tot_fince_amt",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Finance Amount"
+  },
+  {
+   "fieldname": "financed_by",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Financed by",
+   "options": "\nIn-house\nOutside"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start date"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date"
+  }
+ ],
+ "istable": 1,
+ "modified": "2019-08-05 15:49:26.454519",
+ "modified_by": "Administrator",
+ "module": "Selling",
+ "name": "Finance Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

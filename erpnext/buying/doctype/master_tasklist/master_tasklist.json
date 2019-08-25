@@ -1,0 +1,36 @@
+{
+ "autoname": "MTL.##########",
+ "creation": "2019-07-19 13:27:06.532256",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "ts_ls_title",
+  "ts_ls_summary"
+ ],
+ "fields": [
+  {
+   "fieldname": "ts_ls_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title"
+  },
+  {
+   "fieldname": "ts_ls_summary",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Summary"
+  }
+ ],
+ "istable": 1,
+ "modified": "2019-07-19 13:27:06.532256",
+ "modified_by": "Administrator",
+ "module": "Buying",
+ "name": "Master TaskList",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

@@ -1,0 +1,43 @@
+{
+ "autoname": "AD.#######",
+ "creation": "2019-07-30 15:53:15.607424",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "file_name",
+  "attachment",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "file_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "File Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "attachment",
+   "fieldtype": "Attach",
+   "in_list_view": 1,
+   "label": "Attachment",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  }
+ ],
+ "istable": 1,
+ "modified": "2019-07-30 15:55:05.786837",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Attachment Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

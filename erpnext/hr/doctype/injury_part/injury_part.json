@@ -1,0 +1,58 @@
+{
+ "autoname": "field:part_name",
+ "creation": "2019-07-30 17:23:08.987448",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "part_name",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "part_name",
+   "fieldtype": "Data",
+   "label": "Part Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  }
+ ],
+ "modified": "2019-07-30 17:23:27.588379",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Injury Part",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

@@ -16,6 +16,7 @@
   "salutation",
   "customer_name",
   "vehicle_model",
+  "variant",
   "registration_no",
   "column_break1",
   "amended_from",
@@ -45,6 +46,12 @@
   "price_list_currency",
   "plc_conversion_rate",
   "ignore_pricing_rule",
+  "bmw_secu_sec_bk",
+  "rollover",
+  "with_rsa",
+  "col_bk_bmw_secu",
+  "bms_secure_before_due_date",
+  "bmw_secure_after_due_date",
   "items_section",
   "vehicle_insurance",
   "section_break_46",
@@ -116,7 +123,12 @@
   "enq_det",
   "supplier_quotation",
   "opportunity",
-  "lost_reasons"
+  "lost_reasons",
+  "section_break_111",
+  "user_name",
+  "email_id",
+  "column_break_114",
+  "mobile_no"
  ],
  "fields": [
   {
@@ -452,7 +464,8 @@
   },
   {
    "fieldname": "sec_break23",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "hidden": 1
   },
   {
    "fieldname": "total_qty",
@@ -569,7 +582,8 @@
   },
   {
    "fieldname": "section_break_39",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "hidden": 1
   },
   {
    "fieldname": "base_total_taxes_and_charges",
@@ -598,6 +612,7 @@
    "collapsible_depends_on": "discount_amount",
    "fieldname": "section_break_44",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Additional Discount"
   },
   {
@@ -636,6 +651,7 @@
   {
    "fieldname": "totals",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "oldfieldtype": "Section Break",
    "options": "fa fa-money",
    "print_hide": 1
@@ -733,6 +749,7 @@
   {
    "fieldname": "payment_schedule_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Payment Terms"
   },
   {
@@ -976,7 +993,7 @@
   {
    "fieldname": "vehicle_model",
    "fieldtype": "Link",
-   "label": "Vehicle Model",
+   "label": "Model",
    "options": "Item",
    "reqd": 1
   },
@@ -1003,13 +1020,75 @@
    "fieldtype": "Data",
    "label": "Lead Type",
    "read_only": 1
+  },
+  {
+   "fieldname": "section_break_111",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "user_name",
+   "fieldtype": "Data",
+   "label": "User Name"
+  },
+  {
+   "fieldname": "email_id",
+   "fieldtype": "Data",
+   "label": "Email id"
+  },
+  {
+   "fieldname": "column_break_114",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mobile_no",
+   "fieldtype": "Data",
+   "label": "Mobile No"
+  },
+  {
+   "fieldname": "variant",
+   "fieldtype": "Link",
+   "label": "Variant",
+   "options": "Variant Details"
+  },
+  {
+   "fieldname": "bmw_secu_sec_bk",
+   "fieldtype": "Section Break",
+   "label": "BMW Secure Calculator"
+  },
+  {
+   "fieldname": "rollover",
+   "fieldtype": "Select",
+   "label": "Rollover",
+   "options": "\nYES\nNO"
+  },
+  {
+   "fieldname": "with_rsa",
+   "fieldtype": "Select",
+   "label": "With RSA",
+   "options": "\nYES\nNO"
+  },
+  {
+   "fieldname": "col_bk_bmw_secu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bms_secure_before_due_date",
+   "fieldtype": "Currency",
+   "label": "BMW Secure (Before Due Date)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "bmw_secure_after_due_date",
+   "fieldtype": "Currency",
+   "label": "BMW Secure (After Due Date / Rollover)",
+   "read_only": 1
   }
  ],
  "icon": "fa fa-shopping-cart",
  "idx": 82,
  "is_submittable": 1,
  "max_attachments": 1,
- "modified": "2019-06-14 18:27:37.809806",
+ "modified": "2019-07-12 15:49:04.449457",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Quotation",

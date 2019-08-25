@@ -1,0 +1,550 @@
+{
+ "autoname": "JB.#########",
+ "creation": "2019-07-29 16:22:18.941134",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "job_information_section",
+  "joined_date",
+  "designation",
+  "department",
+  "workgroup",
+  "job_grade",
+  "branch",
+  "employee_status",
+  "column_break_3",
+  "group_joined_date",
+  "level",
+  "division",
+  "team",
+  "base",
+  "production_group",
+  "employee_type",
+  "column_break_5",
+  "total_years_of_services",
+  "region",
+  "section",
+  "category",
+  "location",
+  "cost_center",
+  "primary_superior",
+  "secondary_superior",
+  "section_break_26",
+  "leave_scheme",
+  "ots_class",
+  "column_break_28",
+  "leave_state",
+  "column_break_30",
+  "claim_scheme",
+  "sec_33",
+  "probation_period",
+  "probation_extension_method",
+  "group_confirm_date",
+  "column_break_35",
+  "probation_method",
+  "confirmation_due_date",
+  "column_break_36",
+  "probation_extension",
+  "confirmation_date",
+  "section_break_43",
+  "notice_prod_bfre_confrm",
+  "resignation_due_date",
+  "last_working_day",
+  "recommended_for_rejoin",
+  "column_break_45",
+  "notice_prod_aftr_confrm",
+  "retirement_date",
+  "last_payment_date",
+  "column_break_47",
+  "resignation_tender_date",
+  "resignation_reason",
+  "section_break_59",
+  "retirement_age",
+  "rehire_reason",
+  "column_break_60",
+  "rejoin_date",
+  "column_break_61",
+  "notice_date",
+  "sec_62",
+  "services_points",
+  "pay_cycle",
+  "column_break_64",
+  "amount",
+  "allowance",
+  "column_break_66",
+  "total",
+  "sec_70",
+  "pay_type",
+  "bonus_factor",
+  "column_break_72",
+  "pay_frequency",
+  "mid_month_pay_percentage",
+  "column_break_74",
+  "pay_group",
+  "mid_month_pay_amount",
+  "bank_information_section",
+  "pay_types",
+  "bank_account_references",
+  "column_break_81",
+  "bank_name",
+  "cheque_no",
+  "bank_account_particular",
+  "column_break_84",
+  "bank_branch_name",
+  "bank_account_number"
+ ],
+ "fields": [
+  {
+   "fieldname": "job_information_section",
+   "fieldtype": "Section Break",
+   "label": "Job Information"
+  },
+  {
+   "fieldname": "joined_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Joined Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "group_joined_date",
+   "fieldtype": "Date",
+   "label": "Group Joined Date"
+  },
+  {
+   "fieldname": "total_years_of_services",
+   "fieldtype": "Data",
+   "label": "Total Years of Services"
+  },
+  {
+   "fieldname": "designation",
+   "fieldtype": "Link",
+   "label": "Designation",
+   "options": "Designation",
+   "reqd": 1
+  },
+  {
+   "fieldname": "level",
+   "fieldtype": "Data",
+   "label": "Level"
+  },
+  {
+   "fieldname": "region",
+   "fieldtype": "Data",
+   "label": "Region"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Department ",
+   "options": "Department"
+  },
+  {
+   "fieldname": "division",
+   "fieldtype": "Data",
+   "label": "Division"
+  },
+  {
+   "fieldname": "section",
+   "fieldtype": "Data",
+   "label": "Section"
+  },
+  {
+   "fieldname": "workgroup",
+   "fieldtype": "Data",
+   "label": "Workgroup"
+  },
+  {
+   "fieldname": "team",
+   "fieldtype": "Data",
+   "label": "Team"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Data",
+   "label": "Category"
+  },
+  {
+   "fieldname": "job_grade",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Job Grade"
+  },
+  {
+   "fieldname": "base",
+   "fieldtype": "Data",
+   "label": "Base"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location"
+  },
+  {
+   "fieldname": "branch",
+   "fieldtype": "Data",
+   "label": "Branch"
+  },
+  {
+   "fieldname": "production_group",
+   "fieldtype": "Data",
+   "label": "Production Group"
+  },
+  {
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "Cost Center",
+   "options": "Cost Center Details"
+  },
+  {
+   "fieldname": "employee_type",
+   "fieldtype": "Select",
+   "label": "Employee Type",
+   "options": "\nLocal\nForeigner"
+  },
+  {
+   "fieldname": "employee_status",
+   "fieldtype": "Select",
+   "label": "Employee Status",
+   "options": "\nActive\nIn-active"
+  },
+  {
+   "fieldname": "primary_superior",
+   "fieldtype": "Data",
+   "label": "Primary Superior"
+  },
+  {
+   "fieldname": "secondary_superior",
+   "fieldtype": "Data",
+   "label": "Secondary Superior"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_26",
+   "fieldtype": "Section Break",
+   "label": "Employee Benefit Entitlement Information"
+  },
+  {
+   "fieldname": "leave_scheme",
+   "fieldtype": "Data",
+   "label": "Leave Scheme"
+  },
+  {
+   "fieldname": "leave_state",
+   "fieldtype": "Data",
+   "label": "Leave State"
+  },
+  {
+   "fieldname": "claim_scheme",
+   "fieldtype": "Data",
+   "label": "Claim Scheme"
+  },
+  {
+   "fieldname": "ots_class",
+   "fieldtype": "Data",
+   "label": "OT's Class"
+  },
+  {
+   "fieldname": "column_break_28",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_30",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sec_33",
+   "fieldtype": "Section Break",
+   "label": "Employee Services Engagement Info"
+  },
+  {
+   "fieldname": "probation_period",
+   "fieldtype": "Data",
+   "label": "Probation Period"
+  },
+  {
+   "fieldname": "column_break_35",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_36",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "probation_method",
+   "fieldtype": "Date",
+   "label": "Probation Method"
+  },
+  {
+   "fieldname": "probation_extension",
+   "fieldtype": "Data",
+   "label": "Probation Extension"
+  },
+  {
+   "fieldname": "probation_extension_method",
+   "fieldtype": "Date",
+   "label": "Probation Extension Method"
+  },
+  {
+   "fieldname": "confirmation_due_date",
+   "fieldtype": "Date",
+   "label": "Confirmation Due Date"
+  },
+  {
+   "fieldname": "confirmation_date",
+   "fieldtype": "Date",
+   "label": "Confirmation Date"
+  },
+  {
+   "fieldname": "group_confirm_date",
+   "fieldtype": "Date",
+   "label": "Group Confirm Date"
+  },
+  {
+   "fieldname": "section_break_43",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "notice_prod_bfre_confrm",
+   "fieldtype": "Date",
+   "label": "Notice Period Before Confirmation (month)"
+  },
+  {
+   "fieldname": "notice_prod_aftr_confrm",
+   "fieldtype": "Date",
+   "label": "Notice Period After Confirmation (month)"
+  },
+  {
+   "fieldname": "resignation_tender_date",
+   "fieldtype": "Date",
+   "label": "Resignation Tender Date"
+  },
+  {
+   "fieldname": "resignation_due_date",
+   "fieldtype": "Date",
+   "label": "Resignation Due Date"
+  },
+  {
+   "fieldname": "resignation_reason",
+   "fieldtype": "Small Text",
+   "label": "Resignation Reason"
+  },
+  {
+   "fieldname": "last_working_day",
+   "fieldtype": "Date",
+   "label": "Last Working Day"
+  },
+  {
+   "fieldname": "retirement_age",
+   "fieldtype": "Data",
+   "label": "Retirement Age"
+  },
+  {
+   "fieldname": "retirement_date",
+   "fieldtype": "Date",
+   "label": "Retirement Date"
+  },
+  {
+   "default": "0",
+   "fieldname": "recommended_for_rejoin",
+   "fieldtype": "Check",
+   "label": "Recommended for Rejoin"
+  },
+  {
+   "fieldname": "rejoin_date",
+   "fieldtype": "Data",
+   "label": "Rejoin Date"
+  },
+  {
+   "fieldname": "notice_date",
+   "fieldtype": "Data",
+   "label": "Notice Date"
+  },
+  {
+   "fieldname": "rehire_reason",
+   "fieldtype": "Small Text",
+   "label": "Rehire Reason"
+  },
+  {
+   "fieldname": "column_break_45",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_47",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_payment_date",
+   "fieldtype": "Date",
+   "label": "Last Payment Date"
+  },
+  {
+   "depends_on": "eval:doc.recommended_for_rejoin===1",
+   "fieldname": "section_break_59",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_60",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_61",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sec_62",
+   "fieldtype": "Section Break",
+   "label": "Services Points"
+  },
+  {
+   "fieldname": "services_points",
+   "fieldtype": "Data",
+   "label": "Services Points"
+  },
+  {
+   "fieldname": "column_break_64",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount / Point"
+  },
+  {
+   "fieldname": "column_break_66",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pay_cycle",
+   "fieldtype": "Select",
+   "label": "Pay Cycle",
+   "options": "\nSTART OF MONTH\nMIDDLE OF MONTH\nEND OF MONTH"
+  },
+  {
+   "fieldname": "allowance",
+   "fieldtype": "Select",
+   "label": "Allowance",
+   "options": "\nSpecial Allowance"
+  },
+  {
+   "fieldname": "total",
+   "fieldtype": "Currency",
+   "label": "Total "
+  },
+  {
+   "fieldname": "sec_70",
+   "fieldtype": "Section Break",
+   "label": "Payroll Informaiton"
+  },
+  {
+   "fieldname": "pay_type",
+   "fieldtype": "Data",
+   "label": "Pay Type"
+  },
+  {
+   "fieldname": "pay_frequency",
+   "fieldtype": "Data",
+   "label": "Pay Frequency"
+  },
+  {
+   "fieldname": "pay_group",
+   "fieldtype": "Data",
+   "label": "Pay Group"
+  },
+  {
+   "fieldname": "bonus_factor",
+   "fieldtype": "Data",
+   "label": "Bonus Factor"
+  },
+  {
+   "fieldname": "mid_month_pay_percentage",
+   "fieldtype": "Percent",
+   "label": "Mid Month Pay Percentage"
+  },
+  {
+   "fieldname": "mid_month_pay_amount",
+   "fieldtype": "Currency",
+   "label": "Mid Month Pay Amount"
+  },
+  {
+   "fieldname": "column_break_72",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_74",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bank_information_section",
+   "fieldtype": "Section Break",
+   "label": "Bank Information"
+  },
+  {
+   "fieldname": "pay_types",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "\nBank\nCash\nCheque"
+  },
+  {
+   "fieldname": "column_break_81",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.pay_types===\"Bank\"",
+   "fieldname": "bank_name",
+   "fieldtype": "Link",
+   "label": "Bank Name",
+   "options": "Bank Details"
+  },
+  {
+   "depends_on": "eval:doc.pay_types===\"Cheque\"",
+   "fieldname": "cheque_no",
+   "fieldtype": "Data",
+   "label": "Cheque No"
+  },
+  {
+   "fieldname": "bank_branch_name",
+   "fieldtype": "Data",
+   "label": "Bank Branch Name"
+  },
+  {
+   "fieldname": "bank_account_number",
+   "fieldtype": "Data",
+   "label": "Bank Account Number"
+  },
+  {
+   "fieldname": "bank_account_references",
+   "fieldtype": "Data",
+   "label": "Bank Account References"
+  },
+  {
+   "fieldname": "bank_account_particular",
+   "fieldtype": "Data",
+   "label": "Bank Account Particular"
+  },
+  {
+   "fieldname": "column_break_84",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "istable": 1,
+ "modified": "2019-08-01 14:10:14.887174",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Job",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

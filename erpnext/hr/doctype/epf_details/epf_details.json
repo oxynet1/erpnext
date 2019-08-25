@@ -1,0 +1,59 @@
+{
+ "autoname": "field:epf_class",
+ "creation": "2019-07-29 18:07:28.787989",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "epf_class",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "epf_class",
+   "fieldtype": "Data",
+   "label": "EPF Class",
+   "unique": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description"
+  }
+ ],
+ "modified": "2019-07-29 18:07:59.539400",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "EPF Details",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

@@ -1,0 +1,140 @@
+{
+ "creation": "2019-07-30 17:15:57.286976",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "accident_type",
+  "date_of_incident",
+  "hospitalize",
+  "body_injury_part",
+  "column_break_5",
+  "place_of_incident",
+  "time_of_incident",
+  "hospitalize_cost",
+  "injury_info",
+  "insurance_details_section",
+  "insurance_no",
+  "insurance_claim_amount",
+  "column_break_12",
+  "insurance_agency_claimant",
+  "references",
+  "section_break_12",
+  "description_of_accident",
+  "column_break_14",
+  "remark"
+ ],
+ "fields": [
+  {
+   "fieldname": "accident_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Accident Type",
+   "options": "Accident Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date_of_incident",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of Incident",
+   "reqd": 1
+  },
+  {
+   "fieldname": "time_of_incident",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "Time of Incident ",
+   "reqd": 1
+  },
+  {
+   "fieldname": "place_of_incident",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Place of Incident",
+   "reqd": 1
+  },
+  {
+   "fieldname": "hospitalize",
+   "fieldtype": "Data",
+   "label": "Hospitalize"
+  },
+  {
+   "fieldname": "hospitalize_cost",
+   "fieldtype": "Data",
+   "label": "Hospitalize Cost"
+  },
+  {
+   "fieldname": "injury_info",
+   "fieldtype": "Small Text",
+   "label": "Injury Info"
+  },
+  {
+   "fieldname": "body_injury_part",
+   "fieldtype": "Link",
+   "label": "Body Injury Part",
+   "options": "Injury Part"
+  },
+  {
+   "fieldname": "insurance_agency_claimant",
+   "fieldtype": "Data",
+   "label": "Insurance Agency Claimant "
+  },
+  {
+   "fieldname": "insurance_claim_amount",
+   "fieldtype": "Data",
+   "label": "Insurance Claim Amount"
+  },
+  {
+   "fieldname": "references",
+   "fieldtype": "Data",
+   "label": "References"
+  },
+  {
+   "fieldname": "section_break_12",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "description_of_accident",
+   "fieldtype": "Small Text",
+   "label": "Description of Accident"
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "remark",
+   "fieldtype": "Small Text",
+   "label": "Remark"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "insurance_details_section",
+   "fieldtype": "Section Break",
+   "label": "Insurance Details"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "insurance_no",
+   "fieldtype": "Data",
+   "label": "Insurance No"
+  }
+ ],
+ "istable": 1,
+ "modified": "2019-08-02 16:39:53.905424",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Accident Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

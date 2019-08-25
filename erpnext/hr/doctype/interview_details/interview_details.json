@@ -1,0 +1,249 @@
+{
+ "allow_import": 1,
+ "autoname": "INT.##########",
+ "creation": "2019-07-24 16:37:10.652609",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "requisition_id",
+  "interview_status",
+  "column_break_2",
+  "candidate_id",
+  "interviewer",
+  "column_break_4",
+  "candidate_name",
+  "interviewer_name",
+  "interviewer_email",
+  "section_break_11",
+  "interview_type",
+  "column_break_17",
+  "interview_date",
+  "column_break_19",
+  "interview_time",
+  "section_break_10",
+  "location",
+  "column_break_12",
+  "city",
+  "state",
+  "column_break_13",
+  "country",
+  "postal_code",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "requisition_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Requisition ID",
+   "options": "Recruitment Requisition Form"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "Shortlisted / Schedule",
+   "fieldname": "interview_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Interview Status",
+   "options": "\nShortlisted / Schedule\nSelected\nRejected"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "candidate_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Candidate ID",
+   "options": "Candidate Details"
+  },
+  {
+   "fieldname": "interviewer",
+   "fieldtype": "Link",
+   "label": "Interviewer No",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "candidate_name",
+   "fieldtype": "Data",
+   "label": "Candidate Name"
+  },
+  {
+   "fieldname": "interviewer_name",
+   "fieldtype": "Data",
+   "label": "Interviewer Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "interviewer_email",
+   "fieldtype": "Data",
+   "label": "Interviewer Email",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_11",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "interview_type",
+   "fieldtype": "Select",
+   "label": "Interview Type",
+   "options": "\nIn-Person\nPhone\nVideo conference"
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "interview_date",
+   "fieldtype": "Date",
+   "label": "Interview Date"
+  },
+  {
+   "fieldname": "column_break_19",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "interview_time",
+   "fieldtype": "Time",
+   "label": "Interview Time"
+  },
+  {
+   "fieldname": "section_break_10",
+   "fieldtype": "Section Break",
+   "label": "Interview  Location Details"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Small Text",
+   "label": "Location Name"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Data",
+   "label": "State"
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "label": "Country",
+   "options": "Country"
+  },
+  {
+   "fieldname": "postal_code",
+   "fieldtype": "Data",
+   "label": "Postal Code"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Interview Details",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "modified": "2019-08-21 19:23:01.194882",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Interview Details",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Candidate",
+   "share": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "title_field": "requisition_id",
+ "track_changes": 1
+}

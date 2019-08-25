@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+				<title></title>
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+					<meta name="description" content="">
+
+						<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700&subset=latin,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+							<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+								<link rel="stylesheet" href="jquery.multilevelpushmenu.css">
+									 <link rel="stylesheet" href="basichtml.css"> 
+										
+										</style>
+										<script src="jquery.min.js"></script>
+										<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+										<script type="text/javascript" src="modernizr.min.js"></script>
+										<script>
+											var email = "Guest";
+											var stat;
+
+											$(document).ready(function () {
+											setInterval(function () {
+											stat = "failure";
+											$.get("http://kainext.com:8001/api/method/frappe.auth.get_logged_user", function (data, status) {
+											console.log(data, status);
+											console.log("data = "+data);
+											console.log("status = "+status);
+											if (status === "success") {
+											stat=status;
+											email = data.message;
+											document.getElementById("menu").style.display = "block";
+											}
+											});
+											// email = "{{ logged_in_user }}"
+											console.log("email: ", email);
+											}, 2000); //2 seconds
+
+											});
+
+											function getuserlms() {
+											// var email = "{{ logged_in_user }}"
+											var url = ""
+											if (email === "Guest") {
+											url = "http://kainext.com:8001/"
+											} else {
+											url = "http://kainext.com:8181/teamnet-lms/login.jsp?userid=" + email
+											}
+
+											//////contentFrame.src = url;
+											window.open(url)
+											}
+
+											function getusertms() {
+											// var email = "{{ logged_in_user }}"
+											var url = ""
+											if (email === "Guest") {
+											url = "http://kainext.com:8001/"
+											} else {
+											url = "http://kainext.com:8181/teamnet-tms/login.jsp?userid=" + email
+											}
+
+											//            contentFrame.src = url;
+
+											window.open(url);
+											}
+											function myProfile(){
+											var emp_name="";
+											//alert("1111");
+											console.log(email,'Hello');
+											console.log("hello = "+email);
+											<!-- alert(email); -->
+											$.get("http://kainext.com:8001/api/method/erpnext.hr.doctype.employee.employee.get_role?role="+email, function (data, status) {
+											//	alert("222   "+data);
+											console.log("status ="+status);
+											console.log(data, status);
+
+											if (status === "success") {
+											console.log(data);
+											emp_name=data.message[0];
+											//	alert(emp_name);
+											contentFrame.src="http://kainext.com:8001/desk#Form/Employee/"+emp_name;
+											}
+											});
+											contentFrame.src="kainext.com:8001/malaysia/home"
+											}
+                                     
+									 // Accident .....
+											function Accident(){
+											var emp_name="";
+											//alert("1111");
+											console.log(email,'Hello');
+											console.log("hello = "+email);
+											<!-- alert(email); -->
+											$.get("http://kainext.com:8001/api/method/erpnext.hr.doctype.employee.employee.get_role?role="+email, function (data, status) {
+											//	alert("222   "+data);
+											console.log("status ="+status);
+											console.log(data, status);
+
+											if (status === "success") {
+											console.log(data);
+											emp_name=data.message[0];
+											//	alert(emp_name);
+											contentFrame.src="http://kainext.com:8001/desk#Form/Accident/"+emp_name;
+											}
+											});
+											contentFrame.src="kainext.com:8001/malaysia/home"
+											}
+                                     
+									 // Additional Job Assignment .....
+											function AddjobAssig(){
+											var emp_name="";
+											//alert("1111");
+											console.log(email,'Hello');
+											console.log("hello = "+email);
+											<!-- alert(email); -->
+											$.get("http://kainext.com:8001/api/method/erpnext.hr.doctype.employee.employee.get_role?role="+email, function (data, status) {
+											//	alert("222   "+data);
+											console.log("status ="+status);
+											console.log(data, status);
+
+											if (status === "success") {
+											console.log(data);
+											emp_name=data.message[0];
+											//	alert(emp_name);
+											contentFrame.src="http://kainext.com:8001/desk#Form/Additional Job Assignment/"+emp_name;
+											}
+											});
+											contentFrame.src="kainext.com:8001/malaysia/home"
+											}
+
+									// Appraisal Assessment Summary .....
+											function Appasssumm(){
+											var emp_name="";
+											//alert("1111");
+											console.log(email,'Hello');
+											console.log("hello = "+email);
+											<!-- alert(email); -->
+											$.get("http://kainext.com:8001/api/method/erpnext.hr.doctype.employee.employee.get_role?role="+email, function (data, status) {
+											//	alert("222   "+data);
+											console.log("status ="+status);
+											console.log(data, status);
+
+											if (status === "success") {
+											console.log(data);
+											emp_name=data.message[0];
+											//	alert(emp_name);
+											contentFrame.src="http://kainext.com:8001/desk#Form/Appraisal Assessment Summary/"+emp_name;
+											}
+											});
+											contentFrame.src="kainext.com:8001/malaysia/home"
+											}
+
+									// Assets Info .....
+											function Assetinfo(){
+											var emp_name="";
+											//alert("1111");
+											console.log(email,'Hello');
+											console.log("hello = "+email);
+											<!-- alert(email); -->
+											$.get("http://kainext.com:8001/api/method/erpnext.hr.doctype.employee.employee.get_role?role="+email, function (data, status) {
+											//	alert("222   "+data);
+											console.log("status ="+status);
+											console.log(data, status);
+
+											if (status === "success") {
+											console.log(data);
+											emp_name=data.message[0];
+											//	alert(emp_name);
+											contentFrame.src="http://kainext.com:8001/desk#Form/Assets Info/"+emp_name;
+											}
+											});
+											contentFrame.src="kainext.com:8001/malaysia/home"
+											}
+
+									// Attachment Info .....
+											function Attachment(){
+											var emp_name="";
+											//alert("1111");
+											console.log(email,'Hello');
+											console.log("hello = "+email);
+											<!-- alert(email); -->
+											$.get("http://kainext.com:8001/api/method/erpnext.hr.doctype.employee.employee.get_role?role="+email, function (data, status) {
+											//	alert("222   "+data);
+											console.log("status ="+status);
+											console.log(data, status);
+
+											if (status === "success") {
+											console.log(data);
+											emp_name=data.message[0];
+											//	alert(emp_name);
+											contentFrame.src="http://kainext.com:8001/desk#Form/Attachment Info/"+emp_name;
+											}
+											});
+											contentFrame.src="kainext.com:8001/malaysia/home"
+											}
+
+									// Contract Info .....
+											function Contractinfo(){
+											var emp_name="";
+											//alert("1111");
+											console.log(email,'Hello');
+											console.log("hello = "+email);
+											<!-- alert(email); -->
+											$.get("http://kainext.com:8001/api/method/erpnext.hr.doctype.employee.employee.get_role?role="+email, function (data, status) {
+											//	alert("222   "+data);
+											console.log("status ="+status);
+											console.log(data, status);
+
+											if (status === "success") {
+											console.log(data);
+											emp_name=data.message[0];
+											//	alert(emp_name);
+											contentFrame.src="http://kainext.com:8001/desk#Form/Contract Info/"+emp_name;
+											}
+											});
+											contentFrame.src="kainext.com:8001/malaysia/home"
+											}
+
+									// Dependants Info .....
+											function Dependantsinfo(){
+											var emp_name="";
+											//alert("1111");
+											console.log(email,'Hello');
+											console.log("hello = "+email);
+											<!-- alert(email); -->
+											$.get("http://kainext.com:8001/api/method/erpnext.hr.doctype.employee.employee.get_role?role="+email, function (data, status) {
+											//	alert("222   "+data);
+											console.log("status ="+status);
+											console.log(data, status);
+
+											if (status === "success") {
+											console.log(data);
+											emp_name=data.message[0];
+											//	alert(emp_name);
+											contentFrame.src="http://kainext.com:8001/desk#Form/Dependants Info/"+emp_name;
+											}
+											});
+											contentFrame.src="kainext.com:8001/malaysia/home"
+											}
+
+									// Disciplinary .....
+											function Disciplinary(){
+											var emp_name="";
+											//alert("1111");
+											console.log(email,'Hello');
+											console.log("hello = "+email);
+											<!-- alert(email); -->
+											$.get("http://kainext.com:8001/api/method/erpnext.hr.doctype.employee.employee.get_role?role="+email, function (data, status) {
+											//	alert("222   "+data);
+											console.log("status ="+status);
+											console.log(data, status);
+
+											if (status === "success") {
+											console.log(data);
+											emp_name=data.message[0];
+											//	alert(emp_name);
+											contentFrame.src="http://kainext.com:8001/desk#Form/Disciplinary/"+emp_name;
+											}
+											});
+											contentFrame.src="kainext.com:8001/malaysia/home"
+											}
+
+									// Education .....
+											function Education(){
+											var emp_name="";
+											//alert("1111");
+											console.log(email,'Hello');
+											console.log("hello = "+email);
+											<!-- alert(email); -->
+											$.get("http://kainext.com:8001/api/method/erpnext.hr.doctype.employee.employee.get_role?role="+email, function (data, status) {
+											//	alert("222   "+data);
+											console.log("status ="+status);
+											console.log(data, status);
+
+											if (status === "success") {
+											console.log(data);
+											emp_name=data.message[0];
+											//	alert(emp_name);
+											contentFrame.src="http://kainext.com:8001/desk#Form/Education/"+emp_name;
+											}
+											});
+											contentFrame.src="kainext.com:8001/malaysia/home"
+											}
+
+									// Hostel .....
+											function Hostel(){
+											var emp_name="";
+											//alert("1111");
+											console.log(email,'Hello');
+											console.log("hello = "+email);
+											<!-- alert(email); -->
+											$.get("http://kainext.com:8001/api/method/erpnext.hr.doctype.employee.employee.get_role?role="+email, function (data, status) {
+											//	alert("222   "+data);
+											console.log("status ="+status);
+											console.log(data, status);
+
+											if (status === "success") {
+											console.log(data);
+											emp_name=data.message[0];
+											//	alert(emp_name);
+											contentFrame.src="http://kainext.com:8001/desk#Form/Hostel/"+emp_name;
+											}
+											});
+											contentFrame.src="kainext.com:8001/malaysia/home"
+											}
+
+									// Insurance Info .....
+											function Insuranceinfo(){
+											var emp_name="";
+											//alert("1111");
+											console.log(email,'Hello');
+											console.log("hello = "+email);
+											<!-- alert(email); -->
+											$.get("http://kainext.com:8001/api/method/erpnext.hr.doctype.employee.employee.get_role?role="+email, function (data, status) {
+											//	alert("222   "+data);
+											console.log("status ="+status);
+											console.log(data, status);
+
+											if (status === "success") {
+											console.log(data);
+											emp_name=data.message[0];
+											//	alert(emp_name);
+											contentFrame.src="http://kainext.com:8001/desk#Form/Insurance Info/"+emp_name;
+											}
+											});
+											contentFrame.src="kainext.com:8001/malaysia/home"
+											}
+
+									// Job Info .....
+											function Jobinfo(){
+											var emp_name="";
+											//alert("1111");
+											console.log(email,'Hello');
+											console.log("hello = "+email);
+											<!-- alert(email); -->
+											$.get("http://kainext.com:8001/api/method/erpnext.hr.doctype.employee.employee.get_role?role="+email, function (data, status) {
+											//	alert("222   "+data);
+											console.log("status ="+status);
+											console.log(data, status);
+
+											if (status === "success") {
+											console.log(data);
+											emp_name=data.message[0];
+											//	alert(emp_name);
+											contentFrame.src="http://kainext.com:8001/desk#Form/Job Info/"+emp_name;
+											}
+											});
+											contentFrame.src="kainext.com:8001/malaysia/home"
+											}
+
+									// Loan Info .....
+											function Loaninfo(){
+											var emp_name="";
+											//alert("1111");
+											console.log(email,'Hello');
+											console.log("hello = "+email);
+											<!-- alert(email); -->
+											$.get("http://kainext.com:8001/api/method/erpnext.hr.doctype.employee.employee.get_role?role="+email, function (data, status) {
+											//	alert("222   "+data);
+											console.log("status ="+status);
+											console.log(data, status);
+
+											if (status === "success") {
+											console.log(data);
+											emp_name=data.message[0];
+											//	alert(emp_name);
+											contentFrame.src="http://kainext.com:8001/desk#Form/Loan Info/"+emp_name;
+											}
+											});
+											contentFrame.src="kainext.com:8001/malaysia/home"
+											}
+
+									// Locker Info .....
+											function Lockerinfo(){
+											var emp_name="";
+											//alert("1111");
+											console.log(email,'Hello');
+											console.log("hello = "+email);
+											<!-- alert(email); -->
+											$.get("http://kainext.com:8001/api/method/erpnext.hr.doctype.employee.employee.get_role?role="+email, function (data, status) {
+											//	alert("222   "+data);
+											console.log("status ="+status);
+											console.log(data, status);
+
+											if (status === "success") {
+											console.log(data);
+											emp_name=data.message[0];
+											//	alert(emp_name);
+											contentFrame.src="http://kainext.com:8001/desk#Form/Locker Info/"+emp_name;
+											}
+											});
+											contentFrame.src="kainext.com:8001/malaysia/home"
+											}
+
+									// Medical Info .....
+											function Medicalinfo(){
+											var emp_name="";
+											//alert("1111");
+											console.log(email,'Hello');
+											console.log("hello = "+email);
+											<!-- alert(email); -->
+											$.get("http://kainext.com:8001/api/method/erpnext.hr.doctype.employee.employee.get_role?role="+email, function (data, status) {
+											//	alert("222   "+data);
+											console.log("status ="+status);
+											console.log(data, status);
+
+											if (status === "success") {
+											console.log(data);
+											emp_name=data.message[0];
+											//	alert(emp_name);
+											contentFrame.src="http://kainext.com:8001/desk#Form/Medical Info/"+emp_name;
+											}
+											});
+											contentFrame.src="kainext.com:8001/malaysia/home"
+											}
+
+									// Professional Membership Info .....
+											function Promembership(){
+											var emp_name="";
+											//alert("1111");
+											console.log(email,'Hello');
+											console.log("hello = "+email);
+											<!-- alert(email); -->
+											$.get("http://kainext.com:8001/api/method/erpnext.hr.doctype.employee.employee.get_role?role="+email, function (data, status) {
+											//	alert("222   "+data);
+											console.log("status ="+status);
+											console.log(data, status);
+
+											if (status === "success") {
+											console.log(data);
+											emp_name=data.message[0];
+											//	alert(emp_name);
+											contentFrame.src="http://kainext.com:8001/desk#Form/Professional Membership Info/"+emp_name;
+											}
+											});
+											contentFrame.src="kainext.com:8001/malaysia/home"
+											}
+
+									// Services Movement .....
+											function Services_movement(){
+											var emp_name="";
+											//alert("1111");
+											console.log(email,'Hello');
+											console.log("hello = "+email);
+											<!-- alert(email); -->
+											$.get("http://kainext.com:8001/api/method/erpnext.hr.doctype.employee.employee.get_role?role="+email, function (data, status) {
+											//	alert("222   "+data);
+											console.log("status ="+status);
+											console.log(data, status);
+
+											if (status === "success") {
+											console.log(data);
+											emp_name=data.message[0];
+											//	alert(emp_name);
+											contentFrame.src="http://kainext.com:8001/desk#Form/Services Movement/"+emp_name;
+											}
+											});
+											contentFrame.src="kainext.com:8001/malaysia/home"
+											}
+
+									// Skills .....
+											function Skills(){
+											var emp_name="";
+											//alert("1111");
+											console.log(email,'Hello');
+											console.log("hello = "+email);
+											<!-- alert(email); -->
+											$.get("http://kainext.com:8001/api/method/erpnext.hr.doctype.employee.employee.get_role?role="+email, function (data, status) {
+											//	alert("222   "+data);
+											console.log("status ="+status);
+											console.log(data, status);
+
+											if (status === "success") {
+											console.log(data);
+											emp_name=data.message[0];
+											//	alert(emp_name);
+											contentFrame.src="http://kainext.com:8001/desk#Form/Skills/"+emp_name;
+											}
+											});
+											contentFrame.src="kainext.com:8001/malaysia/home"
+											}
+
+									// Statutory Info .....
+											function Statutoryinfo(){
+											var emp_name="";
+											//alert("1111");
+											console.log(email,'Hello');
+											console.log("hello = "+email);
+											<!-- alert(email); -->
+											$.get("http://kainext.com:8001/api/method/erpnext.hr.doctype.employee.employee.get_role?role="+email, function (data, status) {
+											//	alert("222   "+data);
+											console.log("status ="+status);
+											console.log(data, status);
+
+											if (status === "success") {
+											console.log(data);
+											emp_name=data.message[0];
+											//	alert(emp_name);
+											contentFrame.src="http://kainext.com:8001/desk#Form/Statutory Info/"+emp_name;
+											}
+											});
+											contentFrame.src="kainext.com:8001/malaysia/home"
+											}
+
+									// Training .....
+											function Training(){
+											var emp_name="";
+											//alert("1111");
+											console.log(email,'Hello');
+											console.log("hello = "+email);
+											<!-- alert(email); -->
+											$.get("http://kainext.com:8001/api/method/erpnext.hr.doctype.employee.employee.get_role?role="+email, function (data, status) {
+											//	alert("222   "+data);
+											console.log("status ="+status);
+											console.log(data, status);
+
+											if (status === "success") {
+											console.log(data);
+											emp_name=data.message[0];
+											//	alert(emp_name);
+											contentFrame.src="http://kainext.com:8001/desk#Form/Training/"+emp_name;
+											}
+											});
+											contentFrame.src="kainext.com:8001/malaysia/home"
+											}
+
+									// Working Experiences .....
+											function Workingexp(){
+											var emp_name="";
+											//alert("1111");
+											console.log(email,'Hello');
+											console.log("hello = "+email);
+											<!-- alert(email); -->
+											$.get("http://kainext.com:8001/api/method/erpnext.hr.doctype.employee.employee.get_role?role="+email, function (data, status) {
+											//	alert("222   "+data);
+											console.log("status ="+status);
+											console.log(data, status);
+
+											if (status === "success") {
+											console.log(data);
+											emp_name=data.message[0];
+											//	alert(emp_name);
+											contentFrame.src="http://kainext.com:8001/desk#Form/Working Experiences/"+emp_name;
+											}
+											});
+											contentFrame.src="kainext.com:8001/malaysia/home"
+											}
+
+
+											function WhichButton(event) {
+
+											//alert("Mouse Clicked "+stat);
+											if(stat === "success"){
+											//alert("hi");
+											document.getElementById("menu").style.display = "block";
+											/*document.getElementById("pushobj").style.left = "250px";
+											document.getElementById("pushobj").style.width = "84%";*/
+											}else{
+											//alert("hell");
+											document.getElementById("menu").style.display = "none";
+
+											/*document.getElementById("pushobj").style.left = "0px";
+											document.getElementById("pushobj").style.width = "100%";*/
+											} 
+											}
+
+
+										</script>
+									</head>
+									<body>
+										<!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+										<div id="pushobj" >
+											<!-- Some content here! -->
+											<iframe id="contentFrame" height="840px" width="100%" src="http://kainext.com:8001/dashboard" frameborder="0"></iframe>
+										</div>
+										<div id="menu" onmousemove="WhichButton(event)">
+											<nav>
+												<h2><i class="fa fa-reorder"></i><img src="images/malaysia.png" style="width: 38%;height: 20%;margin-top: 0px;margin-left: 16px;"/></h2>
+												<ul>
+													<li>
+														<a href="#" onclick="myProfile()"><i class="fa fa-user"></i>My Profile</a>
+													</li>
+													<li>
+														<a href="#" onclick='contentFrame.src="http://kainext.com:8001/desk#List/Lead/List"'><i class="fa fa-hand-pointer-o"></i>Service Requests</a>
+													</li>
+													<li>
+														<a href="#" onclick='contentFrame.src="http://kainext.com:8001/ecosense/main"'><i class="fa fa-dashboard"></i>Dashboard</a>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-user"></i>Recruitment</a>
+														<h2><i class="fa fa-user"></i>Recruitment</h2>
+														<ul>
+															<li>
+
+																<a href="#" onclick='contentFrame.src="http://kainext.com:8001/desk#List/Recruitment%20Requisition%20Form/List"'> 
+																	<!-- <a href="#" onclick='contentFrame.src="http://google.co.in"'> -->
+																	<i  style="font-size:10px;color:#5e64ff;"></i>
+																	Openings/Positions
+																</a>
+															</li>
+															<li>
+																<a href="#" onclick='contentFrame.src="http://kainext.com:8001/desk#List/Recruitment%20Requisition%20Form/List"'>
+																	<i  style="font-size:10px;color:#5e64ff;"></i>
+																	Approved Requisitions
+																</a>
+															</li>
+															<li>
+																<a href="#" onclick='contentFrame.src="http://kainext.com:8001/desk#List/Recruitment%20Requisition%20Form/List'>
+																	<i  style="font-size:10px;color:#5e64ff;"></i>
+																	Rejected Requisitions
+																</a>
+															</li>
+															<li>
+																<a href="#" onclick='contentFrame.src="http://kainext.com:8001/desk#List/Candidate%20Details/List"'>
+																	<i  style="font-size:10px;color:#5e64ff;"></i>
+																	Candidates
+																</a>
+															</li>
+															<li>
+																<a href="#" onclick='contentFrame.src="http://kainext.com:8001/desk#List/Interview%20Details/List"'>
+																	<i  style="font-size:10px;color:#5e64ff;"></i>
+																	Interviews
+																</a>
+															</li>
+															<li>
+																<a href="#" onclick='contentFrame.src="http://kainext.com:8001/desk#List/Interview%20Details/List"'>
+																	<i  style="font-size:10px;color:#5e64ff;"></i>
+																	Shortlisted Candidates
+																</a>
+															</li>
+														</ul>
+													</li>
+
+													<li>
+														<a href="#"><i class="fa fa-briefcase"></i>HR</a>
+														<h2><i class="fa fa-briefcase"></i>HR</h2>
+														<ul>
+															<li>
+																<a href="#"><i class="fa fa-phone"></i>Employee Records</a>
+																<h2><i class="fa fa-phone"></i>Employee Records</h2>
+																<ul>
+																	<li>
+																		<a href="#" onclick="myProfile()">Emp Profile</a>
+																	</li>
+																	<li>
+																		<a href="#" onclick="Accident()">Accident</a>
+																	</li>
+																	<li>
+																		<a href="#" onclick="AddjobAssig()">Job Assignment</a>
+																	</li>
+																	<li>
+																		<a href="#" onclick="Appasssumm()">Appraisal Summary</a>
+																	</li>
+																	<li>
+																		<a href="#" onclick="Assetinfo()">Assets</a>
+																	</li>
+																	<li>
+																		<a href="#" onclick="Attachment()">Attachment Info</a>
+																	</li>
+																	<li>
+																		<a href="#" onclick="Contractinfo()">Contract Info</a>
+																	</li>
+																	<li>
+																		<a href="#" onclick="Dependantsinfo()">Dependants Info</a>
+																	</li>
+																	<li>
+																		<a href="#" onclick="Disciplinary()">Disciplinary</a>
+																	</li>
+																	<li>
+																		<a href="#" onclick="Education()">Education</a>
+																	</li>
+																	<li>
+																		<a href="#" onclick="Hostel()">Hostel</a>
+																	</li>
+																	<li>
+																		<a href="#" onclick="Insuranceinfo()">Insurance Info</a>
+																	</li>
+																	<li>
+																		<a href="#" onclick="Jobinfo()">Job</a>
+																	</li>
+																	<li>
+																		<a href="#" onclick="Loaninfo()">Loan Info</a>
+																	</li>
+																	<li>
+																		<a href="#" onclick="Lockerinfo()">Locker</a>
+																	</li>
+																	<li>
+																		<a href="#" onclick="Medicalinfo()">Medical Info</a>
+																	</li>
+																	<li>
+																		<a href="#" onclick="Promembership()">Professional Membership</a>
+																	</li>
+																	<li>
+																		<a href="#" onclick="Services_movement()">Services Movement</a>
+																	</li>
+																	<li>
+																		<a href="#" onclick="Skills()">Skills</a>
+																	</li>
+																	<li>
+																		<a href="#" onclick="Statutoryinfo()">Statutory</a>
+																	</li>
+																	<li>
+																		<a href="#" onclick="Training()">Training</a>
+																	</li>
+																	<li>
+																		<a href="#" onclick="Workingexp()">Working Experiences</a>
+																	</li>
+
+																</ul>
+															</li>
+
+															<li>
+																<a href="#" onclick='contentFrame.src="http://kainext.com:8001/desk#List/User/List"'>
+																	<i  style="font-size:10px;color:#5e64ff;"></i>
+																	Roles & Privileges
+																</a>
+															</li>
+															<li>
+																<a  href="#" onclick='contentFrame.src="http://kainext.com:8001/desk#List/Holiday%20List/List"'>
+																	<i  style="font-size:10px;color:#5e64ff;"></i>
+																	Holiday Management
+																</a>
+															</li>
+															<li>
+																<a  href="#" onclick='contentFrame.src="http://kainext.com:8001/desk#List/Leave%20Allocation/List"'>
+																	<i  style="font-size:10px;color:#5e64ff;"></i>
+																	Leave Management
+																</a>
+															</li>
+															<li>
+																<a  href="#" onclick='contentFrame.src="http://kainext.com:8001/desk#modules/HR"'>
+																	<i  style="font-size:10px;color:#5e64ff;"></i>
+																	Exit Procedure
+																</a>
+															</li>
+														</ul>
+													</li>
+
+
+
+
+
+													<li>
+														<a href="#" onclick='contentFrame.src="http://kainext.com:8001/desk#List/Asset/List"'><i class="fa fa-home"></i>Assets</a>
+													</li>
+													<li>
+														<a href="#" onclick='contentFrame.src="http://kainext.com:8001/desk#List/Vehicle/List"'><i class="fa fa-truck"></i>Transportation</a>
+													</li>
+
+													<li>
+														<a href="#"><i class="fa fa-clock-o"></i>Time</a>
+														<h2><i class="fa fa-book"></i>Time</h2>
+														<ul>
+															<li>
+																<a href="#" onclick='contentFrame.src="http://kainext.com:8001/desk#List/Employee/List"'>Timesheet</a>
+															</li>
+															<li>
+																<a href="#" onclick='contentFrame.src="http://kainext.com:8001/desk#List/User/List"'>Regularisation</a>
+															</li>
+
+														</ul>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-money"></i>Expense</a>
+														<h2><i class="fa fa-money"></i>Expense</h2>
+														<ul>
+															<li>
+																<a href="#" onclick='contentFrame.src="http://kainext.com:8001/desk#List/Expense%20Claim/List"'>Expense Requests</a>
+															</li>
+															<li>
+																<a href="#" onclick='contentFrame.src="http://kainext.com:8001/desk#List/Expense%20Claim/List"'>Expense Claims</a>
+															</li>
+															<li>
+																<a href="#" onclick='contentFrame.src="http://kainext.com:8001/desk#List/Expense%20Claim/List"'>Team Expenses</a>
+															</li>
+
+														</ul>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-child"></i>Leaves</a>
+														<h2><i class="fa fa-book"></i>Leaves</h2>
+														<ul>
+															<li>
+																<a href="#" onclick='contentFrame.src="http://kainext.com:8001/desk#List/Leave%20Application/List"'>Leave Requests</a>
+															</li>
+															<li>
+																<a href="#" onclick='contentFrame.src="http://kainext.com:8001/desk#List/Leave%20Application/List"'>My Leaves</a>													</li>
+															<li>
+																<a href="#" onclick='contentFrame.src="http://kainext.com:8001/desk#List/Leave%20Application/List"'>Team Leaves</a>
+															</li>
+
+														</ul>
+													</li>
+													<li>
+														<a href="#" onclick='contentFrame.src="http://kainext.com:8001/desk#List/Holiday%20List/List"'><i class="menu-icon fa fa-calendar"></i>Holiday Calendar</a>
+													</li>
+													<li>
+														<a href="#" onclick='contentFrame.src="http://kainext.com:8001/desk#List/Stock%20Entry/List"'><i class="menu-icon fa fa-calendar-o"></i>Team Calendar</a>
+													</li>
+
+													<li>
+														<a href="#"><i class="fa fa-book"></i>Organisation</a>
+														<h2><i class="fa fa-book"></i>Organisation</h2>
+														<ul>
+															<li><a href="#" onclick='contentFrame.src="http://kainext.com:8001/desk#List/Company/List"'><i  style="font-size:15px;color:#5e64ff;"></i>Organisation Info</a>
+															</li>
+															<li><a href="#"	onclick='contentFrame.src="http://kainext.com:8001/desk#List/Branch/List"'><i  style="font-size:15px;color:#5e64ff;"></i>Business Unit</a>
+															</li>
+															<li><a href="#"	onclick='contentFrame.src="http://kainext.com:8001/desk#List/Department/List"'><i  style="font-size:15px;color:#5e64ff;"></i>Departments</a>
+															</li>
+															<li><a href="#"	onclick='contentFrame.src="http://kainext.com:8001/desk#modules/HR"'><i  style="font-size:15px;color:#5e64ff;"></i>Org Structure</a>
+															</li>
+															<li></i><a href="#"	onclick='contentFrame.src="http://kainext.com:8001/desk#modules/HR"'><i  style="font-size:15px;color:#5e64ff;"></i>Org Hierarchy</a>
+														</li>
+														<li></i><a href="#"	onclick='contentFrame.src="http://kainext.com:8001/desk#modules/HR"'><i  style="font-size:15px;color:#5e64ff;"></i>Announcements</a>
+													</li>
+													<li></i><a href="#"	onclick='contentFrame.src="http://kainext.com:8001/desk#modules/HR"'><i  style="font-size:15px;color:#5e64ff;"></i>Policy Documents</a>
+												</li>
+											</ul>
+										</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+										<!-- <li> -->
+										<!-- <a href="#"><i class="fa fa-laptop"></i>Devices</a> -->
+										<!-- <h2><i class="fa fa-laptop"></i>Devices</h2> -->
+										<!-- <ul> -->
+										<!-- <li> -->
+										<!-- <a href="#"><i class="fa fa-phone"></i>Mobile Phones</a> -->
+										<!-- <h2><i class="fa fa-phone"></i>Mobile Phones</h2> -->
+										<!-- <ul> -->
+										<!-- <li> -->
+										<!-- <a href="#">Super Smart Phone</a> -->
+										<!-- </li> -->
+										<!-- <li> -->
+										<!-- <a href="#">Thin Magic Mobile</a> -->
+										<!-- </li> -->
+										<!-- <li> -->
+										<!-- <a href="#">Performance Crusher</a> -->
+										<!-- </li> -->
+										<!-- <li> -->
+										<!-- <a href="#">Futuristic Experience</a> -->
+										<!-- </li> -->
+										<!-- </ul> -->
+										<!-- </li> -->
+										<!-- <li> -->
+										<!-- <a href="#"><i class="fa fa-desktop"></i>Televisions</a> -->
+										<!-- <h2><i class="fa fa-desktop"></i>Televisions</h2> -->
+										<!-- <ul> -->
+										<!-- <li> -->
+										<!-- <a href="#">Flat Super Screen</a> -->
+										<!-- </li> -->
+										<!-- <li> -->
+										<!-- <a href="#">Gigantic LED</a> -->
+										<!-- </li> -->
+										<!-- <li> -->
+										<!-- <a href="#">Power Eater</a> -->
+										<!-- </li> -->
+										<!-- <li> -->
+										<!-- <a href="#">3D Experience</a> -->
+										<!-- </li> -->
+										<!-- <li> -->
+										<!-- <a href="#">Classic Comfort</a> -->
+										<!-- </li> -->
+										<!-- </ul> -->
+										<!-- </li> -->
+										<!-- <li> -->
+										<!-- <a href="#"><i class="fa fa-camera-retro"></i>Cameras</a> -->
+										<!-- <h2><i class="fa fa-camera-retro"></i>Cameras</h2> -->
+										<!-- <ul> -->
+										<!-- <li> -->
+										<!-- <a href="#">Smart Shot</a> -->
+										<!-- </li> -->
+										<!-- <li> -->
+										<!-- <a href="#">Power Shooter</a> -->
+										<!-- </li> -->
+										<!-- <li> -->
+										<!-- <a href="#">Easy Photo Maker</a> -->
+										<!-- </li> -->
+										<!-- <li> -->
+										<!-- <a href="#">Super Pixel</a> -->
+										<!-- </li> -->
+										<!-- </ul> -->
+										<!-- </li> -->
+										<!-- </ul> -->
+										<!-- </li> -->
+										<!-- <li> -->
+										<!-- <a href="#"><i class="fa fa-book"></i>Magazines</a> -->
+										<!-- <h2><i class="fa fa-book"></i>Magazines</h2> -->
+										<!-- <ul> -->
+										<!-- <li> -->
+										<!-- <a href="#">National Geographics</a> -->
+										<!-- </li> -->
+										<!-- <li> -->
+										<!-- <a href="#">The Spectator</a> -->
+										<!-- </li> -->
+										<!-- <li> -->
+										<!-- <a href="#">Rambler</a> -->
+										<!-- </li> -->
+										<!-- <li> -->
+										<!-- <a href="#">Physics World</a> -->
+										<!-- </li> -->
+										<!-- <li> -->
+										<!-- <a href="#">The New Scientist</a> -->
+										<!-- </li> -->
+										<!-- </ul> -->
+										<!-- </li> -->
+										<!-- <li> -->
+										<!-- <a href="#"><i class="fa fa-shopping-cart"></i>Store</a> -->
+										<!-- <h2><i class="fa fa-shopping-cart"></i>Store</h2> -->
+										<!-- <ul> -->
+										<!-- <li> -->
+										<!-- <a href="#"><i class="fa fa-tags"></i>Clothes</a> -->
+										<!-- <h2><i class="fa fa-tags"></i>Clothes</h2> -->
+										<!-- <ul> -->
+										<!-- <li> -->
+										<!-- <a href="#"><i class="fa fa-female"></i>Women's Clothing</a> -->
+										<!-- <h2><i class="fa fa-female"></i>Women's Clothing</h2> -->
+										<!-- <ul> -->
+										<!-- <li> -->
+										<!-- <a href="#">Tops</a> -->
+										<!-- </li> -->
+										<!-- <li> -->
+										<!-- <a href="#">Dresses</a> -->
+										<!-- </li> -->
+										<!-- <li> -->
+										<!-- <a href="#">Trousers</a> -->
+										<!-- </li> -->
+										<!-- <li> -->
+										<!-- <a href="#">Shoes</a> -->
+										<!-- </li> -->
+										<!-- <li> -->
+										<!-- <a href="#">Sale</a> -->
+										<!-- </li> -->
+										<!-- </ul> -->
+										<!-- </li> -->
+										<!-- <li> -->
+										<!-- <a href="#"><i class="fa fa-male"></i>Men's Clothing</a> -->
+										<!-- <h2><i class="fa fa-male"></i>Men's Clothing</h2> -->
+										<!-- <ul> -->
+										<!-- <li> -->
+										<!-- <a href="#">Shirts</a> -->
+										<!-- </li> -->
+										<!-- <li> -->
+										<!-- <a href="#">Trousers</a> -->
+										<!-- </li> -->
+										<!-- <li> -->
+										<!-- <a href="#">Shoes</a> -->
+										<!-- </li> -->
+										<!-- <li> -->
+										<!-- <a href="#">Sale</a> -->
+										<!-- </li> -->
+										<!-- </ul> -->
+										<!-- </li> -->
+										<!-- </ul> -->
+										<!-- </li> -->
+										<!-- <li> -->
+										<!-- <a href="#">Jewelry</a> -->
+										<!-- </li> -->
+										<!-- <li> -->
+										<!-- <a href="#">Music</a> -->
+										<!-- </li> -->
+										<!-- <li> -->
+										<!-- <a href="#">Grocery</a> -->
+										<!-- </li> -->
+										<!-- </ul> -->
+										<!-- </li> -->
+										<!-- <li> -->
+										<!-- <a href="#">Collections</a> -->
+										<!-- </li> -->
+										<!-- <li> -->
+										<!-- <a href="#">Credits</a> -->
+										<!-- </li> -->
+									</ul>
+								</nav>
+							</div>
+
+
+							<script src="jquery.multilevelpushmenu.min.js"></script>
+							<script type="text/javascript" src="basichtml.js"></script>
+						</body>
+					</html>
+					

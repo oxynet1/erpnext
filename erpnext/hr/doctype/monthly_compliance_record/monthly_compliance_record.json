@@ -1,0 +1,245 @@
+{
+ "creation": "2019-07-05 12:41:47.679151",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "contractor_name",
+  "column_break_2",
+  "from_date",
+  "to_date",
+  "sec_tot_wrk_emp",
+  "skilled",
+  "unskilled",
+  "semiskilled",
+  "small_text_4",
+  "tot_dy_work",
+  "wages_amt",
+  "dt_of_payment",
+  "ot_hrs",
+  "column_break_10",
+  "remarks",
+  "cur_status",
+  "sec_pf_detls",
+  "pf_pymnt_dt",
+  "pf_emper_contri",
+  "column_break_16",
+  "pf_employee_contri",
+  "pf_no_of_emp",
+  "sec_esic_detls",
+  "esic_pymnt_dt",
+  "esic_emper_contri",
+  "esic_employee_contri",
+  "column_break_23",
+  "esic_no_of_emp",
+  "ir_rmrks"
+ ],
+ "fields": [
+  {
+   "fieldname": "tot_dy_work",
+   "fieldtype": "Data",
+   "label": "Total days Worked"
+  },
+  {
+   "fieldname": "wages_amt",
+   "fieldtype": "Data",
+   "label": "Wages Amount"
+  },
+  {
+   "fieldname": "dt_of_payment",
+   "fieldtype": "Date",
+   "label": "Date of Payment"
+  },
+  {
+   "fieldname": "ot_hrs",
+   "fieldtype": "Data",
+   "label": "OT Hours"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "IR Remarks"
+  },
+  {
+   "fieldname": "cur_status",
+   "fieldtype": "Data",
+   "label": "Current Status"
+  },
+  {
+   "fieldname": "sec_pf_detls",
+   "fieldtype": "Section Break",
+   "label": "PF Details"
+  },
+  {
+   "fieldname": "pf_pymnt_dt",
+   "fieldtype": "Date",
+   "label": "PF Payment Date"
+  },
+  {
+   "fieldname": "pf_emper_contri",
+   "fieldtype": "Data",
+   "label": "Employer's Contribution"
+  },
+  {
+   "fieldname": "pf_employee_contri",
+   "fieldtype": "Data",
+   "label": "Employee's Contribution"
+  },
+  {
+   "fieldname": "pf_no_of_emp",
+   "fieldtype": "Data",
+   "label": "No of Employee"
+  },
+  {
+   "fieldname": "sec_esic_detls",
+   "fieldtype": "Section Break",
+   "label": "ESIC Dteails"
+  },
+  {
+   "fieldname": "esic_pymnt_dt",
+   "fieldtype": "Date",
+   "label": "ESI Payment Date"
+  },
+  {
+   "fieldname": "esic_emper_contri",
+   "fieldtype": "Data",
+   "label": "Employer's Contribution"
+  },
+  {
+   "fieldname": "esic_employee_contri",
+   "fieldtype": "Data",
+   "label": "Employee's Contribution"
+  },
+  {
+   "fieldname": "esic_no_of_emp",
+   "fieldtype": "Data",
+   "label": "No of Employee"
+  },
+  {
+   "fieldname": "ir_rmrks",
+   "fieldtype": "Small Text",
+   "label": "IR Remarks"
+  },
+  {
+   "fieldname": "contractor_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Contractor Name",
+   "options": "Contractor",
+   "reqd": 1
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "From Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "To Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "small_text_4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_16",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_23",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "skilled",
+   "fieldtype": "Data",
+   "label": "Skilled"
+  },
+  {
+   "fieldname": "unskilled",
+   "fieldtype": "Data",
+   "label": "Unskilled"
+  },
+  {
+   "fieldname": "semiskilled",
+   "fieldtype": "Data",
+   "label": "Semiskilled"
+  },
+  {
+   "fieldname": "sec_tot_wrk_emp",
+   "fieldtype": "Section Break",
+   "label": "Total Employees Worked"
+  }
+ ],
+ "modified": "2019-07-05 12:51:00.392243",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Monthly Compliance Record",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Operator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

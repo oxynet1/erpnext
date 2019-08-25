@@ -1,0 +1,180 @@
+{
+ "autoname": "DT.######",
+ "creation": "2019-07-30 17:27:56.053065",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "offence_code",
+  "offence_date",
+  "status_of_offence_case",
+  "column_break_2",
+  "offence_type",
+  "description_of_the_ofference",
+  "hr_action_details_section",
+  "hr_action_taken",
+  "hr_action_date",
+  "board_of_enquiry",
+  "employee_no",
+  "employee_name",
+  "column_break_9",
+  "remark_1",
+  "remark_2",
+  "section_break_14",
+  "disciplinary_action_effective_date",
+  "start_date",
+  "date",
+  "demerit_appraisal_points_indicator",
+  "column_break_20",
+  "disciplinary_action_review",
+  "end_date",
+  "review_result",
+  "stop_increment_indicator"
+ ],
+ "fields": [
+  {
+   "fieldname": "offence_type",
+   "fieldtype": "Read Only",
+   "in_list_view": 1,
+   "label": "Offence Type"
+  },
+  {
+   "fieldname": "offence_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Offence Date"
+  },
+  {
+   "fieldname": "status_of_offence_case",
+   "fieldtype": "Select",
+   "label": "Status Of Offence Case ",
+   "options": "\nPending\nKIV\nClosed"
+  },
+  {
+   "fieldname": "description_of_the_ofference",
+   "fieldtype": "Small Text",
+   "label": "Description of the Ofference"
+  },
+  {
+   "fieldname": "hr_action_taken",
+   "fieldtype": "Select",
+   "label": "HR Action Taken",
+   "options": "\nFile Note\nInternal Investigation\nWarning Letter Issued\nSuspend Services\nPerformance Improvement Plan\nTermination of Services"
+  },
+  {
+   "fieldname": "hr_action_date",
+   "fieldtype": "Date",
+   "label": "HR Action Date"
+  },
+  {
+   "default": "0",
+   "fieldname": "board_of_enquiry",
+   "fieldtype": "Check",
+   "label": "Board of Enquiry"
+  },
+  {
+   "fieldname": "remark_1",
+   "fieldtype": "Small Text",
+   "label": "Remark 1"
+  },
+  {
+   "fieldname": "remark_2",
+   "fieldtype": "Small Text",
+   "label": "Remark 2"
+  },
+  {
+   "fieldname": "disciplinary_action_effective_date",
+   "fieldtype": "Date",
+   "label": "Disciplinary Action Effective Date"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date"
+  },
+  {
+   "fieldname": "disciplinary_action_review",
+   "fieldtype": "Data",
+   "label": "Disciplinary Action Review"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "review_result",
+   "fieldtype": "Select",
+   "label": "Review Result",
+   "options": "\nRestore Employement\nTermination Employment"
+  },
+  {
+   "default": "0",
+   "fieldname": "demerit_appraisal_points_indicator",
+   "fieldtype": "Check",
+   "label": "Demerit Appraisal Points Indicator"
+  },
+  {
+   "default": "0",
+   "fieldname": "stop_increment_indicator",
+   "fieldtype": "Check",
+   "label": "Stop Increment Indicator"
+  },
+  {
+   "fieldname": "offence_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Offence Code",
+   "options": "Offence Details"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "hr_action_details_section",
+   "fieldtype": "Section Break",
+   "label": "HR Action Details"
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_14",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.board_of_enquiry === 1",
+   "fieldname": "employee_no",
+   "fieldtype": "Link",
+   "label": "Employee No",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_20",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "istable": 1,
+ "modified": "2019-07-30 17:48:51.124276",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Disciplinary Table",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

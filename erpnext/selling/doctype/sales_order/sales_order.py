@@ -984,3 +984,4 @@ def make_raw_material_request(items, company, sales_order, project=None):
 def make_inter_company_purchase_order(source_name, target_doc=None):
 	from erpnext.accounts.doctype.sales_invoice.sales_invoice import make_inter_company_transaction
 	return make_inter_company_transaction("Sales Order", source_name, target_doc)
+

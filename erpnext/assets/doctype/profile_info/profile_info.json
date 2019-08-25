@@ -1,0 +1,71 @@
+{
+ "autoname": "field:proabout",
+ "creation": "2019-06-25 20:20:10.055650",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "proabout",
+  "proterms",
+  "prodwns",
+  "proprivacy"
+ ],
+ "fields": [
+  {
+   "fieldname": "proabout",
+   "fieldtype": "Data",
+   "label": "About Us",
+   "unique": 1
+  },
+  {
+   "fieldname": "proterms",
+   "fieldtype": "Data",
+   "label": "Terms"
+  },
+  {
+   "fieldname": "prodwns",
+   "fieldtype": "Data",
+   "label": "Answer"
+  },
+  {
+   "fieldname": "proprivacy",
+   "fieldtype": "Data",
+   "label": "Privacy Policy"
+  }
+ ],
+ "modified": "2019-06-25 20:25:49.102193",
+ "modified_by": "Administrator",
+ "module": "Assets",
+ "name": "Profile_Info",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

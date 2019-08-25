@@ -230,3 +230,7 @@ def make_lead_from_communication(communication, ignore_communication_links=False
 
 	link_communication_to_document(doc, "Lead", lead_name, ignore_communication_links)
 	return lead_name
+
+@frappe.whitelist()
+def update_vin_no(vin_no):
+     frappe.db.sql("update `tabStock Entry Detail` set used_in_lead= 1 where name like '" + vin_no + "';")

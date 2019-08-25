@@ -1,0 +1,48 @@
+{
+ "creation": "2019-07-03 15:34:38.544071",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "contractor_name",
+  "work_from",
+  "work_to",
+  "left_reason"
+ ],
+ "fields": [
+  {
+   "fieldname": "contractor_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Contractor Name"
+  },
+  {
+   "fieldname": "work_from",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Work From (Month & Year)"
+  },
+  {
+   "fieldname": "work_to",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Work To (Month & Year)"
+  },
+  {
+   "fieldname": "left_reason",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Left Reason"
+  }
+ ],
+ "istable": 1,
+ "modified": "2019-07-22 16:11:36.421216",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Work Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

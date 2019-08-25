@@ -1,0 +1,63 @@
+{
+ "autoname": "AP.#######",
+ "creation": "2019-07-30 17:08:06.552295",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "appraisal_form",
+  "appraisal_final_score_marks",
+  "recommendation",
+  "column_break_4",
+  "appraisal_date",
+  "appraisal_score_grade"
+ ],
+ "fields": [
+  {
+   "fieldname": "appraisal_form",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Appraisal Form",
+   "reqd": 1
+  },
+  {
+   "fieldname": "appraisal_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Appraisal Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "appraisal_final_score_marks",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Appraisal Final Score (marks)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "appraisal_score_grade",
+   "fieldtype": "Data",
+   "label": "Appraisal Score Grade"
+  },
+  {
+   "fieldname": "recommendation",
+   "fieldtype": "Select",
+   "label": "Recommendation",
+   "options": "\nSalary Increment\nBonus\nPromotion\nTraining"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "istable": 1,
+ "modified": "2019-07-30 17:11:11.817780",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Appraisal Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

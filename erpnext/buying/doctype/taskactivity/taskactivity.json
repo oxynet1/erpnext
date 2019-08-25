@@ -1,0 +1,111 @@
+{
+ "autoname": "R.##########",
+ "creation": "2019-07-18 16:59:06.844704",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "ta_ch_title",
+  "ta_defecte_image",
+  "ta_annotate_image",
+  "column_break_4",
+  "ta_ts_title",
+  "ta_location",
+  "ta_notes",
+  "section_break_8",
+  "ta_defect_details"
+ ],
+ "fields": [
+  {
+   "fieldname": "ta_ch_title",
+   "fieldtype": "Data",
+   "label": "Check List Title"
+  },
+  {
+   "fieldname": "ta_ts_title",
+   "fieldtype": "Data",
+   "label": "Task Title"
+  },
+  {
+   "fieldname": "ta_location",
+   "fieldtype": "Data",
+   "label": "Location"
+  },
+  {
+   "fieldname": "ta_notes",
+   "fieldtype": "Small Text",
+   "label": "Notes (Remarks)"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ta_defecte_image",
+   "fieldtype": "Attach Image",
+   "label": "Defecte Image"
+  },
+  {
+   "fieldname": "ta_annotate_image",
+   "fieldtype": "Attach Image",
+   "label": "Annotate Image"
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "ta_defect_details",
+   "fieldtype": "Table",
+   "label": "Defect Details",
+   "options": "Defect Details"
+  }
+ ],
+ "modified": "2019-07-18 17:12:01.646858",
+ "modified_by": "Administrator",
+ "module": "Buying",
+ "name": "TaskActivity",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Godrej Operator",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

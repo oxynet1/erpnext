@@ -252,3 +252,14 @@ def _make_customer(source_name, ignore_permissions=False):
 				frappe.throw(_("Please create Customer from Lead {0}").format(lead_name))
 		else:
 			return customer_name
+
+
+@frappe.whitelist()
+def get_vehicle_insurance_items(insurance_provider,renewal_year):
+    item_detls = {}
+    data=[]
+    a= frappe.db.sql("select parent,insurance_items_name,variant from `tabVehicle Insurance Items` where parent like '" + insurance_provider + "' and renewal_year like '" + renewal_year + "'", as_dict=1)
+    for d in a:
+      item_detls[d.da_vehclno] = d
+      data.append(d)
+    return data	

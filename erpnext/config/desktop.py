@@ -209,11 +209,10 @@ def get_data():
 			"description": "Publish items to other ERPNext users."
 		},
 		{
-			"module_name": "someapp",
-			"color": "#F1C40F",
-			"icon": "octicon octicon-location",
-			"label": _("Traccar"),
-			"type": "page",
-			"link": "traccar"
-    	}
+		"module_name": "DWMS",
+		"color": "#8e44ad",
+		"icon": "fa fa-puzzle-piece",
+		"icon": "octicon octicon-rocket",
+		"type": "module"
+	},
 	]

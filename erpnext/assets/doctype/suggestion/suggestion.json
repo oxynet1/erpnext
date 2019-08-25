@@ -1,0 +1,98 @@
+{
+ "autoname": "field:suggestion",
+ "creation": "2019-06-25 13:23:00.589498",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "sugmobile",
+  "suggestion",
+  "suguname",
+  "sugemail",
+  "sugphoto",
+  "sugcategory",
+  "sugdate",
+  "sphoto"
+ ],
+ "fields": [
+  {
+   "fieldname": "sugmobile",
+   "fieldtype": "Data",
+   "label": "Mobile"
+  },
+  {
+   "fieldname": "suggestion",
+   "fieldtype": "Data",
+   "label": "Suggestion",
+   "unique": 1
+  },
+  {
+   "fieldname": "suguname",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "sugemail",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "fieldname": "sugphoto",
+   "fieldtype": "Long Text",
+   "hidden": 1,
+   "label": "Photo"
+  },
+  {
+   "fieldname": "sugcategory",
+   "fieldtype": "Data",
+   "label": "Category"
+  },
+  {
+   "fieldname": "sugdate",
+   "fieldtype": "Datetime",
+   "label": "Date"
+  },
+  {
+   "fieldname": "sphoto",
+   "fieldtype": "Attach Image",
+   "label": "Photo"
+  }
+ ],
+ "modified": "2019-07-12 12:27:05.777624",
+ "modified_by": "Administrator",
+ "module": "Assets",
+ "name": "Suggestion",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "title_field": "sugcategory",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

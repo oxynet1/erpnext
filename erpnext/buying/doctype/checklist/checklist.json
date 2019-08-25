@@ -1,0 +1,123 @@
+{
+ "autoname": "CL.##########",
+ "creation": "2019-07-18 12:11:42.098612",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "ch_ls_name",
+  "ch_ls_score",
+  "ch_ls_conducted_dt",
+  "ch_ls_status",
+  "column_break_4",
+  "ch_ls_image",
+  "ch_ls_completed_dt",
+  "ch_ls_summary",
+  "ch_ls_create_by",
+  "section_break_9",
+  "ch_ls_assign_user",
+  "ch_ls_assign_user_name",
+  "column_break_12",
+  "ch_ls_rpt_mgr",
+  "ch_ls_rpt_mgr_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "ch_ls_name",
+   "fieldtype": "Data",
+   "label": "Check List Title"
+  },
+  {
+   "fieldname": "ch_ls_image",
+   "fieldtype": "Attach Image",
+   "label": "Image"
+  },
+  {
+   "fieldname": "ch_ls_score",
+   "fieldtype": "Percent",
+   "label": "Score"
+  },
+  {
+   "fieldname": "ch_ls_conducted_dt",
+   "fieldtype": "Date",
+   "label": "Conducted Date"
+  },
+  {
+   "fieldname": "ch_ls_completed_dt",
+   "fieldtype": "Date",
+   "label": "Completed Dated"
+  },
+  {
+   "fieldname": "ch_ls_summary",
+   "fieldtype": "Data",
+   "label": "Summary"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ch_ls_create_by",
+   "fieldtype": "Read Only",
+   "label": "Creaded By"
+  },
+  {
+   "fieldname": "section_break_9",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ch_ls_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Check List Status",
+   "options": "\nPending\nCompelet"
+  },
+  {
+   "fieldname": "ch_ls_assign_user",
+   "fieldtype": "Link",
+   "label": "Assign User",
+   "options": "User"
+  },
+  {
+   "fieldname": "ch_ls_assign_user_name",
+   "fieldtype": "Read Only",
+   "label": "Assign User Name"
+  },
+  {
+   "fieldname": "ch_ls_rpt_mgr",
+   "fieldtype": "Read Only",
+   "label": "Reproting Manager"
+  },
+  {
+   "fieldname": "ch_ls_rpt_mgr_name",
+   "fieldtype": "Read Only",
+   "label": "Reproting Manager Name"
+  }
+ ],
+ "modified": "2019-08-02 11:19:39.049730",
+ "modified_by": "Administrator",
+ "module": "Buying",
+ "name": "CheckList",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

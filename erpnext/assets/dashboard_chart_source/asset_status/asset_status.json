@@ -1,0 +1,13 @@
+{
+ "creation": "2019-06-19 10:03:10.499420",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart Source",
+ "idx": 0,
+ "modified": "2019-06-19 10:03:10.499420",
+ "modified_by": "Administrator",
+ "module": "Assets",
+ "name": "Asset Status",
+ "owner": "Administrator",
+ "source_name": "Asset Status",
+ "timeseries": 0
+}

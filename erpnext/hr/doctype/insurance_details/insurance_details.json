@@ -1,0 +1,105 @@
+{
+ "autoname": "ID.#######",
+ "creation": "2019-07-30 15:59:33.022028",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "insurance_type",
+  "start_date",
+  "insurance_company",
+  "policy_status",
+  "sum_assured",
+  "premium",
+  "column_break_2",
+  "insurance",
+  "end_date",
+  "period_in_month",
+  "policy_cover_family_member",
+  "remark"
+ ],
+ "fields": [
+  {
+   "fieldname": "insurance_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Insurance Type",
+   "options": "\nPersonal\nGroup Insurance",
+   "reqd": 1
+  },
+  {
+   "fieldname": "insurance",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Insurance",
+   "options": "\nMedical Card\nWhole Life\nTerm Life",
+   "reqd": 1
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "End Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "insurance_company",
+   "fieldtype": "Link",
+   "label": "Insurance Company",
+   "options": "Insurance Company Details"
+  },
+  {
+   "fieldname": "policy_status",
+   "fieldtype": "Select",
+   "label": "Policy Status",
+   "options": "\nInforced\nTerminated/Lapse"
+  },
+  {
+   "default": "0",
+   "fieldname": "policy_cover_family_member",
+   "fieldtype": "Check",
+   "label": "Policy Cover Family Member"
+  },
+  {
+   "fieldname": "sum_assured",
+   "fieldtype": "Currency",
+   "label": "Sum Assured"
+  },
+  {
+   "fieldname": "premium",
+   "fieldtype": "Currency",
+   "label": "Premium"
+  },
+  {
+   "fieldname": "remark",
+   "fieldtype": "Small Text",
+   "label": "Remark"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "period_in_month",
+   "fieldtype": "Data",
+   "label": "Period (In Month)"
+  }
+ ],
+ "istable": 1,
+ "modified": "2019-07-30 16:12:13.596635",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Insurance Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

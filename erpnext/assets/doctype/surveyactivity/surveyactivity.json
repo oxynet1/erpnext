@@ -1,0 +1,120 @@
+{
+ "creation": "2019-07-08 15:58:19.632692",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "uauserid",
+  "uaplatform",
+  "uautype",
+  "uauname",
+  "sautype",
+  "sauserid",
+  "sauname",
+  "aasurveyid",
+  "sasurstatus",
+  "surstatus",
+  "sagreat",
+  "asbad",
+  "sanone",
+  "saokay",
+  "saterrible",
+  "sagood",
+  "sabad"
+ ],
+ "fields": [
+  {
+   "fieldname": "uauserid",
+   "fieldtype": "Data",
+   "label": "User ID"
+  },
+  {
+   "fieldname": "uaplatform",
+   "fieldtype": "Data",
+   "label": "Platform"
+  },
+  {
+   "fieldname": "uautype",
+   "fieldtype": "Data",
+   "label": "Auth "
+  },
+  {
+   "fieldname": "uauname",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "sautype",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "sauserid",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "sauname",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "aasurveyid",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "sasurstatus",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "surstatus",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "sagreat",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "asbad",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "sanone",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "saokay",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "saterrible",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "sagood",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "sabad",
+   "fieldtype": "Data"
+  }
+ ],
+ "modified": "2019-07-08 15:58:19.632692",
+ "modified_by": "Administrator",
+ "module": "Assets",
+ "name": "SurveyActivity",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

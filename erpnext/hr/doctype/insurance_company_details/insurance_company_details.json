@@ -1,0 +1,74 @@
+{
+ "autoname": "field:insurance_company_name",
+ "creation": "2019-07-30 16:05:53.319235",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "insurance_company_name",
+  "column_break_2",
+  "location",
+  "section_break_4",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "insurance_company_name",
+   "fieldtype": "Data",
+   "label": "Insurance Company Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location"
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  }
+ ],
+ "modified": "2019-07-30 16:06:13.400652",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Insurance Company Details",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}

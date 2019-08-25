@@ -1,0 +1,251 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Welcome to Bavaria Motors Pvt Ltd.</title>
+    <meta name="description" content="EcoSense DWMS">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="images/BMW-logo.png">
+    <link rel="shortcut icon" href="images/BMW-logo.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css">
+    <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+    <link href="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/weathericons@2.1.0/css/weather-icons.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.css" rel="stylesheet" />
+
+    <style>
+        #weatherWidget .currentDesc {
+            color: #ffffff !important;
+        }
+
+        .traffic-chart {
+            min-height: 335px;
+        }
+
+        #flotPie1 {
+            height: 150px;
+        }
+
+        #flotPie1 td {
+            padding: 3px;
+        }
+
+        #flotPie1 table {
+            top: 20px !important;
+            right: -10px !important;
+        }
+
+        .chart-container {
+            display: table;
+            min-width: 270px;
+            text-align: left;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        #flotLine5 {
+            height: 105px;
+        }
+
+        #flotBarChart {
+            height: 150px;
+        }
+
+        #cellPaiChart {
+            height: 160px;
+        }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!--  Chart js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.bundle.min.js"></script>
+
+    <!--Chartist Chart-->
+    <script src="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartist-plugin-legend@0.6.2/chartist-plugin-legend.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery.flot@0.8.3/jquery.flot.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flot-pie@1.0.0/src/jquery.flot.pie.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flot-spline@0.0.1/js/jquery.flot.spline.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/simpleweather@3.1.0/jquery.simpleWeather.min.js"></script>
+    <script src="assets/js/init/weather-init.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.js"></script>
+    <script src="assets/js/init/fullcalendar-init.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+
+        var email = "";
+	
+        $(document).ready(function () {
+			document.getElementById("left-panel").style.display = "none";
+            setInterval(function () {
+             //  email = "Guest"
+                $.get("http://kainext.com:8006/api/method/frappe.auth.get_logged_user", function (data, status) {
+                    console.log(data, status)
+                    if (status === "success") {
+                        email = data.message;
+                    }else{
+						email = "Guest";
+					}
+                });
+                // email = "{{ logged_in_user }}"
+                console.log("email: ", email);
+				//alert("email = "+email);
+				if(email.indexOf('') >= 0 || email.indexOf("Guest") >= 0){
+				//	alert("hi");
+					document.getElementById("left-panel").style.display = "none";
+					//document.getElementById("left-panel").style.width = "0px";
+				//	document.getElementById("left-panel").style.backgroundColor = "#f5f7fa";
+					
+				}else{
+					document.getElementById("left-panel").style.display = "block";
+				 
+				}
+            }, 5000); //5 seconds
+
+        });
+
+        function getuserlms() {
+           // var email = "{{ logged_in_user }}"
+            var url = ""
+            if (email === "Guest") {
+                url = "http://kainext.com:8006/"
+            } else {
+                url = "http://kainext.com:8181/teamnet-lms/login.jsp?userid=" + email
+            }
+
+            //////contentFrame.src = url;
+		window.open(url)
+        }
+
+        function getusertms() {
+          //  var email = "{{ logged_in_user }}"
+            var url = ""
+            if (email === "Guest") {
+                url = "http://kainext.com:8006/"
+            } else {
+                url = "http://kainext.com:8181/teamnet-tms/login.jsp?userid=" + email
+            }
+
+//            contentFrame.src = url;
+
+		window.open(url);
+        }
+
+    </script>
+
+
+</head>
+
+<body style="background-color:#ffffff">
+
+    <!-- Left Panel -->
+    <aside id="left-panel" class="left-panel">
+        <nav class="navbar navbar-expand-sm navbar-default">
+            <div id="main-menu" class="main-menu collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#" onclick='contentFrame.src="http://kainext.com:8006/ecosense/main"'><i class="menu-icon ti-dashboard"></i>Dashboard
+                        </a>
+                    </li>
+                    <li class="menu-title">Modules</li><!-- /.menu-title --> 
+                    <!-- <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Workforce</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-user"></i><a
+                                    onclick='contentFrame.src="http://kainext.com:8006/desk#modules/HR"'>HRIS</a>
+                            </li>
+                            <li><i class="fa fa-clock"></i><a href="#" onclick="getuserlms()">Attendance & Leave</a>
+                            </li>
+                            <li><i class="fa fa-plane-departure"></i><a href="#" onclick="getusertms()">Travel &
+                                    Expense</a></li>
+                        </ul>
+                    </li> -->
+                    <!--					          <li>
+                        <a href="#" onclick='getuserlms()'> <i class="menu-icon ti-money"></i>Travel & Expense</a>
+                    </li>
+-->
+                    <li>
+                        <a href="#"
+                            onclick='contentFrame.src="http://kainext.com:8006/desk#List/Contact/List"'> <i
+                                class="menu-icon ti-headphone-alt"></i>Contacts</a>
+                    </li>
+                    <li>
+                        <a href="#" onclick='contentFrame.src="http://kainext.com:8006/desk#List/Lead/List"'> <i
+                                class="menu-icon ti-filter"></i>Leads</a>
+                    </li>
+                    <li>
+                        <a href="#" onclick='contentFrame.src="http://kainext.com:8006/desk#List/Quotation/List"'> <i
+                                class="menu-icon ti-stats-up"></i>Prospects</a>
+                    </li>
+
+                    <!-- <li class="menu-title">Citizen / Corporate</li><!-- /.menu-title --> 
+
+                    <li>
+                        <a href="#" onclick='contentFrame.src="http://kainext.com:8006/desk#List/Customer/List"'> <i
+                                class="menu-icon ti-id-badge"></i>Customers</a>
+                    </li>
+                    <li>
+                        <a href="#" onclick='contentFrame.src="http://kainext.com:8006/desk#List/Stock%20Entry/List"'>
+                            <i class="menu-icon ti-truck"></i>Fleet Inventory</a>
+                    </li>
+					<li>
+                        <a href="#" onclick='contentFrame.src="http://kainext.com:8006/desk#List/Stock%20Entry/List"'>
+                            <i class="menu-icon ti-files"></i>Commissions</a>
+                    </li>
+					<li class="menu-title">Reports</li>
+					<li><i class="fa fa-plane-departure"></i><a href="#" onclick="getusertms()">Report 1</a></li>
+                    
+
+                    <!--</li>
+					<li>
+                        <a href="#" onclick='getuser()'> <i class="menu-icon ti-email"></i> {{ logged_in_user }}</a>
+
+                    </li>--<
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </nav>
+    </aside>
+    <!-- /#left-panel -->
+    <!-- Right Panel -->
+    <div id="right-panel" class="right-panel">
+        <!-- <iframe id="contentFrame" height="745px" width="100%" src="http://ecosense.kainext.com/dashboard" frameborder="0"></iframe> -->
+        <iframe id="contentFrame" height="840px" width="100%" src="http://kainext.com:8006/dashboard"
+            frameborder="0"></iframe>
+    </div>
+
+
+    <!-- /#right-panel -->
+
+    <!-- Scripts -->
+
+</body>
+
+</html>

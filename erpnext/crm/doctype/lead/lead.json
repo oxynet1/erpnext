@@ -15,8 +15,10 @@
   "company_name",
   "moblie_no",
   "email_id",
+  "vin_number",
   "col_break123",
   "leadtype",
+  "company",
   "lead_owner",
   "status",
   "gender",
@@ -24,19 +26,41 @@
   "customer",
   "campaign_name",
   "image",
+  "sec_bk_upld_doc",
+  "pan_card",
+  "aadhar_card",
+  "col_bk_upld_doc",
+  "rc_book",
+  "ext_insurnce",
+  "bmw_secure",
   "vehicle_details_1",
   "vehicle_model",
-  "engine_no",
-  "regi_no",
-  "insu_vali_strt_dt",
-  "insurance_exe",
-  "col_bk_vd_1",
-  "vin_number",
   "mgf_year",
+  "regi_no",
+  "insurance_exe",
+  "insu_vali_strt_dt",
+  "col_bk_vd_1",
+  "variant",
+  "engine_no",
   "regi_date",
+  "location",
   "insu_vali_end_dt",
+  "bmw_secu_sec_bk",
+  "rollover",
+  "with_rsa",
+  "col_bk_bmw_secu",
+  "bms_secure_before_due_date",
+  "bmw_secure_after_due_date",
   "vehicle_insurance",
   "lead_vehicle_insurance",
+  "finance_details_sec",
+  "finance_details",
+  "ser_pck_sec",
+  "package_details",
+  "package_start_date",
+  "package_end_date",
+  "column_break_51",
+  "remarks",
   "section_break_12",
   "follow_up",
   "contact_by",
@@ -61,7 +85,6 @@
   "industry",
   "request_type",
   "column_break3",
-  "company",
   "unsubscribed",
   "blog_subscriber"
  ],
@@ -110,6 +133,7 @@
   {
    "fieldname": "email_id",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Email Address",
    "oldfieldname": "email_id",
    "oldfieldtype": "Data",
@@ -382,13 +406,15 @@
    "fieldname": "pan_no",
    "fieldtype": "Link",
    "label": "PAN No",
-   "options": "Contact"
+   "options": "Contact",
+   "reqd": 1
   },
   {
    "fieldname": "vehicle_model",
    "fieldtype": "Link",
-   "label": "Vehicle Model",
-   "options": "Item"
+   "label": "Model",
+   "options": "Item",
+   "reqd": 1
   },
   {
    "fieldname": "engine_no",
@@ -412,8 +438,10 @@
   },
   {
    "fieldname": "vin_number",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "VIN Number",
+   "options": "Stock Entry Detail",
+   "reqd": 1,
    "unique": 1
   },
   {
@@ -442,8 +470,7 @@
   },
   {
    "fieldname": "vehicle_insurance",
-   "fieldtype": "Section Break",
-   "label": "Vehicle Insurance1"
+   "fieldtype": "Section Break"
   },
   {
    "fieldname": "lead_vehicle_insurance",
@@ -467,12 +494,133 @@
    "fieldtype": "Table",
    "label": "Follow Up",
    "options": "Follow Up"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location"
+  },
+  {
+   "fieldname": "finance_details_sec",
+   "fieldtype": "Section Break",
+   "label": "Finance Details"
+  },
+  {
+   "fieldname": "finance_details",
+   "fieldtype": "Table",
+   "label": "Finance Details",
+   "options": "Finance Details"
+  },
+  {
+   "fieldname": "ext_insurnce",
+   "fieldtype": "Attach",
+   "label": "Existing insurance"
+  },
+  {
+   "fieldname": "bmw_secu_sec_bk",
+   "fieldtype": "Section Break",
+   "label": "BMW Secure Calculator"
+  },
+  {
+   "fieldname": "bms_secure_before_due_date",
+   "fieldtype": "Currency",
+   "label": "BMW Secure (Before Due Date)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "bmw_secure_after_due_date",
+   "fieldtype": "Currency",
+   "label": "BMW Secure (After Due Date / Rollover)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "rollover",
+   "fieldtype": "Select",
+   "label": "Rollover",
+   "options": "\nYES\nNO",
+   "reqd": 1
+  },
+  {
+   "fieldname": "with_rsa",
+   "fieldtype": "Select",
+   "label": "With RSA",
+   "options": "\nYES\nNO",
+   "reqd": 1
+  },
+  {
+   "fieldname": "col_bk_bmw_secu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "variant",
+   "fieldtype": "Link",
+   "label": "Variant",
+   "options": "Variant Details",
+   "reqd": 1
+  },
+  {
+   "fieldname": "pan_card",
+   "fieldtype": "Attach",
+   "label": "Pan card"
+  },
+  {
+   "fieldname": "aadhar_card",
+   "fieldtype": "Attach",
+   "label": "Aadhar Card"
+  },
+  {
+   "fieldname": "rc_book",
+   "fieldtype": "Attach",
+   "label": "RC Book"
+  },
+  {
+   "fieldname": "bmw_secure",
+   "fieldtype": "Attach",
+   "label": "BMW Secure"
+  },
+  {
+   "fieldname": "sec_bk_upld_doc",
+   "fieldtype": "Section Break",
+   "label": "Upload Document"
+  },
+  {
+   "fieldname": "col_bk_upld_doc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ser_pck_sec",
+   "fieldtype": "Section Break",
+   "label": "Service Package"
+  },
+  {
+   "fieldname": "package_details",
+   "fieldtype": "Data",
+   "label": "Package Details"
+  },
+  {
+   "fieldname": "package_start_date",
+   "fieldtype": "Date",
+   "label": "Package Start Date"
+  },
+  {
+   "fieldname": "package_end_date",
+   "fieldtype": "Date",
+   "label": "Package End Date"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "column_break_51",
+   "fieldtype": "Column Break"
   }
  ],
  "icon": "fa fa-user",
  "idx": 5,
  "image_field": "image",
- "modified": "2019-06-14 15:34:03.937542",
+ "modified": "2019-08-05 15:47:34.161779",
  "modified_by": "Administrator",
  "module": "CRM",
  "name": "Lead",
@@ -531,6 +679,7 @@
    "role": "Sales User"
   }
  ],
+ "restrict_to_domain": "Retail",
  "search_fields": "lead_name,lead_owner,status",
  "show_name_in_global_search": 1,
  "sort_field": "modified",

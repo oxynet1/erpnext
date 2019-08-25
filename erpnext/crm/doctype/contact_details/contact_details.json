@@ -5,6 +5,7 @@
  "field_order": [
   "person_name",
   "relation",
+  "column_break_3",
   "moblie_no",
   "alternate_no"
  ],
@@ -33,10 +34,14 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Alternate no"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
   }
  ],
  "istable": 1,
- "modified": "2019-06-14 12:34:11.335546",
+ "modified": "2019-06-20 18:17:35.288055",
  "modified_by": "Administrator",
  "module": "CRM",
  "name": "Contact Details",

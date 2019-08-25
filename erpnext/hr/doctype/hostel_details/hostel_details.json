@@ -1,0 +1,168 @@
+{
+ "autoname": "HT.#######",
+ "creation": "2019-07-31 10:36:23.361190",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "hostel_info_section",
+  "hostel_name",
+  "column_break_3",
+  "hostel_description",
+  "contact_info_section",
+  "address",
+  "state",
+  "pincode",
+  "column_break_7",
+  "city",
+  "country",
+  "owner_info_section",
+  "hostel_owner",
+  "email",
+  "url",
+  "column_break_14",
+  "contact_no",
+  "fax_no",
+  "room_info_section",
+  "room",
+  "total_capacity",
+  "key_ref_number",
+  "column_break_21",
+  "remark"
+ ],
+ "fields": [
+  {
+   "fieldname": "hostel_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Hostel Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "hostel_description",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Hostel Description"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Data",
+   "label": "Address"
+  },
+  {
+   "fieldname": "room",
+   "fieldtype": "Data",
+   "label": "Room"
+  },
+  {
+   "fieldname": "key_ref_number",
+   "fieldtype": "Data",
+   "label": "Key Ref Number"
+  },
+  {
+   "fieldname": "remark",
+   "fieldtype": "Small Text",
+   "label": "Remark"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Data",
+   "label": "State"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "label": "Country",
+   "options": "Country"
+  },
+  {
+   "fieldname": "hostel_info_section",
+   "fieldtype": "Section Break",
+   "label": "Hostel Info"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contact_info_section",
+   "fieldtype": "Section Break",
+   "label": "Contact Info"
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pincode",
+   "fieldtype": "Data",
+   "label": "Pincode"
+  },
+  {
+   "fieldname": "hostel_owner",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Hostel Owner",
+   "reqd": 1
+  },
+  {
+   "fieldname": "contact_no",
+   "fieldtype": "Data",
+   "label": "Contact No",
+   "reqd": 1
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "fieldname": "fax_no",
+   "fieldtype": "Data",
+   "label": "Fax No"
+  },
+  {
+   "fieldname": "url",
+   "fieldtype": "Data",
+   "label": "URL"
+  },
+  {
+   "fieldname": "owner_info_section",
+   "fieldtype": "Section Break",
+   "label": "Owner Info"
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "room_info_section",
+   "fieldtype": "Section Break",
+   "label": "Room Info"
+  },
+  {
+   "fieldname": "column_break_21",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_capacity",
+   "fieldtype": "Data",
+   "label": "Total Capacity"
+  }
+ ],
+ "istable": 1,
+ "modified": "2019-08-01 16:12:00.329526",
+ "modified_by": "Administrator",
+ "module": "HR",
+ "name": "Hostel Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "track_changes": 1
+}
