@@ -260,8 +260,8 @@ def _make_customer(source_name, ignore_permissions=False):
 			else:
 				return customer_name
 		else:
-<<<<<<< HEAD
-			return customer_name
+			# return customer_name
+			return frappe.get_doc("Customer", quotation.get("party_name"))
 
 
 @frappe.whitelist()
@@ -272,7 +272,4 @@ def get_vehicle_insurance_items(insurance_provider,renewal_year):
     for d in a:
       item_detls[d.da_vehclno] = d
       data.append(d)
-    return data	
-=======
-			return frappe.get_doc("Customer", quotation.get("party_name"))
->>>>>>> d8c262fd5c9611c65a33bafac57c2084f3dc8bbb
+    return data

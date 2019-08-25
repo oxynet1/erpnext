@@ -1,698 +1,694 @@
 {
- "allow_events_in_timeline": 1,
- "allow_import": 1,
- "autoname": "field:vin_number",
- "creation": "2013-04-10 11:45:37",
- "doctype": "DocType",
- "document_type": "Document",
- "engine": "InnoDB",
- "field_order": [
-  "organization_lead",
-  "naming_series",
-  "lead_details",
-  "pan_no",
-  "lead_name",
-  "company_name",
-  "moblie_no",
-  "email_id",
-  "vin_number",
-  "col_break123",
-  "leadtype",
-  "company",
-  "lead_owner",
-  "status",
-  "gender",
-  "source",
-  "customer",
-  "campaign_name",
-  "image",
-  "sec_bk_upld_doc",
-  "pan_card",
-  "aadhar_card",
-  "col_bk_upld_doc",
-  "rc_book",
-  "ext_insurnce",
-  "bmw_secure",
-  "vehicle_details_1",
-  "vehicle_model",
-  "mgf_year",
-  "regi_no",
-  "insurance_exe",
-  "insu_vali_strt_dt",
-  "col_bk_vd_1",
-  "variant",
-  "engine_no",
-  "regi_date",
-  "location",
-  "insu_vali_end_dt",
-  "bmw_secu_sec_bk",
-  "rollover",
-  "with_rsa",
-  "col_bk_bmw_secu",
-  "bms_secure_before_due_date",
-  "bmw_secure_after_due_date",
-  "vehicle_insurance",
-  "lead_vehicle_insurance",
-  "finance_details_sec",
-  "finance_details",
-  "ser_pck_sec",
-  "package_details",
-  "package_start_date",
-  "package_end_date",
-  "column_break_51",
-  "remarks",
-  "section_break_12",
-  "follow_up",
-  "contact_by",
-  "contact_date",
-  "ends_on",
-  "notes_section",
-  "notes",
-  "contact_info",
-  "address_desc",
-  "address_html",
-  "column_break2",
-  "contact_html",
-  "phone",
-  "salutation",
-  "mobile_no",
-  "fax",
-  "website",
-  "territory",
-  "more_info",
-  "type",
-  "market_segment",
-  "industry",
-  "request_type",
-  "column_break3",
-  "unsubscribed",
-  "blog_subscriber"
- ],
- "fields": [
-  {
-   "default": "0",
-   "fieldname": "organization_lead",
-   "fieldtype": "Check",
-   "hidden": 1,
-   "label": "Lead is an Organization"
-  },
-  {
-   "fieldname": "lead_details",
-   "fieldtype": "Section Break",
-   "options": "fa fa-user"
-  },
-  {
-   "fieldname": "naming_series",
-   "fieldtype": "Select",
-   "hidden": 1,
-   "label": "Series",
-   "no_copy": 1,
-   "oldfieldname": "naming_series",
-   "oldfieldtype": "Select",
-   "options": "CRM-LEAD-.YYYY.-"
-  },
-  {
-   "depends_on": "eval:doc.leadtype=='Individual'\n//eval:!doc.organization_lead",
-   "fieldname": "lead_name",
-   "fieldtype": "Data",
-   "in_global_search": 1,
-   "label": "Person Name",
-   "oldfieldname": "lead_name",
-   "oldfieldtype": "Data",
-   "search_index": 1
-  },
-  {
-   "depends_on": "eval:doc.leadtype=='Company'\n",
-   "fieldname": "company_name",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Organization Name",
-   "oldfieldname": "company_name",
-   "oldfieldtype": "Data"
-  },
-  {
-   "fieldname": "email_id",
-   "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Email Address",
-   "oldfieldname": "email_id",
-   "oldfieldtype": "Data",
-   "options": "Email",
-   "search_index": 1
-  },
-  {
-   "fieldname": "col_break123",
-   "fieldtype": "Column Break",
-   "width": "50%"
-  },
-  {
-   "default": "__user",
-   "fieldname": "lead_owner",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Lead Owner",
-   "oldfieldname": "lead_owner",
-   "oldfieldtype": "Link",
-   "options": "User",
-   "search_index": 1
-  },
-  {
-   "default": "Lead",
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Status",
-   "no_copy": 1,
-   "oldfieldname": "status",
-   "oldfieldtype": "Select",
-   "options": "Lead\nOpen\nReplied\nOpportunity\nQuotation\nLost Quotation\nInterested\nConverted\nDo Not Contact",
-   "reqd": 1,
-   "search_index": 1
-  },
-  {
-   "depends_on": "eval:doc.leadtype=='Individual'\n//eval:!doc.organization_lead",
-   "fieldname": "gender",
-   "fieldtype": "Link",
-   "label": "Gender",
-   "options": "Gender"
-  },
-  {
-   "fieldname": "source",
-   "fieldtype": "Link",
-   "label": "Source",
-   "oldfieldname": "source",
-   "oldfieldtype": "Select",
-   "options": "Lead Source"
-  },
-  {
-   "depends_on": "eval:doc.source == 'Existing Customer'",
-   "fieldname": "customer",
-   "fieldtype": "Link",
-   "label": "From Customer",
-   "no_copy": 1,
-   "oldfieldname": "customer",
-   "oldfieldtype": "Link",
-   "options": "Customer"
-  },
-  {
-   "depends_on": "eval: doc.source==\"Campaign\"",
-   "fieldname": "campaign_name",
-   "fieldtype": "Link",
-   "label": "Campaign Name",
-   "oldfieldname": "campaign_name",
-   "oldfieldtype": "Link",
-   "options": "Campaign"
-  },
-  {
-   "fieldname": "image",
-   "fieldtype": "Attach Image",
-   "hidden": 1,
-   "label": "Image",
-   "print_hide": 1
-  },
-  {
-   "fieldname": "section_break_12",
-   "fieldtype": "Section Break",
-   "label": "Follow Up"
-  },
-  {
-   "fieldname": "contact_by",
-   "fieldtype": "Link",
-   "hidden": 1,
-   "label": "Next Contact By",
-   "oldfieldname": "contact_by",
-   "oldfieldtype": "Link",
-   "options": "User",
-   "width": "100px"
-  },
-  {
-   "bold": 1,
-   "fieldname": "contact_date",
-   "fieldtype": "Datetime",
-   "hidden": 1,
-   "label": "Next Contact Date",
-   "no_copy": 1,
-   "oldfieldname": "contact_date",
-   "oldfieldtype": "Date",
-   "width": "100px"
-  },
-  {
-   "bold": 1,
-   "fieldname": "ends_on",
-   "fieldtype": "Datetime",
-   "hidden": 1,
-   "label": "Ends On",
-   "no_copy": 1
-  },
-  {
-   "collapsible": 1,
-   "fieldname": "notes_section",
-   "fieldtype": "Section Break",
-   "label": "Notes"
-  },
-  {
-   "fieldname": "notes",
-   "fieldtype": "Text Editor",
-   "label": "Notes"
-  },
-  {
-   "collapsible": 1,
-   "fieldname": "contact_info",
-   "fieldtype": "Section Break",
-   "label": "Address & Contact",
-   "oldfieldtype": "Column Break",
-   "options": "fa fa-map-marker"
-  },
-  {
-   "depends_on": "eval:doc.__islocal",
-   "fieldname": "address_desc",
-   "fieldtype": "HTML",
-   "label": "Address Desc",
-   "print_hide": 1
-  },
-  {
-   "fieldname": "address_html",
-   "fieldtype": "HTML",
-   "label": "Address HTML",
-   "read_only": 1
-  },
-  {
-   "fieldname": "column_break2",
-   "fieldtype": "Column Break"
-  },
-  {
-   "depends_on": "eval:doc.organization_lead",
-   "fieldname": "contact_html",
-   "fieldtype": "HTML",
-   "label": "Contact HTML",
-   "read_only": 1
-  },
-  {
-   "depends_on": "eval:!doc.organization_lead",
-   "fieldname": "phone",
-   "fieldtype": "Data",
-   "label": "Phone",
-   "oldfieldname": "contact_no",
-   "oldfieldtype": "Data"
-  },
-  {
-   "depends_on": "eval:!doc.organization_lead",
-   "fieldname": "salutation",
-   "fieldtype": "Link",
-   "label": "Salutation",
-   "options": "Salutation"
-  },
-  {
-   "depends_on": "eval:!doc.organization_lead",
-   "fieldname": "mobile_no",
-   "fieldtype": "Data",
-   "label": "Mobile No.",
-   "oldfieldname": "mobile_no",
-   "oldfieldtype": "Data"
-  },
-  {
-   "depends_on": "eval:!doc.organization_lead",
-   "fieldname": "fax",
-   "fieldtype": "Data",
-   "label": "Fax",
-   "oldfieldname": "fax",
-   "oldfieldtype": "Data"
-  },
-  {
-   "fieldname": "website",
-   "fieldtype": "Data",
-   "label": "Website",
-   "oldfieldname": "website",
-   "oldfieldtype": "Data"
-  },
-  {
-   "fieldname": "territory",
-   "fieldtype": "Link",
-   "label": "Territory",
-   "oldfieldname": "territory",
-   "oldfieldtype": "Link",
-   "options": "Territory",
-   "print_hide": 1
-  },
-  {
-   "collapsible": 1,
-   "fieldname": "more_info",
-   "fieldtype": "Section Break",
-   "label": "More Information",
-   "oldfieldtype": "Section Break",
-   "options": "fa fa-file-text"
-  },
-  {
-   "fieldname": "type",
-   "fieldtype": "Select",
-   "label": "Lead Type",
-   "oldfieldname": "type",
-   "oldfieldtype": "Select",
-   "options": "\nClient\nChannel Partner\nConsultant"
-  },
-  {
-   "fieldname": "market_segment",
-   "fieldtype": "Link",
-   "label": "Market Segment",
-   "oldfieldname": "market_segment",
-   "oldfieldtype": "Select",
-   "options": "Market Segment"
-  },
-  {
-   "fieldname": "industry",
-   "fieldtype": "Link",
-   "label": "Industry",
-   "oldfieldname": "industry",
-   "oldfieldtype": "Link",
-   "options": "Industry Type"
-  },
-  {
-   "fieldname": "request_type",
-   "fieldtype": "Select",
-   "label": "Request Type",
-   "oldfieldname": "request_type",
-   "oldfieldtype": "Select",
-   "options": "\nProduct Enquiry\nRequest for Information\nSuggestions\nOther"
-  },
-  {
-   "fieldname": "column_break3",
-   "fieldtype": "Column Break",
-   "oldfieldtype": "Column Break",
-   "width": "50%"
-  },
-  {
-   "fieldname": "company",
-   "fieldtype": "Link",
-   "label": "Company",
-   "oldfieldname": "company",
-   "oldfieldtype": "Link",
-   "options": "Company",
-   "remember_last_selected_value": 1
-  },
-  {
-   "default": "0",
-   "fieldname": "unsubscribed",
-   "fieldtype": "Check",
-   "label": "Unsubscribed"
-  },
-  {
-   "default": "0",
-   "fieldname": "blog_subscriber",
-   "fieldtype": "Check",
-   "label": "Blog Subscriber"
-  },
-  {
-   "fieldname": "pan_no",
-   "fieldtype": "Link",
-   "label": "PAN No",
-   "options": "Contact",
-   "reqd": 1
-  },
-  {
-   "fieldname": "vehicle_model",
-   "fieldtype": "Link",
-   "label": "Model",
-   "options": "Item",
-   "reqd": 1
-  },
-  {
-   "fieldname": "engine_no",
-   "fieldtype": "Data",
-   "label": "Engine No"
-  },
-  {
-   "fieldname": "regi_no",
-   "fieldtype": "Data",
-   "label": "Registration No"
-  },
-  {
-   "fieldname": "insu_vali_strt_dt",
-   "fieldtype": "Date",
-   "label": "Insurance Validity Start Date"
-  },
-  {
-   "fieldname": "insurance_exe",
-   "fieldtype": "Data",
-   "label": "Insurance Executive "
-  },
-  {
-   "fieldname": "vin_number",
-   "fieldtype": "Link",
-   "label": "VIN Number",
-   "options": "Stock Entry Detail",
-   "reqd": 1,
-   "unique": 1
-  },
-  {
-   "fieldname": "mgf_year",
-   "fieldtype": "Data",
-   "label": "Mgf Year"
-  },
-  {
-   "fieldname": "regi_date",
-   "fieldtype": "Date",
-   "label": "Registration Date"
-  },
-  {
-   "fieldname": "insu_vali_end_dt",
-   "fieldtype": "Date",
-   "label": "Insurance Validity End Date"
-  },
-  {
-   "fieldname": "vehicle_details_1",
-   "fieldtype": "Section Break",
-   "label": "Vehicle Details"
-  },
-  {
-   "fieldname": "col_bk_vd_1",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "vehicle_insurance",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "lead_vehicle_insurance",
-   "fieldtype": "Table",
-   "label": "Lead Vehicle Insurance1",
-   "options": "Lead Vehicle Insurance"
-  },
-  {
-   "fieldname": "moblie_no",
-   "fieldtype": "Data",
-   "label": "Moblie no"
-  },
-  {
-   "fieldname": "leadtype",
-   "fieldtype": "Select",
-   "label": "Type",
-   "options": "\nCompany\nIndividual"
-  },
-  {
-   "fieldname": "follow_up",
-   "fieldtype": "Table",
-   "label": "Follow Up",
-   "options": "Follow Up"
-  },
-  {
-   "fieldname": "location",
-   "fieldtype": "Data",
-   "label": "Location"
-  },
-  {
-   "fieldname": "finance_details_sec",
-   "fieldtype": "Section Break",
-   "label": "Finance Details"
-  },
-  {
-   "fieldname": "finance_details",
-   "fieldtype": "Table",
-   "label": "Finance Details",
-   "options": "Finance Details"
-  },
-  {
-   "fieldname": "ext_insurnce",
-   "fieldtype": "Attach",
-   "label": "Existing insurance"
-  },
-  {
-   "fieldname": "bmw_secu_sec_bk",
-   "fieldtype": "Section Break",
-   "label": "BMW Secure Calculator"
-  },
-  {
-   "fieldname": "bms_secure_before_due_date",
-   "fieldtype": "Currency",
-   "label": "BMW Secure (Before Due Date)",
-   "read_only": 1
-  },
-  {
-   "fieldname": "bmw_secure_after_due_date",
-   "fieldtype": "Currency",
-   "label": "BMW Secure (After Due Date / Rollover)",
-   "read_only": 1
-  },
-  {
-   "fieldname": "rollover",
-   "fieldtype": "Select",
-   "label": "Rollover",
-   "options": "\nYES\nNO",
-   "reqd": 1
-  },
-  {
-   "fieldname": "with_rsa",
-   "fieldtype": "Select",
-   "label": "With RSA",
-   "options": "\nYES\nNO",
-   "reqd": 1
-  },
-  {
-   "fieldname": "col_bk_bmw_secu",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "variant",
-   "fieldtype": "Link",
-   "label": "Variant",
-   "options": "Variant Details",
-   "reqd": 1
-  },
-  {
-   "fieldname": "pan_card",
-   "fieldtype": "Attach",
-   "label": "Pan card"
-  },
-  {
-   "fieldname": "aadhar_card",
-   "fieldtype": "Attach",
-   "label": "Aadhar Card"
-  },
-  {
-   "fieldname": "rc_book",
-   "fieldtype": "Attach",
-   "label": "RC Book"
-  },
-  {
-   "fieldname": "bmw_secure",
-   "fieldtype": "Attach",
-   "label": "BMW Secure"
-  },
-  {
-   "fieldname": "sec_bk_upld_doc",
-   "fieldtype": "Section Break",
-   "label": "Upload Document"
-  },
-  {
-   "fieldname": "col_bk_upld_doc",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "ser_pck_sec",
-   "fieldtype": "Section Break",
-   "label": "Service Package"
-  },
-  {
-   "fieldname": "package_details",
-   "fieldtype": "Data",
-   "label": "Package Details"
-  },
-  {
-   "fieldname": "package_start_date",
-   "fieldtype": "Date",
-   "label": "Package Start Date"
-  },
-  {
-   "fieldname": "package_end_date",
-   "fieldtype": "Date",
-   "label": "Package End Date"
-  },
-  {
-   "fieldname": "remarks",
-   "fieldtype": "Small Text",
-   "label": "Remarks"
-  },
-  {
-   "fieldname": "column_break_51",
-   "fieldtype": "Column Break"
-  }
- ],
- "icon": "fa fa-user",
- "idx": 5,
- "image_field": "image",
-<<<<<<< HEAD
- "modified": "2019-08-05 15:47:34.161779",
-=======
- "image_view": 0,
- "in_create": 0,
- "is_submittable": 0,
- "issingle": 0,
- "istable": 0,
- "max_attachments": 0,
- "modified": "2019-06-18 03:22:57.283628",
->>>>>>> d8c262fd5c9611c65a33bafac57c2084f3dc8bbb
- "modified_by": "Administrator",
- "module": "CRM",
- "name": "Lead",
- "name_case": "Title Case",
- "owner": "Administrator",
- "permissions": [
-  {
-   "permlevel": 1,
-   "read": 1,
-   "report": 1,
-   "role": "All"
-  },
-  {
-   "create": 1,
-   "email": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Sales User",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "import": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Sales Manager",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "email": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "System Manager",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "permlevel": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Sales Manager"
-  },
-  {
-   "permlevel": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Sales User"
-  }
- ],
- "restrict_to_domain": "Retail",
- "search_fields": "lead_name,lead_owner,status",
- "show_name_in_global_search": 1,
- "sort_field": "modified",
- "sort_order": "DESC",
- "title_field": "lead_name"
+    "allow_events_in_timeline": 1,
+    "allow_import": 1,
+    "autoname": "field:vin_number",
+    "creation": "2013-04-10 11:45:37",
+    "doctype": "DocType",
+    "document_type": "Document",
+    "engine": "InnoDB",
+    "field_order": [
+        "organization_lead",
+        "naming_series",
+        "lead_details",
+        "pan_no",
+        "lead_name",
+        "company_name",
+        "moblie_no",
+        "email_id",
+        "vin_number",
+        "col_break123",
+        "leadtype",
+        "company",
+        "lead_owner",
+        "status",
+        "gender",
+        "source",
+        "customer",
+        "campaign_name",
+        "image",
+        "sec_bk_upld_doc",
+        "pan_card",
+        "aadhar_card",
+        "col_bk_upld_doc",
+        "rc_book",
+        "ext_insurnce",
+        "bmw_secure",
+        "vehicle_details_1",
+        "vehicle_model",
+        "mgf_year",
+        "regi_no",
+        "insurance_exe",
+        "insu_vali_strt_dt",
+        "col_bk_vd_1",
+        "variant",
+        "engine_no",
+        "regi_date",
+        "location",
+        "insu_vali_end_dt",
+        "bmw_secu_sec_bk",
+        "rollover",
+        "with_rsa",
+        "col_bk_bmw_secu",
+        "bms_secure_before_due_date",
+        "bmw_secure_after_due_date",
+        "vehicle_insurance",
+        "lead_vehicle_insurance",
+        "finance_details_sec",
+        "finance_details",
+        "ser_pck_sec",
+        "package_details",
+        "package_start_date",
+        "package_end_date",
+        "column_break_51",
+        "remarks",
+        "section_break_12",
+        "follow_up",
+        "contact_by",
+        "contact_date",
+        "ends_on",
+        "notes_section",
+        "notes",
+        "contact_info",
+        "address_desc",
+        "address_html",
+        "column_break2",
+        "contact_html",
+        "phone",
+        "salutation",
+        "mobile_no",
+        "fax",
+        "website",
+        "territory",
+        "more_info",
+        "type",
+        "market_segment",
+        "industry",
+        "request_type",
+        "column_break3",
+        "unsubscribed",
+        "blog_subscriber"
+    ],
+    "fields": [
+        {
+            "default": "0",
+            "fieldname": "organization_lead",
+            "fieldtype": "Check",
+            "hidden": 1,
+            "label": "Lead is an Organization"
+        },
+        {
+            "fieldname": "lead_details",
+            "fieldtype": "Section Break",
+            "options": "fa fa-user"
+        },
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "hidden": 1,
+            "label": "Series",
+            "no_copy": 1,
+            "oldfieldname": "naming_series",
+            "oldfieldtype": "Select",
+            "options": "CRM-LEAD-.YYYY.-"
+        },
+        {
+            "depends_on": "eval:doc.leadtype=='Individual'\n//eval:!doc.organization_lead",
+            "fieldname": "lead_name",
+            "fieldtype": "Data",
+            "in_global_search": 1,
+            "label": "Person Name",
+            "oldfieldname": "lead_name",
+            "oldfieldtype": "Data",
+            "search_index": 1
+        },
+        {
+            "depends_on": "eval:doc.leadtype=='Company'\n",
+            "fieldname": "company_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Organization Name",
+            "oldfieldname": "company_name",
+            "oldfieldtype": "Data"
+        },
+        {
+            "fieldname": "email_id",
+            "fieldtype": "Data",
+            "hidden": 1,
+            "label": "Email Address",
+            "oldfieldname": "email_id",
+            "oldfieldtype": "Data",
+            "options": "Email",
+            "search_index": 1
+        },
+        {
+            "fieldname": "col_break123",
+            "fieldtype": "Column Break",
+            "width": "50%"
+        },
+        {
+            "default": "__user",
+            "fieldname": "lead_owner",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "label": "Lead Owner",
+            "oldfieldname": "lead_owner",
+            "oldfieldtype": "Link",
+            "options": "User",
+            "search_index": 1
+        },
+        {
+            "default": "Lead",
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Status",
+            "no_copy": 1,
+            "oldfieldname": "status",
+            "oldfieldtype": "Select",
+            "options": "Lead\nOpen\nReplied\nOpportunity\nQuotation\nLost Quotation\nInterested\nConverted\nDo Not Contact",
+            "reqd": 1,
+            "search_index": 1
+        },
+        {
+            "depends_on": "eval:doc.leadtype=='Individual'\n//eval:!doc.organization_lead",
+            "fieldname": "gender",
+            "fieldtype": "Link",
+            "label": "Gender",
+            "options": "Gender"
+        },
+        {
+            "fieldname": "source",
+            "fieldtype": "Link",
+            "label": "Source",
+            "oldfieldname": "source",
+            "oldfieldtype": "Select",
+            "options": "Lead Source"
+        },
+        {
+            "depends_on": "eval:doc.source == 'Existing Customer'",
+            "fieldname": "customer",
+            "fieldtype": "Link",
+            "label": "From Customer",
+            "no_copy": 1,
+            "oldfieldname": "customer",
+            "oldfieldtype": "Link",
+            "options": "Customer"
+        },
+        {
+            "depends_on": "eval: doc.source==\"Campaign\"",
+            "fieldname": "campaign_name",
+            "fieldtype": "Link",
+            "label": "Campaign Name",
+            "oldfieldname": "campaign_name",
+            "oldfieldtype": "Link",
+            "options": "Campaign"
+        },
+        {
+            "fieldname": "image",
+            "fieldtype": "Attach Image",
+            "hidden": 1,
+            "label": "Image",
+            "print_hide": 1
+        },
+        {
+            "fieldname": "section_break_12",
+            "fieldtype": "Section Break",
+            "label": "Follow Up"
+        },
+        {
+            "fieldname": "contact_by",
+            "fieldtype": "Link",
+            "hidden": 1,
+            "label": "Next Contact By",
+            "oldfieldname": "contact_by",
+            "oldfieldtype": "Link",
+            "options": "User",
+            "width": "100px"
+        },
+        {
+            "bold": 1,
+            "fieldname": "contact_date",
+            "fieldtype": "Datetime",
+            "hidden": 1,
+            "label": "Next Contact Date",
+            "no_copy": 1,
+            "oldfieldname": "contact_date",
+            "oldfieldtype": "Date",
+            "width": "100px"
+        },
+        {
+            "bold": 1,
+            "fieldname": "ends_on",
+            "fieldtype": "Datetime",
+            "hidden": 1,
+            "label": "Ends On",
+            "no_copy": 1
+        },
+        {
+            "collapsible": 1,
+            "fieldname": "notes_section",
+            "fieldtype": "Section Break",
+            "label": "Notes"
+        },
+        {
+            "fieldname": "notes",
+            "fieldtype": "Text Editor",
+            "label": "Notes"
+        },
+        {
+            "collapsible": 1,
+            "fieldname": "contact_info",
+            "fieldtype": "Section Break",
+            "label": "Address & Contact",
+            "oldfieldtype": "Column Break",
+            "options": "fa fa-map-marker"
+        },
+        {
+            "depends_on": "eval:doc.__islocal",
+            "fieldname": "address_desc",
+            "fieldtype": "HTML",
+            "label": "Address Desc",
+            "print_hide": 1
+        },
+        {
+            "fieldname": "address_html",
+            "fieldtype": "HTML",
+            "label": "Address HTML",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break2",
+            "fieldtype": "Column Break"
+        },
+        {
+            "depends_on": "eval:doc.organization_lead",
+            "fieldname": "contact_html",
+            "fieldtype": "HTML",
+            "label": "Contact HTML",
+            "read_only": 1
+        },
+        {
+            "depends_on": "eval:!doc.organization_lead",
+            "fieldname": "phone",
+            "fieldtype": "Data",
+            "label": "Phone",
+            "oldfieldname": "contact_no",
+            "oldfieldtype": "Data"
+        },
+        {
+            "depends_on": "eval:!doc.organization_lead",
+            "fieldname": "salutation",
+            "fieldtype": "Link",
+            "label": "Salutation",
+            "options": "Salutation"
+        },
+        {
+            "depends_on": "eval:!doc.organization_lead",
+            "fieldname": "mobile_no",
+            "fieldtype": "Data",
+            "label": "Mobile No.",
+            "oldfieldname": "mobile_no",
+            "oldfieldtype": "Data"
+        },
+        {
+            "depends_on": "eval:!doc.organization_lead",
+            "fieldname": "fax",
+            "fieldtype": "Data",
+            "label": "Fax",
+            "oldfieldname": "fax",
+            "oldfieldtype": "Data"
+        },
+        {
+            "fieldname": "website",
+            "fieldtype": "Data",
+            "label": "Website",
+            "oldfieldname": "website",
+            "oldfieldtype": "Data"
+        },
+        {
+            "fieldname": "territory",
+            "fieldtype": "Link",
+            "label": "Territory",
+            "oldfieldname": "territory",
+            "oldfieldtype": "Link",
+            "options": "Territory",
+            "print_hide": 1
+        },
+        {
+            "collapsible": 1,
+            "fieldname": "more_info",
+            "fieldtype": "Section Break",
+            "label": "More Information",
+            "oldfieldtype": "Section Break",
+            "options": "fa fa-file-text"
+        },
+        {
+            "fieldname": "type",
+            "fieldtype": "Select",
+            "label": "Lead Type",
+            "oldfieldname": "type",
+            "oldfieldtype": "Select",
+            "options": "\nClient\nChannel Partner\nConsultant"
+        },
+        {
+            "fieldname": "market_segment",
+            "fieldtype": "Link",
+            "label": "Market Segment",
+            "oldfieldname": "market_segment",
+            "oldfieldtype": "Select",
+            "options": "Market Segment"
+        },
+        {
+            "fieldname": "industry",
+            "fieldtype": "Link",
+            "label": "Industry",
+            "oldfieldname": "industry",
+            "oldfieldtype": "Link",
+            "options": "Industry Type"
+        },
+        {
+            "fieldname": "request_type",
+            "fieldtype": "Select",
+            "label": "Request Type",
+            "oldfieldname": "request_type",
+            "oldfieldtype": "Select",
+            "options": "\nProduct Enquiry\nRequest for Information\nSuggestions\nOther"
+        },
+        {
+            "fieldname": "column_break3",
+            "fieldtype": "Column Break",
+            "oldfieldtype": "Column Break",
+            "width": "50%"
+        },
+        {
+            "fieldname": "company",
+            "fieldtype": "Link",
+            "label": "Company",
+            "oldfieldname": "company",
+            "oldfieldtype": "Link",
+            "options": "Company",
+            "remember_last_selected_value": 1
+        },
+        {
+            "default": "0",
+            "fieldname": "unsubscribed",
+            "fieldtype": "Check",
+            "label": "Unsubscribed"
+        },
+        {
+            "default": "0",
+            "fieldname": "blog_subscriber",
+            "fieldtype": "Check",
+            "label": "Blog Subscriber"
+        },
+        {
+            "fieldname": "pan_no",
+            "fieldtype": "Link",
+            "label": "PAN No",
+            "options": "Contact",
+            "reqd": 1
+        },
+        {
+            "fieldname": "vehicle_model",
+            "fieldtype": "Link",
+            "label": "Model",
+            "options": "Item",
+            "reqd": 1
+        },
+        {
+            "fieldname": "engine_no",
+            "fieldtype": "Data",
+            "label": "Engine No"
+        },
+        {
+            "fieldname": "regi_no",
+            "fieldtype": "Data",
+            "label": "Registration No"
+        },
+        {
+            "fieldname": "insu_vali_strt_dt",
+            "fieldtype": "Date",
+            "label": "Insurance Validity Start Date"
+        },
+        {
+            "fieldname": "insurance_exe",
+            "fieldtype": "Data",
+            "label": "Insurance Executive "
+        },
+        {
+            "fieldname": "vin_number",
+            "fieldtype": "Link",
+            "label": "VIN Number",
+            "options": "Stock Entry Detail",
+            "reqd": 1,
+            "unique": 1
+        },
+        {
+            "fieldname": "mgf_year",
+            "fieldtype": "Data",
+            "label": "Mgf Year"
+        },
+        {
+            "fieldname": "regi_date",
+            "fieldtype": "Date",
+            "label": "Registration Date"
+        },
+        {
+            "fieldname": "insu_vali_end_dt",
+            "fieldtype": "Date",
+            "label": "Insurance Validity End Date"
+        },
+        {
+            "fieldname": "vehicle_details_1",
+            "fieldtype": "Section Break",
+            "label": "Vehicle Details"
+        },
+        {
+            "fieldname": "col_bk_vd_1",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "vehicle_insurance",
+            "fieldtype": "Section Break"
+        },
+        {
+            "fieldname": "lead_vehicle_insurance",
+            "fieldtype": "Table",
+            "label": "Lead Vehicle Insurance1",
+            "options": "Lead Vehicle Insurance"
+        },
+        {
+            "fieldname": "moblie_no",
+            "fieldtype": "Data",
+            "label": "Moblie no"
+        },
+        {
+            "fieldname": "leadtype",
+            "fieldtype": "Select",
+            "label": "Type",
+            "options": "\nCompany\nIndividual"
+        },
+        {
+            "fieldname": "follow_up",
+            "fieldtype": "Table",
+            "label": "Follow Up",
+            "options": "Follow Up"
+        },
+        {
+            "fieldname": "location",
+            "fieldtype": "Data",
+            "label": "Location"
+        },
+        {
+            "fieldname": "finance_details_sec",
+            "fieldtype": "Section Break",
+            "label": "Finance Details"
+        },
+        {
+            "fieldname": "finance_details",
+            "fieldtype": "Table",
+            "label": "Finance Details",
+            "options": "Finance Details"
+        },
+        {
+            "fieldname": "ext_insurnce",
+            "fieldtype": "Attach",
+            "label": "Existing insurance"
+        },
+        {
+            "fieldname": "bmw_secu_sec_bk",
+            "fieldtype": "Section Break",
+            "label": "BMW Secure Calculator"
+        },
+        {
+            "fieldname": "bms_secure_before_due_date",
+            "fieldtype": "Currency",
+            "label": "BMW Secure (Before Due Date)",
+            "read_only": 1
+        },
+        {
+            "fieldname": "bmw_secure_after_due_date",
+            "fieldtype": "Currency",
+            "label": "BMW Secure (After Due Date / Rollover)",
+            "read_only": 1
+        },
+        {
+            "fieldname": "rollover",
+            "fieldtype": "Select",
+            "label": "Rollover",
+            "options": "\nYES\nNO",
+            "reqd": 1
+        },
+        {
+            "fieldname": "with_rsa",
+            "fieldtype": "Select",
+            "label": "With RSA",
+            "options": "\nYES\nNO",
+            "reqd": 1
+        },
+        {
+            "fieldname": "col_bk_bmw_secu",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "variant",
+            "fieldtype": "Link",
+            "label": "Variant",
+            "options": "Variant Details",
+            "reqd": 1
+        },
+        {
+            "fieldname": "pan_card",
+            "fieldtype": "Attach",
+            "label": "Pan card"
+        },
+        {
+            "fieldname": "aadhar_card",
+            "fieldtype": "Attach",
+            "label": "Aadhar Card"
+        },
+        {
+            "fieldname": "rc_book",
+            "fieldtype": "Attach",
+            "label": "RC Book"
+        },
+        {
+            "fieldname": "bmw_secure",
+            "fieldtype": "Attach",
+            "label": "BMW Secure"
+        },
+        {
+            "fieldname": "sec_bk_upld_doc",
+            "fieldtype": "Section Break",
+            "label": "Upload Document"
+        },
+        {
+            "fieldname": "col_bk_upld_doc",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "ser_pck_sec",
+            "fieldtype": "Section Break",
+            "label": "Service Package"
+        },
+        {
+            "fieldname": "package_details",
+            "fieldtype": "Data",
+            "label": "Package Details"
+        },
+        {
+            "fieldname": "package_start_date",
+            "fieldtype": "Date",
+            "label": "Package Start Date"
+        },
+        {
+            "fieldname": "package_end_date",
+            "fieldtype": "Date",
+            "label": "Package End Date"
+        },
+        {
+            "fieldname": "remarks",
+            "fieldtype": "Small Text",
+            "label": "Remarks"
+        },
+        {
+            "fieldname": "column_break_51",
+            "fieldtype": "Column Break"
+        }
+    ],
+    "icon": "fa fa-user",
+    "idx": 5,
+    "image_field": "image",
+    "image_view": 0,
+    "in_create": 0,
+    "is_submittable": 0,
+    "issingle": 0,
+    "istable": 0,
+    "max_attachments": 0,
+    "modified": "2019-06-18 03:22:57.283628",
+    "modified_by": "Administrator",
+    "module": "CRM",
+    "name": "Lead",
+    "name_case": "Title Case",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "permlevel": 1,
+            "read": 1,
+            "report": 1,
+            "role": "All"
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Sales User",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "import": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Sales Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "email": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "permlevel": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Sales Manager"
+        },
+        {
+            "permlevel": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Sales User"
+        }
+    ],
+    "restrict_to_domain": "Retail",
+    "search_fields": "lead_name,lead_owner,status",
+    "show_name_in_global_search": 1,
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "title_field": "lead_name"
 }
